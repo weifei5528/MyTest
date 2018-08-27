@@ -1,0 +1,1063 @@
+---------------------------------------------------------------
+[ 2018-08-27T19:48:08+08:00 ] 127.0.0.1 GET /
+[ info ] image.com/ [运行时间：0.066004s][吞吐率：15.15req/s] [内存消耗：1,571.13kb] [文件加载：49]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\Image\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'install'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'install',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-GB;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'image.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.001000s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Hook @app_begin [ RunTime:0.000000s ]
+[ info ] [ RUN ] app\install\controller\Index->index[ D:\phpStudy\PHPTutorial\WWW\Image\application\install\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'dolphin_admin_',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\Image\public/../application/install\view\index\index.html [ array (
+  0 => 'static_dir',
+  1 => 'next',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-08-27T19:48:11+08:00 ] 127.0.0.1 GET /index.php?s=/index/step2.html
+[ info ] image.com/index.php?s=/index/step2.html [运行时间：0.042003s][吞吐率：23.81req/s] [内存消耗：1,587.48kb] [文件加载：49]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\Image\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'install'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'install',
+    1 => 'index',
+    2 => 'step2',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=71n169rc70m4b46k2ivr2kcbr0',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-GB;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://image.com/',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'image.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.000000s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Hook @app_begin [ RunTime:0.000000s ]
+[ info ] [ RUN ] app\install\controller\Index->step2[ D:\phpStudy\PHPTutorial\WWW\Image\application\install\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'dolphin_admin_',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\Image\public/../application/install\view\index\step2.html [ array (
+  0 => 'static_dir',
+  1 => 'dirfile',
+  2 => 'env',
+  3 => 'func',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-08-27T19:48:14+08:00 ] 127.0.0.1 GET /index.php?s=/index/step3.html
+[ info ] image.com/index.php?s=/index/step3.html [运行时间：0.036002s][吞吐率：27.78req/s] [内存消耗：1,437.50kb] [文件加载：48]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\Image\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'install'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'install',
+    1 => 'index',
+    2 => 'step3',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=71n169rc70m4b46k2ivr2kcbr0',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-GB;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://image.com/index.php?s=/index/step2.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'host' => 'image.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.000000s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Hook @app_begin [ RunTime:0.001000s ]
+[ info ] [ RUN ] app\install\controller\Index->step3[ D:\phpStudy\PHPTutorial\WWW\Image\application\install\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'dolphin_admin_',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-08-27T19:48:16+08:00 ] 127.0.0.1 GET /index.php?s=/index/step3.html
+[ info ] image.com/index.php?s=/index/step3.html [运行时间：0.051003s][吞吐率：19.61req/s] [内存消耗：1,632.37kb] [文件加载：50]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\Image\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'install'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'install',
+    1 => 'index',
+    2 => 'step3',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=71n169rc70m4b46k2ivr2kcbr0',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-GB;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://image.com/index.php?s=/index/step2.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'image.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.001000s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Hook @app_begin [ RunTime:0.000000s ]
+[ info ] [ RUN ] app\install\controller\Index->step3[ D:\phpStudy\PHPTutorial\WWW\Image\application\install\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'dolphin_admin_',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\Image\public/../application/install\view\index\step3.html [ array (
+  0 => 'static_dir',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-08-27T19:48:50+08:00 ] 127.0.0.1 POST /index.php?s=/index/step4.html
+[ info ] image.com/index.php?s=/index/step4.html [运行时间：0.069004s][吞吐率：14.49req/s] [内存消耗：1,569.12kb] [文件加载：51]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\Image\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'install'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'install',
+    1 => 'index',
+    2 => 'step4',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=71n169rc70m4b46k2ivr2kcbr0',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-GB;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://image.com/index.php?s=/index/step3.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://image.com',
+  'accept' => 'application/json, text/javascript, */*; q=0.01',
+  'content-length' => '161',
+  'host' => 'image.com',
+)
+[ info ] [ PARAM ] array (
+  'db' => 
+  array (
+    'type' => 'mysql',
+    'hostname' => '127.0.0.1',
+    'database' => 'image',
+    'username' => 'root',
+    'password' => 'root',
+    'hostport' => '3306',
+    'prefix' => 'dp_',
+  ),
+  'cover' => '0',
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.000000s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Hook @app_begin [ RunTime:0.001000s ]
+[ info ] [ RUN ] app\install\controller\Index->step4[ D:\phpStudy\PHPTutorial\WWW\Image\application\install\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'dolphin_admin_',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-08-27T19:48:53+08:00 ] 127.0.0.1 GET /index.php?s=/index/step4.html
+[ info ] image.com/index.php?s=/index/step4.html [运行时间：0.977056s][吞吐率：1.02req/s] [内存消耗：1,722.80kb] [文件加载：52]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\Image\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'install'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'install',
+    1 => 'index',
+    2 => 'step4',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=71n169rc70m4b46k2ivr2kcbr0',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-GB;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://image.com/index.php?s=/index/step3.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'image.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.000000s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Hook @app_begin [ RunTime:0.001000s ]
+[ info ] [ RUN ] app\install\controller\Index->step4[ D:\phpStudy\PHPTutorial\WWW\Image\application\install\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'dolphin_admin_',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\Image\public/../application/install\view\index\step4.html [ array (
+  0 => 'static_dir',
+) ]
+[ info ] [ DB ] INIT mysql
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-08-27T19:48:53+08:00 ] 127.0.0.1 GET /index.php?s=/index/complete.html
+[ info ] image.com/index.php?s=/index/complete.html [运行时间：0.044002s][吞吐率：22.73req/s] [内存消耗：1,575.02kb] [文件加载：50]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\Image\thinkphp\lang\zh-cn.php
+[ info ] [ BIND ] 'install'
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'install',
+    1 => 'index',
+    2 => 'complete',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=71n169rc70m4b46k2ivr2kcbr0',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-GB;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://image.com/index.php?s=/index/step4.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'image.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.000000s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Hook @app_begin [ RunTime:0.001000s ]
+[ info ] [ RUN ] app\install\controller\Index->complete[ D:\phpStudy\PHPTutorial\WWW\Image\application\install\controller\Index.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'dolphin_admin_',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\Image\public/../application/install\view\index\complete.html [ array (
+  0 => 'static_dir',
+) ]
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-08-27T19:49:01+08:00 ] 127.0.0.1 GET /index.php
+[ info ] image.com/index.php [运行时间：0.222013s][吞吐率：4.50req/s] [内存消耗：2,448.98kb] [文件加载：62]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\Image\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=71n169rc70m4b46k2ivr2kcbr0',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-GB;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://image.com/index.php?s=/index/complete.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'image.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.088005s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Hook @app_begin [ RunTime:0.096005s ]
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\phpStudy\PHPTutorial\WWW\Image\application\index\controller\Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=image;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_config` [ RunTime:0.036002s ]
+[ sql ] [ SQL ] SELECT `name`,`value`,`type` FROM `dp_admin_config` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_module` [ RunTime:0.033002s ]
+[ sql ] [ SQL ] SELECT `name`,`config` FROM `dp_admin_module` WHERE  `config` <> '' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook` [ RunTime:0.032002s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_hook` WHERE  `status` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_plugin` [ RunTime:0.034002s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_plugin` WHERE  `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook_plugin` [ RunTime:0.021001s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_hook_plugin` WHERE  `status` = 1 ORDER BY `hook`,`sort` [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-08-27T19:49:12+08:00 ] 127.0.0.1 GET /admin.php
+[ info ] image.com/admin.php [运行时间：0.027001s][吞吐率：37.04req/s] [内存消耗：1,115.23kb] [文件加载：33]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\Image\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=71n169rc70m4b46k2ivr2kcbr0',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-GB;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'image.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ LOG ] INIT File
+---------------------------------------------------------------
+[ 2018-08-27T19:49:12+08:00 ] 127.0.0.1 GET /admin.php/admin
+[ info ] image.com/admin.php/admin [运行时间：0.197011s][吞吐率：5.08req/s] [内存消耗：2,593.75kb] [文件加载：64]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\Image\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=71n169rc70m4b46k2ivr2kcbr0',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-GB;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'image.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.074004s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Hook @app_begin [ RunTime:0.093005s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'dolphin_admin_',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=image;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_config` [ RunTime:0.029001s ]
+[ sql ] [ SQL ] SELECT `name`,`value`,`type` FROM `dp_admin_config` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_module` [ RunTime:0.029002s ]
+[ sql ] [ SQL ] SELECT `name`,`config` FROM `dp_admin_module` WHERE  `config` <> '' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook` [ RunTime:0.029002s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_hook` WHERE  `status` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_plugin` [ RunTime:0.029002s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_plugin` WHERE  `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook_plugin` [ RunTime:0.029001s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_hook_plugin` WHERE  `status` = 1 ORDER BY `hook`,`sort` [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-08-27T19:49:12+08:00 ] 127.0.0.1 GET /admin.php/user/publics/signin.html
+[ info ] image.com/admin.php/user/publics/signin.html [运行时间：0.207011s][吞吐率：4.83req/s] [内存消耗：2,665.53kb] [文件加载：64]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\Image\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'user',
+    1 => 'publics',
+    2 => 'signin',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=71n169rc70m4b46k2ivr2kcbr0',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-GB;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'image.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.077004s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Hook @app_begin [ RunTime:0.097006s ]
+[ info ] [ RUN ] app\user\admin\Publics->signin[ D:\phpStudy\PHPTutorial\WWW\Image\application\user\admin\Publics.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'dolphin_admin_',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\Image\public/../application/user/view/admin/publics\signin.html [ array (
+  0 => '_admin_base_layout',
+  1 => 'system_color',
+  2 => '_pop',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=image;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_config` [ RunTime:0.032002s ]
+[ sql ] [ SQL ] SELECT `name`,`value`,`type` FROM `dp_admin_config` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_module` [ RunTime:0.029002s ]
+[ sql ] [ SQL ] SELECT `name`,`config` FROM `dp_admin_module` WHERE  `config` <> '' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook` [ RunTime:0.030002s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_hook` WHERE  `status` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_plugin` [ RunTime:0.030002s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_plugin` WHERE  `status` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook_plugin` [ RunTime:0.031002s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_hook_plugin` WHERE  `status` = 1 ORDER BY `hook`,`sort` [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-08-27T19:49:43+08:00 ] 127.0.0.1 POST /admin.php/user/publics/signin.html
+[ info ] image.com/admin.php/user/publics/signin.html [运行时间：0.390022s][吞吐率：2.56req/s] [内存消耗：2,595.81kb] [文件加载：68]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\Image\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'user',
+    1 => 'publics',
+    2 => 'signin',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=71n169rc70m4b46k2ivr2kcbr0',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-GB;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://image.com/admin.php/user/publics/signin.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://image.com',
+  'accept' => '*/*',
+  'content-length' => '29',
+  'host' => 'image.com',
+)
+[ info ] [ PARAM ] array (
+  'username' => 'admin',
+  'password' => 'admin',
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.086005s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Hook @app_begin [ RunTime:0.098006s ]
+[ info ] [ RUN ] app\user\admin\Publics->signin[ D:\phpStudy\PHPTutorial\WWW\Image\application\user\admin\Publics.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'dolphin_admin_',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=image;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_config` [ RunTime:0.033002s ]
+[ sql ] [ SQL ] SELECT `name`,`value`,`type` FROM `dp_admin_config` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_module` [ RunTime:0.033002s ]
+[ sql ] [ SQL ] SELECT `name`,`config` FROM `dp_admin_module` WHERE  `config` <> '' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook` [ RunTime:0.031002s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_hook` WHERE  `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_plugin` [ RunTime:0.030002s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_plugin` WHERE  `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook_plugin` [ RunTime:0.031002s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_hook_plugin` WHERE  `status` = 1 ORDER BY `hook`,`sort` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_user` [ RunTime:0.030002s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_user` WHERE  `username` = 'admin'  AND `status` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_role` [ RunTime:0.031002s ]
+[ sql ] [ SQL ] SELECT `access` FROM `dp_admin_role` WHERE  `id` = 1  AND `status` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] UPDATE `dp_admin_user`  SET `last_login_time`=1535370583,`update_time`=1535370583  WHERE  `id` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `name` FROM `dp_admin_role` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_action` [ RunTime:0.033002s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_action` WHERE  `module` = 'user'  AND `name` = 'user_signin' LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-08-27T19:49:46+08:00 ] 127.0.0.1 GET /admin.php/admin/index/index.html
+[ info ] image.com/admin.php/admin/index/index.html [运行时间：1.264072s][吞吐率：0.79req/s] [内存消耗：3,067.58kb] [文件加载：80]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\Image\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=71n169rc70m4b46k2ivr2kcbr0',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-GB;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://image.com/admin.php/user/publics/signin.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'image.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.077004s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Hook @app_begin [ RunTime:0.096006s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'dolphin_admin_',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->index[ D:\phpStudy\PHPTutorial\WWW\Image\application\admin\controller\Index.php ]
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\Image\public/../application/admin\view\index\index.html [ array (
+  0 => '_admin_base_layout',
+  1 => 'system_color',
+  2 => '_pop',
+  3 => '_top_menus',
+  4 => '_top_menus_all',
+  5 => '_sidebar_menus',
+  6 => '_location',
+  7 => '_message',
+  8 => '_icons',
+  9 => 'aside',
+  10 => 'default_pass',
+) ]
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\Image\plugins/SystemInfo/view/widget.html [ array (
+  0 => 'display',
+  1 => 'width',
+) ]
+[ info ] [ BEHAVIOR ] Run plugins\SystemInfo\SystemInfo @admin_index [ RunTime:0.007001s ]
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\Image\plugins/DevTeam/view/widget.html [ array (
+  0 => 'display',
+  1 => 'width',
+) ]
+[ info ] [ BEHAVIOR ] Run plugins\DevTeam\DevTeam @admin_index [ RunTime:0.006000s ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=image;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_config` [ RunTime:0.030002s ]
+[ sql ] [ SQL ] SELECT `name`,`value`,`type` FROM `dp_admin_config` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_module` [ RunTime:0.029001s ]
+[ sql ] [ SQL ] SELECT `name`,`config` FROM `dp_admin_module` WHERE  `config` <> '' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook` [ RunTime:0.031002s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_hook` WHERE  `status` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_plugin` [ RunTime:0.029002s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_plugin` WHERE  `status` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook_plugin` [ RunTime:0.031002s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_hook_plugin` WHERE  `status` = 1 ORDER BY `hook`,`sort` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_role` [ RunTime:0.029002s ]
+[ sql ] [ SQL ] SELECT `menu_auth` FROM `dp_admin_role` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_menu` [ RunTime:0.031002s ]
+[ sql ] [ SQL ] SELECT `id`,`url_value` FROM `dp_admin_menu` WHERE  `id` = 0 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`module`,`title`,`url_value`,`url_type`,`url_target`,`icon`,`params` FROM `dp_admin_menu` WHERE  `status` = 1  AND `pid` = 0 ORDER BY `sort`,`id` LIMIT 10 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`module`,`title`,`url_value`,`url_type`,`url_target`,`icon`,`params` FROM `dp_admin_menu` WHERE  `status` = 1  AND `pid` = 0 ORDER BY `sort`,`id` [ RunTime:0.003000s ]
+[ sql ] [ SQL ] SELECT `id` FROM `dp_admin_menu` WHERE  `pid` <> 0  AND `url_value` = 'admin/index/index' LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`title`,`url_value` FROM `dp_admin_menu` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`module`,`title`,`url_value`,`url_type`,`url_target`,`icon`,`params` FROM `dp_admin_menu` WHERE  `status` = 1 ORDER BY `sort`,`id` [ RunTime:0.005001s ]
+[ sql ] [ SQL ] SELECT `id` FROM `dp_admin_menu` WHERE  `pid` <> 0  AND `url_value` = 'admin/index/index' LIMIT 1 [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`title`,`url_value` FROM `dp_admin_menu` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_message` [ RunTime:0.074004s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_message` WHERE  `status` = 0  AND `uid_receive` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_icon` [ RunTime:0.041003s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_icon` WHERE  `status` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `value` FROM `dp_admin_config` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_user` [ RunTime:0.029002s ]
+[ sql ] [ SQL ] SELECT `password` FROM `dp_admin_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `avatar` FROM `dp_admin_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_attachment` [ RunTime:0.031002s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `avatar` FROM `dp_admin_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `config` FROM `dp_admin_plugin` WHERE  `name` = 'SystemInfo' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] select version() as version [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `config` FROM `dp_admin_plugin` WHERE  `name` = 'DevTeam' LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-08-27T19:49:47+08:00 ] 127.0.0.1 GET /admin.php/admin/index/checkupdate.html
+[ info ] image.com/admin.php/admin/index/checkupdate.html [运行时间：0.416024s][吞吐率：2.40req/s] [内存消耗：2,589.63kb] [文件加载：63]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\Image\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'index',
+    2 => 'checkupdate',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=71n169rc70m4b46k2ivr2kcbr0',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-GB;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://image.com/admin.php/admin/index/index.html',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'accept' => '*/*',
+  'host' => 'image.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.088005s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Hook @app_begin [ RunTime:0.100006s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'dolphin_admin_',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\Index->checkUpdate[ D:\phpStudy\PHPTutorial\WWW\Image\application\admin\controller\Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=image;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_config` [ RunTime:0.036002s ]
+[ sql ] [ SQL ] SELECT `name`,`value`,`type` FROM `dp_admin_config` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_module` [ RunTime:0.034002s ]
+[ sql ] [ SQL ] SELECT `name`,`config` FROM `dp_admin_module` WHERE  `config` <> '' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook` [ RunTime:0.032002s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_hook` WHERE  `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_plugin` [ RunTime:0.031002s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_plugin` WHERE  `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook_plugin` [ RunTime:0.031002s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_hook_plugin` WHERE  `status` = 1 ORDER BY `hook`,`sort` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_role` [ RunTime:0.031002s ]
+[ sql ] [ SQL ] SELECT `menu_auth` FROM `dp_admin_role` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_menu` [ RunTime:0.031002s ]
+[ sql ] [ SQL ] SELECT `id`,`url_value` FROM `dp_admin_menu` WHERE  `id` = 0 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] select version() as version [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-08-27T19:49:49+08:00 ] 127.0.0.1 POST /admin.php/admin/ajax/getsidebarmenu.html
+[ info ] image.com/admin.php/admin/ajax/getsidebarmenu.html [运行时间：0.284016s][吞吐率：3.52req/s] [内存消耗：2,653.59kb] [文件加载：64]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\Image\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'ajax',
+    2 => 'getsidebarmenu',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=71n169rc70m4b46k2ivr2kcbr0',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-GB;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://image.com/admin.php/admin/index/index.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://image.com',
+  'accept' => '*/*',
+  'content-length' => '41',
+  'host' => 'image.com',
+)
+[ info ] [ PARAM ] array (
+  'module_id' => '68',
+  'module' => 'user',
+  'controller' => 'index',
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.076004s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Hook @app_begin [ RunTime:0.093006s ]
+[ info ] [ RUN ] app\admin\controller\Ajax->getSidebarMenu[ D:\phpStudy\PHPTutorial\WWW\Image\application\admin\controller\Ajax.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'dolphin_admin_',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=image;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_config` [ RunTime:0.029002s ]
+[ sql ] [ SQL ] SELECT `name`,`value`,`type` FROM `dp_admin_config` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_module` [ RunTime:0.029001s ]
+[ sql ] [ SQL ] SELECT `name`,`config` FROM `dp_admin_module` WHERE  `config` <> '' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook` [ RunTime:0.029001s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_hook` WHERE  `status` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_plugin` [ RunTime:0.030002s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_plugin` WHERE  `status` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook_plugin` [ RunTime:0.030002s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_hook_plugin` WHERE  `status` = 1 ORDER BY `hook`,`sort` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_role` [ RunTime:0.029002s ]
+[ sql ] [ SQL ] SELECT `menu_auth` FROM `dp_admin_role` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_menu` [ RunTime:0.030002s ]
+[ sql ] [ SQL ] SELECT `id`,`url_value` FROM `dp_admin_menu` WHERE  `id` = 0 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`title`,`url_value` FROM `dp_admin_menu` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`module`,`title`,`url_value`,`url_type`,`url_target`,`icon`,`params` FROM `dp_admin_menu` WHERE  `status` = 1 ORDER BY `sort`,`id` [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-08-27T19:49:50+08:00 ] 127.0.0.1 GET /admin.php/user/index/index.html
+[ info ] image.com/admin.php/user/index/index.html [运行时间：0.458026s][吞吐率：2.18req/s] [内存消耗：3,716.22kb] [文件加载：79]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\Image\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'user',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=71n169rc70m4b46k2ivr2kcbr0',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-GB;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://image.com/admin.php/admin/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'image.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.076004s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Hook @app_begin [ RunTime:0.094006s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'dolphin_admin_',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\user\admin\Index->index[ D:\phpStudy\PHPTutorial\WWW\Image\application\user\admin\Index.php ]
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\Image\public/../application/common/builder/table/layout.html [ array (
+  0 => '_admin_base_layout',
+  1 => 'system_color',
+  2 => '_pop',
+  3 => '_top_menus',
+  4 => '_top_menus_all',
+  5 => '_sidebar_menus',
+  6 => '_location',
+  7 => '_message',
+  8 => '_icons',
+  9 => 'aside',
+  10 => 'page_title',
+  11 => 'page_tips',
+  12 => 'tips_type',
+  13 => 'tab_nav',
+  14 => 'hide_checkbox',
+  15 => 'extra_html',
+  16 => 'extra_js',
+  17 => 'extra_css',
+  18 => 'order_columns',
+  19 => 'filter_columns',
+  20 => 'filter_map',
+  21 => '_field_display',
+  22 => '_filter_content',
+  23 => '_filter',
+  24 => 'top_buttons',
+  25 => 'right_buttons',
+  26 => 'search',
+  27 => 'search_button',
+  28 => 'columns',
+  29 => 'pages',
+  30 => 'row_list',
+  31 => '_page_info',
+  32 => 'primary_key',
+  33 => '_table',
+  34 => 'js_list',
+  35 => 'css_list',
+  36 => 'validate',
+  37 => '_js_files',
+  38 => '_css_files',
+  39 => '_select_list',
+  40 => '_filter_time',
+  41 => 'empty_tips',
+  42 => '_search_area',
+  43 => '_search_area_url',
+  44 => '_search_area_op',
+  45 => 'builder_height',
+  46 => 'fixed_right_column',
+  47 => 'fixed_left_column',
+  48 => 'column_width',
+  49 => 'column_hide',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=image;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_config` [ RunTime:0.029001s ]
+[ sql ] [ SQL ] SELECT `name`,`value`,`type` FROM `dp_admin_config` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_module` [ RunTime:0.030002s ]
+[ sql ] [ SQL ] SELECT `name`,`config` FROM `dp_admin_module` WHERE  `config` <> '' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook` [ RunTime:0.029002s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_hook` WHERE  `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_plugin` [ RunTime:0.031002s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_plugin` WHERE  `status` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook_plugin` [ RunTime:0.029001s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_hook_plugin` WHERE  `status` = 1 ORDER BY `hook`,`sort` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_role` [ RunTime:0.030002s ]
+[ sql ] [ SQL ] SELECT `menu_auth` FROM `dp_admin_role` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_menu` [ RunTime:0.029002s ]
+[ sql ] [ SQL ] SELECT `id`,`url_value` FROM `dp_admin_menu` WHERE  `id` = 0 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`module`,`title`,`url_value`,`url_type`,`url_target`,`icon`,`params` FROM `dp_admin_menu` WHERE  `status` = 1  AND `pid` = 0 ORDER BY `sort`,`id` LIMIT 10 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`module`,`title`,`url_value`,`url_type`,`url_target`,`icon`,`params` FROM `dp_admin_menu` WHERE  `status` = 1  AND `pid` = 0 ORDER BY `sort`,`id` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id` FROM `dp_admin_menu` WHERE  `pid` <> 0  AND `url_value` = 'user/index/index' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`title`,`url_value` FROM `dp_admin_menu` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`module`,`title`,`url_value`,`url_type`,`url_target`,`icon`,`params` FROM `dp_admin_menu` WHERE  `status` = 1 ORDER BY `sort`,`id` [ RunTime:0.002000s ]
+[ sql ] [ SQL ] SELECT `id` FROM `dp_admin_menu` WHERE  `pid` <> 0  AND `url_value` = 'user/index/index' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`title`,`url_value` FROM `dp_admin_menu` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_message` [ RunTime:0.031002s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_message` WHERE  `status` = 0  AND `uid_receive` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_icon` [ RunTime:0.031002s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_icon` WHERE  `status` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `value` FROM `dp_admin_config` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_user` [ RunTime:0.031002s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_user` LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_user` ORDER BY `sort`,`role`,`id` DESC LIMIT 0,20 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`name` FROM `dp_admin_role` WHERE  `status` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `pid` FROM `dp_admin_role` WHERE  `status` = 1 ORDER BY `pid` LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_menu` WHERE  `url_value` = 'user/index/add' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_menu` WHERE  `url_value` = 'user/index/enable' LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_menu` WHERE  `url_value` = 'user/index/disable' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_menu` WHERE  `url_value` = 'user/index/delete' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_menu` WHERE  `url_value` = 'user/index/edit' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_menu` WHERE  `url_value` = 'user/index/delete' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `avatar` FROM `dp_admin_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_attachment` [ RunTime:0.031002s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `avatar` FROM `dp_admin_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.001000s ]
+---------------------------------------------------------------
+[ 2018-08-27T19:49:54+08:00 ] 127.0.0.1 POST /admin.php/admin/ajax/getsidebarmenu.html
+[ info ] image.com/admin.php/admin/ajax/getsidebarmenu.html [运行时间：0.281016s][吞吐率：3.56req/s] [内存消耗：2,654.56kb] [文件加载：64]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\Image\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'ajax',
+    2 => 'getsidebarmenu',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=71n169rc70m4b46k2ivr2kcbr0; dolphin_home___forward__=%2Fadmin.php%2Fuser%2Findex%2Findex.html',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-GB;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://image.com/admin.php/user/index/index.html',
+  'content-type' => 'application/x-www-form-urlencoded; charset=UTF-8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36',
+  'x-requested-with' => 'XMLHttpRequest',
+  'origin' => 'http://image.com',
+  'accept' => '*/*',
+  'content-length' => '42',
+  'host' => 'image.com',
+)
+[ info ] [ PARAM ] array (
+  'module_id' => '4',
+  'module' => 'admin',
+  'controller' => 'system',
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.075005s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Hook @app_begin [ RunTime:0.095005s ]
+[ info ] [ RUN ] app\admin\controller\Ajax->getSidebarMenu[ D:\phpStudy\PHPTutorial\WWW\Image\application\admin\controller\Ajax.php ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'dolphin_admin_',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=image;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_config` [ RunTime:0.029002s ]
+[ sql ] [ SQL ] SELECT `name`,`value`,`type` FROM `dp_admin_config` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_module` [ RunTime:0.029002s ]
+[ sql ] [ SQL ] SELECT `name`,`config` FROM `dp_admin_module` WHERE  `config` <> '' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook` [ RunTime:0.029001s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_hook` WHERE  `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_plugin` [ RunTime:0.030002s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_plugin` WHERE  `status` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook_plugin` [ RunTime:0.030002s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_hook_plugin` WHERE  `status` = 1 ORDER BY `hook`,`sort` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_role` [ RunTime:0.029001s ]
+[ sql ] [ SQL ] SELECT `menu_auth` FROM `dp_admin_role` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_menu` [ RunTime:0.030002s ]
+[ sql ] [ SQL ] SELECT `id`,`url_value` FROM `dp_admin_menu` WHERE  `id` = 0 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`title`,`url_value` FROM `dp_admin_menu` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`module`,`title`,`url_value`,`url_type`,`url_target`,`icon`,`params` FROM `dp_admin_menu` WHERE  `status` = 1 ORDER BY `sort`,`id` [ RunTime:0.002000s ]
+---------------------------------------------------------------
+[ 2018-08-27T19:49:54+08:00 ] 127.0.0.1 GET /admin.php/admin/system/index.html
+[ info ] image.com/admin.php/admin/system/index.html [运行时间：0.685040s][吞吐率：1.46req/s] [内存消耗：3,546.33kb] [文件加载：74]
+[ info ] [ LANG ] D:\phpStudy\PHPTutorial\WWW\Image\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'admin',
+    1 => 'system',
+    2 => 'index',
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=71n169rc70m4b46k2ivr2kcbr0; dolphin_home___forward__=%2Fadmin.php%2Fuser%2Findex%2Findex.html',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-GB;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'referer' => 'http://image.com/admin.php/user/index/index.html',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.84 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'host' => 'image.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.078005s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Hook @app_begin [ RunTime:0.094005s ]
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'dolphin_admin_',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ RUN ] app\admin\controller\System->index[ D:\phpStudy\PHPTutorial\WWW\Image\application\admin\controller\System.php ]
+[ info ] [ VIEW ] D:\phpStudy\PHPTutorial\WWW\Image\public/../application/common/builder/form/layout.html [ array (
+  0 => '_admin_base_layout',
+  1 => 'system_color',
+  2 => '_pop',
+  3 => '_top_menus',
+  4 => '_top_menus_all',
+  5 => '_sidebar_menus',
+  6 => '_location',
+  7 => '_message',
+  8 => '_icons',
+  9 => 'aside',
+  10 => 'page_title',
+  11 => 'page_tips',
+  12 => 'tips_type',
+  13 => 'btn_hide',
+  14 => 'btn_title',
+  15 => 'form_items',
+  16 => 'tab_nav',
+  17 => 'post_url',
+  18 => 'form_data',
+  19 => 'extra_html',
+  20 => 'extra_js',
+  21 => 'extra_css',
+  22 => 'ajax_submit',
+  23 => 'hide_header',
+  24 => 'header_title',
+  25 => 'js_list',
+  26 => 'css_list',
+  27 => 'field_triggers',
+  28 => 'field_hide',
+  29 => 'field_values',
+  30 => 'field_clear',
+  31 => '_js_files',
+  32 => '_js_init',
+  33 => '_css_files',
+  34 => '_layout',
+  35 => 'btn_extra',
+  36 => 'submit_confirm',
+  37 => 'extend_js_list',
+  38 => 'extend_css_list',
+  39 => '_method',
+  40 => 'empty_tips',
+) ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.001000s ] mysql:host=127.0.0.1;port=3306;dbname=image;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_config` [ RunTime:0.031002s ]
+[ sql ] [ SQL ] SELECT `name`,`value`,`type` FROM `dp_admin_config` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_module` [ RunTime:0.031002s ]
+[ sql ] [ SQL ] SELECT `name`,`config` FROM `dp_admin_module` WHERE  `config` <> '' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook` [ RunTime:0.029002s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_hook` WHERE  `status` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_plugin` [ RunTime:0.029001s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_plugin` WHERE  `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook_plugin` [ RunTime:0.030002s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_hook_plugin` WHERE  `status` = 1 ORDER BY `hook`,`sort` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_role` [ RunTime:0.031001s ]
+[ sql ] [ SQL ] SELECT `menu_auth` FROM `dp_admin_role` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_menu` [ RunTime:0.031001s ]
+[ sql ] [ SQL ] SELECT `id`,`url_value` FROM `dp_admin_menu` WHERE  `id` = 0 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`module`,`title`,`url_value`,`url_type`,`url_target`,`icon`,`params` FROM `dp_admin_menu` WHERE  `status` = 1  AND `pid` = 0 ORDER BY `sort`,`id` LIMIT 10 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`module`,`title`,`url_value`,`url_type`,`url_target`,`icon`,`params` FROM `dp_admin_menu` WHERE  `status` = 1  AND `pid` = 0 ORDER BY `sort`,`id` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id` FROM `dp_admin_menu` WHERE  `pid` <> 0  AND `url_value` = 'admin/system/index' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`title`,`url_value` FROM `dp_admin_menu` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`module`,`title`,`url_value`,`url_type`,`url_target`,`icon`,`params` FROM `dp_admin_menu` WHERE  `status` = 1 ORDER BY `sort`,`id` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id` FROM `dp_admin_menu` WHERE  `pid` <> 0  AND `url_value` = 'admin/system/index' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `id`,`pid`,`title`,`url_value` FROM `dp_admin_menu` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_message` [ RunTime:0.031002s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_message` WHERE  `status` = 0  AND `uid_receive` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_icon` [ RunTime:0.030002s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_icon` WHERE  `status` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `value` FROM `dp_admin_config` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `name`,`config`,`title` FROM `dp_admin_module` WHERE  `config` <> ''  AND `status` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT `name`,`title`,`tips`,`type`,`value`,`options`,`ajax_url`,`next_items`,`param`,`table`,`level`,`key`,`option`,`ak`,`format` FROM `dp_admin_config` WHERE  `group` = 'base'  AND `status` = 1 ORDER BY `sort` ASC,`id` ASC [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_user` [ RunTime:0.031001s ]
+[ sql ] [ SQL ] SELECT `avatar` FROM `dp_admin_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_attachment` [ RunTime:0.031002s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT `avatar` FROM `dp_admin_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.001000s ]
