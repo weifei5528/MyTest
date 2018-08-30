@@ -197,6 +197,7 @@ class CurlFactory implements CurlFactoryInterface
             CURLOPT_RETURNTRANSFER => false,
             CURLOPT_HEADER         => false,
             CURLOPT_CONNECTTIMEOUT => 150,
+        
         ];
 
         if (defined('CURLOPT_PROTOCOLS')) {

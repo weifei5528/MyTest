@@ -437,6 +437,7 @@ abstract class AbstractProvider
      */
     protected function verifyGrant($grant)
     {
+        
         if (is_string($grant)) {
             return $this->grantFactory->getGrant($grant);
         }

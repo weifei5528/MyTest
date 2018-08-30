@@ -31,7 +31,7 @@ abstract class Base
      * 获取公共的图片 不需要授权
      * @return mixed
      */
-    public abstract function getPublicImageList($page=1);
+    public abstract function getPublicImageList($page=1, $params=[]);
 
     /**
      * 获取

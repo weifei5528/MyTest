@@ -54,7 +54,7 @@ class HttpClient
      */
     public function __construct()
     {
-        $this->httpClient = new Client(['handler' => $this->setHandler(self::$connection->getAuthorizationToken())]);
+        $this->httpClient = new Client(['handler' => $this->setHandler(self::$connection->getAuthorizationToken()),'verify'=>false]);
     }
 
     /**

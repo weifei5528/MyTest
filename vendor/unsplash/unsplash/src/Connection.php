@@ -67,8 +67,10 @@ class Connection
      */
     public function generateToken($code)
     {
+        
         $this->token = $this->provider->getAccessToken('authorization_code', [
-            'code' => $code
+            'code' => $code,
+            'verify'=>false
         ]);
 
         return $this->token;
