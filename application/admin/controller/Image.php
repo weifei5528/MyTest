@@ -4,6 +4,8 @@ namespace app\admin\controller;
 use GuzzleHttp\Client;
 use think\File;
 use GuzzleHttp\Exception\BadResponseException;
+use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Exception\GuzzleException;
 class Image
 {
     
@@ -120,26 +122,39 @@ class Image
         
             $dir = self::DIR_PATH.date('Ymd').DS;
             $dir_path = ROOT_PATH.self::DIR_PATH.date('Ymd').DS;
+            
+            
             if(!file_exists($dir_path)) {
                 mkdir($dir_path,0777,true);
             }
             if(!file_exists($dir_path))
                 return false;
             $pathinfo = pathinfo($src);
-            if(file_exists($dir_path.$pathinfo['basename'])){
-                return $dir.$pathinfo['basename'];
-            }
-            $res = null;
-            try{
-                $res = $client->request('get',$src,['save_to'=>$dir_path.$pathinfo['basename']]);
-            }catch (BadResponseException $e){
+            $file_name = md5(time().rand(1111,9999)).'.'.$pathinfo['extension'];
+          
+            echo $dir_path.$file_name."<br/>";
+            if($this->currentDownImage($src, $dir_path.$file_name)) {
+                echo "成功"."<br/>";
+                return $dir.$file_name;
+            }else{
+                echo "失败"."<br/>";
                 return false;
             }
-           
-            if($res->getStatusCode()!=200){
-                return  false;
-            }
-            return $dir.$pathinfo['basename'];
+//             echo "1"."<br/>";
+//             try{
+//                 $res = $client->request('get',$src,['save_to'=>$dir_path.$file_name]);
+//             }catch (GuzzleException  $e){
+//                 dump($e);
+//                 echo "失败"."<br/>";
+//                 return false;
+//             }
+          
+//             if($res->getStatusCode()!=200){
+//                 echo "失败"."<br/>";
+//                 return  false;
+//             }
+//            // echo "成功"."<br/>";
+//            return $dir.$pathinfo['basename'];
        
     }
     private function getExt($path)
@@ -229,6 +244,28 @@ class Image
     private function isExists($name)
     {
         return db('admin_attachment')->where(['name'=>$name])->count();
+    }
+    /**
+     * 图片下载
+     */
+    private function currentDownImage($url,$filename)
+    {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        // curl_setopt($ch, CURLOPT_MAXREDIRS, 2);
+        // curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+        $temp = curl_exec($ch);
+        if($temp===false){
+            dump(curl_errno($ch));
+            return false;
+        }
+            return false;
+        if (!file_put_contents($filename, $temp)) {
+           
+            return false;
+        }
     }
 }
 

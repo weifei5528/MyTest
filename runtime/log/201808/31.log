@@ -3669,3 +3669,805 @@
 [ sql ] [ SQL ] SELECT * FROM `dp_admin_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.001000s ]
 [ sql ] [ SQL ] SELECT `avatar` FROM `dp_admin_user` WHERE  `id` = 1 LIMIT 1 [ RunTime:0.000000s ]
 [ sql ] [ SQL ] SELECT * FROM `dp_admin_attachment` WHERE  `id` = 0 LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-08-31T17:03:25+08:00 ] 127.0.0.1 GET /
+[ info ] tp.com/ [运行时间：30.421740s][吞吐率：0.03req/s] [内存消耗：3,396.17kb] [文件加载：109]
+[ info ] [ LANG ] D:\phpstudy2018\PHPTutorial\WWW\MyTest\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=bcjkn46oat1p1hbt2olvknq6o4; dolphin_home___forward__=%2Fadmin.php%2Fuser%2Findex%2Findex.html',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-GB;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'host' => 'tp.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.034002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Hook @app_begin [ RunTime:0.032001s ]
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\phpstudy2018\PHPTutorial\WWW\MyTest\application\index\controller\Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004000s ] mysql:host=127.0.0.1;port=3306;dbname=image;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_config` [ RunTime:0.009001s ]
+[ sql ] [ SQL ] SELECT `name`,`value`,`type` FROM `dp_admin_config` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_module` [ RunTime:0.009001s ]
+[ sql ] [ SQL ] SELECT `name`,`config` FROM `dp_admin_module` WHERE  `config` <> '' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook` [ RunTime:0.009000s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_hook` WHERE  `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_plugin` [ RunTime:0.009001s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_plugin` WHERE  `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook_plugin` [ RunTime:0.009000s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_hook_plugin` WHERE  `status` = 1 ORDER BY `hook`,`sort` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_attachment` [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c2ffd033ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1ecbdbb_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b2092af1043ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1ecbdbb_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c2ff1053ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1ecbdbb_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20e2cf4073ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1ecbdbb_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20a2df5033ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1ecbdbb_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b30c2ef2033ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1ecbdbb_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20928f6033ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1ecbdbb_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b2072cf7013ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1ecbdbb_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c2df3063ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1ecbdbb_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20a2df5063ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1ecbdbb_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b3062ff3023ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1ecbdbb_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20d2cf2063ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1ecbdbb_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20e2af2083ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1ecbdbb_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b10820f2043ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1ecbdbb_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b2072df4083ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1ecbdbb_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b3062cf3023ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1ecbdbb_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c21f3083ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1ecbdbb_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20d21f7093ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1ecbdbb_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c2bf1073ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1ecbdbb_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b2062df0003ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1ecbdbb_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20d21fc063ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1efb5b9_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b2072cf0053ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1efb5b9_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c2df7073ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1efb5b9_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b3062ff3083ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1efb5b9_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20929f1023ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1efb5b9_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b30f2ef7003ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1efb5b9_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20b2df5063ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1efb5b9_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c21f0033ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1efb5b9_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20e2af2073ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1efb5b9_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea30b8072df3043ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1efb5b9_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20b2afc023ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1efb5b9_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ error ] [1]Maximum execution time of 30 seconds exceeded[D:\phpstudy2018\PHPTutorial\WWW\MyTest\application\admin\controller\Image.php:254]
+---------------------------------------------------------------
+[ 2018-08-31T17:08:36+08:00 ] 127.0.0.1 GET /
+[ info ] tp.com/ [运行时间：30.193727s][吞吐率：0.03req/s] [内存消耗：3,401.15kb] [文件加载：109]
+[ info ] [ LANG ] D:\phpstudy2018\PHPTutorial\WWW\MyTest\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'connection' => 'close',
+  'cookie' => 'PHPSESSID=bcjkn46oat1p1hbt2olvknq6o4; dolphin_home___forward__=%2Fadmin.php%2Fuser%2Findex%2Findex.html',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-GB;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'host' => 'tp.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.031002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Hook @app_begin [ RunTime:0.028001s ]
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\phpstudy2018\PHPTutorial\WWW\MyTest\application\index\controller\Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.002001s ] mysql:host=127.0.0.1;port=3306;dbname=image;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_config` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT `name`,`value`,`type` FROM `dp_admin_config` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_module` [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT `name`,`config` FROM `dp_admin_module` WHERE  `config` <> '' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_hook` WHERE  `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_plugin` [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_plugin` WHERE  `status` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook_plugin` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_hook_plugin` WHERE  `status` = 1 ORDER BY `hook`,`sort` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_attachment` [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c2ffd033ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1e9bcbb_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b2092af1043ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1e9bcbb_1280.jpg' LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c2ff1053ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1e9bcbb_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20e2cf4073ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1e9bcbb_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20a2df5033ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1e9bcbb_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b30c2ef2033ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1e9bcbb_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20928f6033ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1e9bcbb_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b2072cf7013ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1e9bcbb_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c2df3063ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1e9bcbb_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20a2df5063ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1e9bcbb_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b3062ff3023ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1e9bcbb_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20d2cf2063ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1e9bcbb_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20e2af2083ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1e9bcbb_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b10820f2043ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1e9bcbb_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b2072df4083ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1e9bcbb_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b3062cf3023ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1e9bcbb_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c21f3083ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1e9bcbb_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20d21f7093ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1e9bcbb_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c2bf1073ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1e9bcbb_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b2062df0003ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1e9bcbb_1280.jpg' LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20d21fc063ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1e8b5b0_1280.jpg' LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b2072cf0053ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1e8b5b0_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c2df7073ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1e8b5b0_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b3062ff3083ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1e8b5b0_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20929f1023ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1e8b5b0_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b30f2ef7003ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1e8b5b0_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20b2df5063ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1e8b5b0_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c21f0033ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1e8b5b0_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20e2af2073ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1e8b5b0_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea30b8072df3043ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1e8b5b0_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20b2afc023ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1e8b5b0_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20628f1053ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1e8b5b0_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b2062df0023ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1e8b5b0_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b30f2ef2043ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1e8b5b0_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b3082af1083ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1e8b5b0_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b3072ffd013ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1e8b5b0_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20e2af2063ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1e8b5b0_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ error ] [1]Maximum execution time of 30 seconds exceeded[D:\phpstudy2018\PHPTutorial\WWW\MyTest\vendor\guzzlehttp\guzzle\src\Handler\CurlFactory.php:539]
+---------------------------------------------------------------
+[ 2018-08-31T17:10:43+08:00 ] 127.0.0.1 GET /
+[ info ] tp.com/ [运行时间：2.358135s][吞吐率：0.42req/s] [内存消耗：3,266.84kb] [文件加载：103]
+[ info ] [ LANG ] D:\phpstudy2018\PHPTutorial\WWW\MyTest\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=bcjkn46oat1p1hbt2olvknq6o4; dolphin_home___forward__=%2Fadmin.php%2Fuser%2Findex%2Findex.html',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-GB;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'host' => 'tp.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.034002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Hook @app_begin [ RunTime:0.030002s ]
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\phpstudy2018\PHPTutorial\WWW\MyTest\application\index\controller\Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004000s ] mysql:host=127.0.0.1;port=3306;dbname=image;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_config` [ RunTime:0.009000s ]
+[ sql ] [ SQL ] SELECT `name`,`value`,`type` FROM `dp_admin_config` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_module` [ RunTime:0.009001s ]
+[ sql ] [ SQL ] SELECT `name`,`config` FROM `dp_admin_module` WHERE  `config` <> '' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook` [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_hook` WHERE  `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_plugin` [ RunTime:0.009000s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_plugin` WHERE  `status` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook_plugin` [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_hook_plugin` WHERE  `status` = 1 ORDER BY `hook`,`sort` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_attachment` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c2ffd033ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1ebb1b0_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+---------------------------------------------------------------
+[ 2018-08-31T17:12:07+08:00 ] 127.0.0.1 GET /
+[ info ] tp.com/ [运行时间：30.005716s][吞吐率：0.03req/s] [内存消耗：3,401.53kb] [文件加载：109]
+[ info ] [ LANG ] D:\phpstudy2018\PHPTutorial\WWW\MyTest\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=bcjkn46oat1p1hbt2olvknq6o4; dolphin_home___forward__=%2Fadmin.php%2Fuser%2Findex%2Findex.html',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-GB;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'tp.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.029001s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Hook @app_begin [ RunTime:0.028002s ]
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\phpstudy2018\PHPTutorial\WWW\MyTest\application\index\controller\Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004000s ] mysql:host=127.0.0.1;port=3306;dbname=image;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_config` [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT `name`,`value`,`type` FROM `dp_admin_config` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_module` [ RunTime:0.009000s ]
+[ sql ] [ SQL ] SELECT `name`,`config` FROM `dp_admin_module` WHERE  `config` <> '' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook` [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_hook` WHERE  `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_plugin` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_plugin` WHERE  `status` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook_plugin` [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_hook_plugin` WHERE  `status` = 1 ORDER BY `hook`,`sort` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_attachment` [ RunTime:0.009000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c2ffd033ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1eab5bd_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b2092af1043ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1eab5bd_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c2ff1053ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1eab5bd_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20e2cf4073ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1eab5bd_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20a2df5033ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1eab5bd_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b30c2ef2033ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1eab5bd_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20928f6033ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1eab5bd_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b2072cf7013ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1eab5bd_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c2df3063ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1eab5bd_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20a2df5063ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1eab5bd_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b3062ff3023ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1eab5bd_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20d2cf2063ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1eab5bd_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20e2af2083ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1eab5bd_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b10820f2043ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1eab5bd_1280.jpg' LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b2072df4083ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1eab5bd_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b3062cf3023ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1eab5bd_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c21f3083ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1eab5bd_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20d21f7093ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1eab5bd_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c2bf1073ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1eab5bd_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b2062df0003ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1eab5bd_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20d21fc063ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1eab7b9_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b2072cf0053ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1eab7b9_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c2df7073ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1eab7b9_1280.jpg' LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b3062ff3083ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1eab7b9_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20929f1023ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1eab7b9_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b30f2ef7003ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1eab7b9_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20b2df5063ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1eab7b9_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c21f0033ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1eab7b9_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20e2af2073ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1eab7b9_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea30b8072df3043ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1eab7b9_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20b2afc023ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1eab7b9_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20628f1053ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1eab7b9_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b2062df0023ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1eab7b9_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b30f2ef2043ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1eab7b9_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b3082af1083ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1eab7b9_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b3072ffd013ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a1eab7b9_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ error ] [1]Maximum execution time of 30 seconds exceeded[D:\phpstudy2018\PHPTutorial\WWW\MyTest\vendor\guzzlehttp\guzzle\src\Handler\CurlFactory.php:56]
+---------------------------------------------------------------
+[ 2018-08-31T17:19:02+08:00 ] 127.0.0.1 GET /
+[ info ] tp.com/ [运行时间：30.367737s][吞吐率：0.03req/s] [内存消耗：3,559.59kb] [文件加载：113]
+[ info ] [ LANG ] D:\phpstudy2018\PHPTutorial\WWW\MyTest\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=bcjkn46oat1p1hbt2olvknq6o4; dolphin_home___forward__=%2Fadmin.php%2Fuser%2Findex%2Findex.html',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-GB;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'host' => 'tp.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.034002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Hook @app_begin [ RunTime:0.028001s ]
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\phpstudy2018\PHPTutorial\WWW\MyTest\application\index\controller\Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.005001s ] mysql:host=127.0.0.1;port=3306;dbname=image;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_config` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT `name`,`value`,`type` FROM `dp_admin_config` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_module` [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT `name`,`config` FROM `dp_admin_module` WHERE  `config` <> '' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_hook` WHERE  `status` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_plugin` [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_plugin` WHERE  `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook_plugin` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_hook_plugin` WHERE  `status` = 1 ORDER BY `hook`,`sort` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_attachment` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c2ffd033ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a0ecb4b1_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b2092af1043ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a0ecb4b1_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c2ff1053ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a0ecb4b1_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20e2cf4073ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a0ecb4b1_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ error ] [1]Maximum execution time of 30 seconds exceeded[D:\phpstudy2018\PHPTutorial\WWW\MyTest\vendor\guzzlehttp\guzzle\src\Handler\CurlFactory.php:380]
+---------------------------------------------------------------
+[ 2018-08-31T17:22:10+08:00 ] 127.0.0.1 GET /
+[ info ] tp.com/ [运行时间：30.284732s][吞吐率：0.03req/s] [内存消耗：3,559.52kb] [文件加载：113]
+[ info ] [ LANG ] D:\phpstudy2018\PHPTutorial\WWW\MyTest\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=bcjkn46oat1p1hbt2olvknq6o4; dolphin_home___forward__=%2Fadmin.php%2Fuser%2Findex%2Findex.html',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-GB;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'max-age=0',
+  'connection' => 'close',
+  'host' => 'tp.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.032001s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Hook @app_begin [ RunTime:0.030002s ]
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\phpstudy2018\PHPTutorial\WWW\MyTest\application\index\controller\Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004000s ] mysql:host=127.0.0.1;port=3306;dbname=image;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_config` [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT `name`,`value`,`type` FROM `dp_admin_config` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_module` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT `name`,`config` FROM `dp_admin_module` WHERE  `config` <> '' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_hook` WHERE  `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_plugin` [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_plugin` WHERE  `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook_plugin` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_hook_plugin` WHERE  `status` = 1 ORDER BY `hook`,`sort` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_attachment` [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b2092af1043ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a0eeb5bf_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c2ff1053ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a0eeb5bf_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20e2cf4073ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a0eeb5bf_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20a2df5033ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a0eeb5bf_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ error ] [1]Maximum execution time of 30 seconds exceeded[D:\phpstudy2018\PHPTutorial\WWW\MyTest\vendor\guzzlehttp\guzzle\src\Handler\CurlFactory.php:380]
+---------------------------------------------------------------
+[ 2018-08-31T17:25:55+08:00 ] 127.0.0.1 GET /
+[ info ] tp.com/ [运行时间：30.183726s][吞吐率：0.03req/s] [内存消耗：3,559.01kb] [文件加载：113]
+[ info ] [ LANG ] D:\phpstudy2018\PHPTutorial\WWW\MyTest\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=bcjkn46oat1p1hbt2olvknq6o4; dolphin_home___forward__=%2Fadmin.php%2Fuser%2Findex%2Findex.html',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-GB;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'host' => 'tp.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.032002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Hook @app_begin [ RunTime:0.029002s ]
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\phpstudy2018\PHPTutorial\WWW\MyTest\application\index\controller\Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003000s ] mysql:host=127.0.0.1;port=3306;dbname=image;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_config` [ RunTime:0.009001s ]
+[ sql ] [ SQL ] SELECT `name`,`value`,`type` FROM `dp_admin_config` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_module` [ RunTime:0.009000s ]
+[ sql ] [ SQL ] SELECT `name`,`config` FROM `dp_admin_module` WHERE  `config` <> '' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook` [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_hook` WHERE  `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_plugin` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_plugin` WHERE  `status` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook_plugin` [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_hook_plugin` WHERE  `status` = 1 ORDER BY `hook`,`sort` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_attachment` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b2092af1043ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a0e8b6ba_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c2ff1053ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a0e8b6ba_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20e2cf4073ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a0e8b6ba_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ error ] [1]Maximum execution time of 30 seconds exceeded[D:\phpstudy2018\PHPTutorial\WWW\MyTest\vendor\guzzlehttp\guzzle\src\Handler\CurlFactory.php:380]
+---------------------------------------------------------------
+[ 2018-08-31T17:27:05+08:00 ] 127.0.0.1 GET /
+[ info ] tp.com/ [运行时间：30.200728s][吞吐率：0.03req/s] [内存消耗：3,560.72kb] [文件加载：113]
+[ info ] [ LANG ] D:\phpstudy2018\PHPTutorial\WWW\MyTest\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=bcjkn46oat1p1hbt2olvknq6o4; dolphin_home___forward__=%2Fadmin.php%2Fuser%2Findex%2Findex.html',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-GB;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'host' => 'tp.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.033002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Hook @app_begin [ RunTime:0.029001s ]
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\phpstudy2018\PHPTutorial\WWW\MyTest\application\index\controller\Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.005000s ] mysql:host=127.0.0.1;port=3306;dbname=image;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_config` [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT `name`,`value`,`type` FROM `dp_admin_config` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_module` [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT `name`,`config` FROM `dp_admin_module` WHERE  `config` <> '' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_hook` WHERE  `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_plugin` [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_plugin` WHERE  `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook_plugin` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_hook_plugin` WHERE  `status` = 1 ORDER BY `hook`,`sort` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_attachment` [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b2092af1043ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a0ebb5ba_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c2ff1053ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a0ebb5ba_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20e2cf4073ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a0ebb5ba_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20a2df5033ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a0ebb5ba_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c2ffd033ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a0ebb5ba_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ error ] [1]Maximum execution time of 30 seconds exceeded[D:\phpstudy2018\PHPTutorial\WWW\MyTest\vendor\guzzlehttp\guzzle\src\Handler\CurlFactory.php:380]
+---------------------------------------------------------------
+[ 2018-08-31T17:28:14+08:00 ] 127.0.0.1 GET /
+[ info ] tp.com/ [运行时间：30.154725s][吞吐率：0.03req/s] [内存消耗：3,558.87kb] [文件加载：113]
+[ info ] [ LANG ] D:\phpstudy2018\PHPTutorial\WWW\MyTest\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=bcjkn46oat1p1hbt2olvknq6o4; dolphin_home___forward__=%2Fadmin.php%2Fuser%2Findex%2Findex.html',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-GB;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'host' => 'tp.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.030001s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Hook @app_begin [ RunTime:0.028002s ]
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\phpstudy2018\PHPTutorial\WWW\MyTest\application\index\controller\Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003000s ] mysql:host=127.0.0.1;port=3306;dbname=image;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_config` [ RunTime:0.009001s ]
+[ sql ] [ SQL ] SELECT `name`,`value`,`type` FROM `dp_admin_config` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_module` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT `name`,`config` FROM `dp_admin_module` WHERE  `config` <> '' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook` [ RunTime:0.009001s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_hook` WHERE  `status` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_plugin` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_plugin` WHERE  `status` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook_plugin` [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_hook_plugin` WHERE  `status` = 1 ORDER BY `hook`,`sort` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_attachment` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b2092af1043ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a0ebb2ba_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c2ff1053ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a0ebb2ba_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20e2cf4073ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a0ebb2ba_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ error ] [1]Maximum execution time of 30 seconds exceeded[D:\phpstudy2018\PHPTutorial\WWW\MyTest\vendor\guzzlehttp\guzzle\src\Handler\CurlFactory.php:380]
+---------------------------------------------------------------
+[ 2018-08-31T17:29:41+08:00 ] 127.0.0.1 GET /
+[ info ] tp.com/ [运行时间：30.035718s][吞吐率：0.03req/s] [内存消耗：3,518.72kb] [文件加载：113]
+[ info ] [ LANG ] D:\phpstudy2018\PHPTutorial\WWW\MyTest\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=bcjkn46oat1p1hbt2olvknq6o4; dolphin_home___forward__=%2Fadmin.php%2Fuser%2Findex%2Findex.html',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-GB;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'host' => 'tp.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.032002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Hook @app_begin [ RunTime:0.028001s ]
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\phpstudy2018\PHPTutorial\WWW\MyTest\application\index\controller\Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003001s ] mysql:host=127.0.0.1;port=3306;dbname=image;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_config` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT `name`,`value`,`type` FROM `dp_admin_config` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_module` [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT `name`,`config` FROM `dp_admin_module` WHERE  `config` <> '' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_hook` WHERE  `status` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_plugin` [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_plugin` WHERE  `status` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook_plugin` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_hook_plugin` WHERE  `status` = 1 ORDER BY `hook`,`sort` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_attachment` [ RunTime:0.009000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b2092af1043ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a0eab0b0_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c2ff1053ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a0eab0b0_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20e2cf4073ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a0eab0b0_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ error ] [1]Maximum execution time of 30 seconds exceeded[D:\phpstudy2018\PHPTutorial\WWW\MyTest\vendor\guzzlehttp\guzzle\src\Handler\CurlFactory.php:539]
+---------------------------------------------------------------
+[ 2018-08-31T17:30:36+08:00 ] 127.0.0.1 GET /
+[ info ] tp.com/ [运行时间：30.153725s][吞吐率：0.03req/s] [内存消耗：3,533.97kb] [文件加载：113]
+[ info ] [ LANG ] D:\phpstudy2018\PHPTutorial\WWW\MyTest\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=bcjkn46oat1p1hbt2olvknq6o4; dolphin_home___forward__=%2Fadmin.php%2Fuser%2Findex%2Findex.html',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-GB;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'host' => 'tp.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.029002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Hook @app_begin [ RunTime:0.028001s ]
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\phpstudy2018\PHPTutorial\WWW\MyTest\application\index\controller\Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003000s ] mysql:host=127.0.0.1;port=3306;dbname=image;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_config` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT `name`,`value`,`type` FROM `dp_admin_config` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_module` [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT `name`,`config` FROM `dp_admin_module` WHERE  `config` <> '' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_hook` WHERE  `status` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_plugin` [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_plugin` WHERE  `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook_plugin` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_hook_plugin` WHERE  `status` = 1 ORDER BY `hook`,`sort` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_attachment` [ RunTime:0.009000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b2092af1043ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a0e5b4bb_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c2ff1053ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a0e5b4bb_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20e2cf4073ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a0e5b4bb_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20a2df5033ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a0e5b4bb_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c2ffd033ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a0e5b4bb_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20928f6033ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a0e5b4bb_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b2072cf7013ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a0e5b4bb_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c2df3063ed1584d05fb1d4f9fe77ee6d418ac104496f5c679a0e5b4bb_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ error ] [1]Maximum execution time of 30 seconds exceeded[D:\phpstudy2018\PHPTutorial\WWW\MyTest\vendor\guzzlehttp\guzzle\src\Handler\CurlFactory.php:539]
+---------------------------------------------------------------
+[ 2018-08-31T17:35:20+08:00 ] 127.0.0.1 GET /
+[ info ] tp.com/ [运行时间：30.394738s][吞吐率：0.03req/s] [内存消耗：3,468.75kb] [文件加载：109]
+[ info ] [ LANG ] D:\phpstudy2018\PHPTutorial\WWW\MyTest\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=bcjkn46oat1p1hbt2olvknq6o4; dolphin_home___forward__=%2Fadmin.php%2Fuser%2Findex%2Findex.html',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-GB;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'host' => 'tp.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.033002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Hook @app_begin [ RunTime:0.028002s ]
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\phpstudy2018\PHPTutorial\WWW\MyTest\application\index\controller\Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.005000s ] mysql:host=127.0.0.1;port=3306;dbname=image;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_config` [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT `name`,`value`,`type` FROM `dp_admin_config` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_module` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT `name`,`config` FROM `dp_admin_module` WHERE  `config` <> '' [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook` [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_hook` WHERE  `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_plugin` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_plugin` WHERE  `status` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook_plugin` [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_hook_plugin` WHERE  `status` = 1 ORDER BY `hook`,`sort` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_attachment` [ RunTime:0.009000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b2092af1043ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afedbcbf_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c2ff1053ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afedbcbf_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20e2cf4073ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afedbcbf_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20a2df5033ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afedbcbf_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c2ffd033ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afedbcbf_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20928f6033ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afedbcbf_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b2072cf7013ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afedbcbf_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c2df3063ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afedbcbf_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20a2df5063ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afedbcbf_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b30c2ef2033ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afedbcbf_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b3062ff3023ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afedbcbf_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20d2cf2063ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afedbcbf_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20e2af2083ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afedbcbf_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b10820f2043ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afedbcbf_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b2072df4083ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afedbcbf_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b3062cf3023ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afedbcbf_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c21f3083ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afedbcbf_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20d21f7093ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afedbcbf_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c2bf1073ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afedbcbf_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b2062df0003ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afedbcbf_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20d21fc063ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afecb4bc_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b2072cf0053ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afecb4bc_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c2df7073ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afecb4bc_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b3062ff3083ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afecb4bc_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20929f1023ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afecb4bc_1280.jpg' LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b30f2ef7003ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afecb4bc_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20b2df5063ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afecb4bc_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c21f0033ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afecb4bc_1280.jpg' LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20e2af2073ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afecb4bc_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea30b8072df3043ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afecb4bc_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20b2afc023ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afecb4bc_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20628f1053ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afecb4bc_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b2062df0023ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afecb4bc_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b30f2ef2043ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afecb4bc_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b3082af1083ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afecb4bc_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b3072ffd013ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afecb4bc_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ error ] [1]Maximum execution time of 30 seconds exceeded[D:\phpstudy2018\PHPTutorial\WWW\MyTest\application\admin\controller\Image.php:259]
+---------------------------------------------------------------
+[ 2018-08-31T17:38:04+08:00 ] 127.0.0.1 GET /
+[ info ] tp.com/ [运行时间：30.083720s][吞吐率：0.03req/s] [内存消耗：3,468.75kb] [文件加载：109]
+[ info ] [ LANG ] D:\phpstudy2018\PHPTutorial\WWW\MyTest\thinkphp\lang\zh-cn.php
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ HEADER ] array (
+  'cookie' => 'PHPSESSID=bcjkn46oat1p1hbt2olvknq6o4; dolphin_home___forward__=%2Fadmin.php%2Fuser%2Findex%2Findex.html',
+  'accept-language' => 'zh-CN,zh;q=0.9,en-GB;q=0.8,en;q=0.7',
+  'accept-encoding' => 'gzip, deflate',
+  'accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+  'user-agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
+  'upgrade-insecure-requests' => '1',
+  'cache-control' => 'no-cache',
+  'pragma' => 'no-cache',
+  'connection' => 'close',
+  'host' => 'tp.com',
+)
+[ info ] [ PARAM ] array (
+)
+[ info ] [ CACHE ] INIT File
+[ info ] [ DB ] INIT mysql
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Config @app_begin [ RunTime:0.030002s ]
+[ info ] [ BEHAVIOR ] Run app\common\behavior\Hook @app_begin [ RunTime:0.028001s ]
+[ info ] [ RUN ] app\index\controller\Index->index[ D:\phpstudy2018\PHPTutorial\WWW\MyTest\application\index\controller\Index.php ]
+[ info ] [ LOG ] INIT File
+[ sql ] [ DB ] CONNECT:[ UseTime:0.003001s ] mysql:host=127.0.0.1;port=3306;dbname=image;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_config` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT `name`,`value`,`type` FROM `dp_admin_config` [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_module` [ RunTime:0.008001s ]
+[ sql ] [ SQL ] SELECT `name`,`config` FROM `dp_admin_module` WHERE  `config` <> '' [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook` [ RunTime:0.007000s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_hook` WHERE  `status` = 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_plugin` [ RunTime:0.007001s ]
+[ sql ] [ SQL ] SELECT `name`,`status` FROM `dp_admin_plugin` WHERE  `status` = 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_hook_plugin` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT * FROM `dp_admin_hook_plugin` WHERE  `status` = 1 ORDER BY `hook`,`sort` [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `dp_admin_attachment` [ RunTime:0.008000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b2092af1043ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afefb3ba_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c2ff1053ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afefb3ba_1280.jpg' LIMIT 1 [ RunTime:0.001001s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20e2cf4073ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afefb3ba_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20a2df5033ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afefb3ba_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c2ffd033ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afefb3ba_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20928f6033ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afefb3ba_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b2072cf7013ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afefb3ba_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c2df3063ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afefb3ba_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20a2df5063ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afefb3ba_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b30c2ef2033ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afefb3ba_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b3062ff3023ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afefb3ba_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20d2cf2063ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afefb3ba_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20e2af2083ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afefb3ba_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b10820f2043ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afefb3ba_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b2072df4083ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afefb3ba_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b3062cf3023ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afefb3ba_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c21f3083ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afefb3ba_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20d21f7093ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afefb3ba_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c2bf1073ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afefb3ba_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b2062df0003ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afefb3ba_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20d21fc063ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afefb2bf_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b2072cf0053ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afefb2bf_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c2df7073ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afefb2bf_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b3062ff3083ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afefb2bf_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20929f1023ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afefb2bf_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b30f2ef7003ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afefb2bf_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20b2df5063ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afefb2bf_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20c21f0033ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afefb2bf_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20e2af2073ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afefb2bf_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea30b8072df3043ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afefb2bf_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20b2afc023ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afefb2bf_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b20628f1053ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afefb2bf_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b2062df0023ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afefb2bf_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b30f2ef2043ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afefb2bf_1280.jpg' LIMIT 1 [ RunTime:0.000000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b3082af1083ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afefb2bf_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `dp_admin_attachment` WHERE  `name` = 'ea33b3072ffd013ed1584d05fb1d4f9fe77ee6d418ac104496f5c679afefb2bf_1280.jpg' LIMIT 1 [ RunTime:0.001000s ]
+[ error ] [1]Maximum execution time of 30 seconds exceeded[D:\phpstudy2018\PHPTutorial\WWW\MyTest\application\admin\controller\Image.php:259]
