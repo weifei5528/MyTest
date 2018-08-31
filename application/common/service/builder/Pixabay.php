@@ -11,6 +11,8 @@ class Pixabay extends Base
     const API_ROOT = 'https://pixabay.com/api/';
     const SEGMENT_IMAGES = '';
     const SEGMENT_VIDEOS = 'videos/';
+    const KEY = "9949411-643a9c8f6121981ba1efad425";
+    const PER_PAGE = 20; //最大可设置为200
     /**
      * @var array
      */
@@ -50,7 +52,10 @@ class Pixabay extends Base
      * @return mixed
     */
     public  function getPublicImageList($page=1, $params=[])
-    {
+    {   
+        $params['key'] = self::KEY;
+        $params['page'] = $page;
+        $params['per_page'] = self::PER_PAGE;
         $this->parseOptions($params);
         $response = $this->client->request('GET', self::API_ROOT . self::SEGMENT_IMAGES, ['query' => $this->options]);
         $data = $response->getBody()->getContents();

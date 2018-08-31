@@ -3,21 +3,23 @@ namespace app\admin\controller;
 
 use GuzzleHttp\Client;
 use think\File;
+use GuzzleHttp\Exception\BadResponseException;
 class Image
 {
     
-    const DIR_PATH = "public/uploads/images/";
+    const DIR_PATH  = "public/uploads/images/";
+    const SAVE_PATH = "uploads/images/";
     /**取样倍率 1~10
      * @access public
      * @staticvar int
      * */
-    public static $rate = 8;
+    public static $rate = 1;
     
     /**相似度允许值 0~64
      * @access public
      * @staticvar int
      * */
-    public static $similarity = 80;
+   // public static $similarity = 80;
     
     /**图片类型对应的开启函数
      * @access private
@@ -34,32 +36,41 @@ class Image
     
     public function index($src,$info=[])
     {
+        $pathinfo =pathinfo($src);
+        if($this->isExists($pathinfo['basename'])){
+            return false;
+        }
         $src_path=$this->downImage($src);
         if(false===$src_path)
             return false;
-        $thumb_info = $this->createThumb($src_path);
-        $thumb_info['from'] = $info['from'];
-        $this->saveFile($src_path, $thumb_info);
+        $thumb_info = $this->createThumb(str_replace('\\','/',ROOT_PATH.$src_path));
+        
+        $this->saveFile($src_path, $thumb_info,$info);
     }
-    private function saveFile($src_path, $thumb_info)
+    private function saveFile($src_path, $thumb_info,$image_info)
     {
         $file = new File(ROOT_PATH.$src_path);
         $file_info = [
-            'uid'    => $thumb_info['from'],
             'name'   => $thumb_info['filename'],
             'mime'   => $thumb_info['mime'],
-            'path'   => $src_path,
+            'path'   => $this->getSavePath($src_path),
             'ext'    => $thumb_info['ext'],
             'size'   => $file->getSize(),
             'md5'    => $file->hash('md5'),
             'sha1'   => $file->hash('sha1'),
-            'thumb'  => $thumb_info['path'],
-            'module' => '',
+            'thumb'  => $this->getSavePath($thumb_info['path']),
+            'module' => 'web',
             'width'  => $thumb_info['width'],
             'height' => $thumb_info['height'],
-            'hashimage'=>self::hashImage(ROOT_PATH.$src_path,$thumb_info),
+            'hashimage'=>self::hashImage(str_replace('\\','/',ROOT_PATH.$src_path),$thumb_info),
+            'from_web'=>$image_info['from'],
+            'remark'  =>isset($image_info['remark'])?$image_info['remark']:null, 
+            'tags'    =>$image_info['tags'],
+            'create_time'=>time(),
+            'update_time'=>time(),
         ];
-        dump($file_info);exit;
+        db('admin_attachment')->insert($file_info);
+        
     }
     /**
      * 创建缩略图
@@ -73,9 +84,9 @@ class Image
             mkdir($thum_path,0777,true);
         }
         $pathinfo = pathinfo($src);
-        echo ROOT_PATH.$src;
-        $image = \think\Image::open(ROOT_PATH.$src);
-        echo "=====";exit;
+       
+        $image = \think\Image::open(str_replace('\\','/',$src));
+        
         $thumb_name = md5($pathinfo['basename']).".".$pathinfo['extension'];
         $image_info = [
             'path'      => $thumb.$thumb_name,
@@ -85,9 +96,7 @@ class Image
             'ext'       => $image->type(),
             'filename'  => $pathinfo['basename'],
         ];
-        if(file_exists($thum_path.$thumb_name)){
-            return $image_info;
-        }
+       
         // 获取要生成的缩略图最大宽度和高度
         $thumb_size =  config('upload_image_thumb') ?config('upload_image_thumb'): "640,426";
        // 按照原图的比例生成一个最大为150*150的缩略图并保存为thumb.png
@@ -108,7 +117,7 @@ class Image
     private function downImage($src)
     {
         $client = new Client(['verify' => false]);
-        try{
+        
             $dir = self::DIR_PATH.date('Ymd').DS;
             $dir_path = ROOT_PATH.self::DIR_PATH.date('Ymd').DS;
             if(!file_exists($dir_path)) {
@@ -120,12 +129,18 @@ class Image
             if(file_exists($dir_path.$pathinfo['basename'])){
                 return $dir.$pathinfo['basename'];
             }
-            
-            $client->request('get',$src,['save_to'=>$dir_path.$pathinfo['basename']]);
+            $res = null;
+            try{
+                $res = $client->request('get',$src,['save_to'=>$dir_path.$pathinfo['basename']]);
+            }catch (BadResponseException $e){
+                return false;
+            }
+           
+            if($res->getStatusCode()!=200){
+                return  false;
+            }
             return $dir.$pathinfo['basename'];
-        }catch (\Exception $e){
-            return false;
-        } 
+       
     }
     private function getExt($path)
     {
@@ -151,40 +166,69 @@ class Image
     
     
     /**hash 图片
-     * @param resource $src 图片 resource ID
-     * @return string 图片 hash 值，失败则是 false
+     * @param resource $src 图片 resource 
+     * @return string 图片 hash 值，失败则是 null 
      * */
-    public static function hashImage($src,$thumn_info){
-        if(!$src){ return false; }
-    
-        /*缩小图片尺寸*/
-        $delta = 8 * self::$rate;
-        $img = imageCreateTrueColor($delta,$delta);
-        imageCopyResized($img,$src, 0,0,0,0, $delta,$delta,imagesX($thumn_info['width']),imagesY($thumn_info['height']));
-    
-        /*计算图片灰阶值*/
-        $grayArray = array();
-        for ($y=0; $y<$delta; $y++){
-            for ($x=0; $x<$delta; $x++){
-                $rgb = imagecolorat($img,$x,$y);
-                $col = imagecolorsforindex($img, $rgb);
-                $gray = intval(($col['red']+$col['green']+$col['blue'])/3)& 0xFF;
-    
-                $grayArray[] = $gray;
+    public static function hashImage($src, $thumn_info)
+    {
+        if(!$src) return null; 
+        try {
+            /*缩小图片尺寸*/
+            $delta = 8 * self::$rate;
+            $img = imagecreatetruecolor($delta,$delta);
+            // imageCopyResized($img,$src, 0,0,0,0, $delta,$delta,imagesX($src),imagesY($src));
+            $func_src = self::createImage($src);
+//             if($func_src===false)
+//                 return null;
+             
+            imagecopyresized($img,$func_src, 0,0,0,0, $delta,$delta,$thumn_info['width'],$thumn_info['height']);
+            
+            /*计算图片灰阶值*/
+            $grayArray = array();
+            for ($y=0; $y<$delta; $y++){
+                for ($x=0; $x<$delta; $x++){
+                    $rgb = imagecolorat($img,$x,$y);
+                    $col = imagecolorsforindex($img, $rgb);
+                    $gray = intval(($col['red']+$col['green']+$col['blue'])/3)& 0xFF;
+            
+                    $grayArray[] = $gray;
+                }
             }
+            imagedestroy($img);
+            
+            /*计算所有像素的灰阶平均值*/
+            $average = array_sum($grayArray)/count($grayArray);
+            
+            /*计算 hash 值*/
+            $hashStr = '';
+            foreach ($grayArray as $gray){
+                $hashStr .= ($gray>=$average) ? '1' : '0';
+            }
+            
+            return $hashStr;
+        } catch (\Exception $e) {
+            dump($e);
+            return null;
         }
-        imagedestroy($img);
+       
+    }
+    /**
+     * 获取原图的绝对路径
+     * @param unknown $name
+     */
     
-        /*计算所有像素的灰阶平均值*/
-        $average = array_sum($grayArray)/count($grayArray);
+    private function getSavePath($path)
+    {
+        
+        return str_replace('\\', '/', str_replace( 'public/','', $path));
+    }
     
-        /*计算 hash 值*/
-        $hashStr = '';
-        foreach ($grayArray as $gray){
-            $hashStr .= ($gray>=$average) ? '1' : '0';
-        }
-    
-        return $hashStr;
+    /**
+     * 判断文件是否存在 
+     */
+    private function isExists($name)
+    {
+        return db('admin_attachment')->where(['name'=>$name])->count();
     }
 }
 
