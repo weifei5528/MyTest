@@ -50,6 +50,7 @@ class GrantFactory
      */
     public function getGrant($name)
     {
+        
         if (empty($this->registry[$name])) {
             $this->registerDefaultGrant($name);
         }
