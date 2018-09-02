@@ -38,10 +38,6 @@ class Image
     
     public function index($src,$info=[])
     {
-        $pathinfo =pathinfo($src);
-        if($this->isExists($pathinfo['basename'])){
-            return false;
-        }
         $src_path=$this->downImage($src);
         if(false===$src_path)
             return false;
@@ -132,35 +128,32 @@ class Image
             $pathinfo = pathinfo($src);
             $file_name = md5(time().rand(1111,9999)).'.'.$pathinfo['extension'];
           
-            echo $dir_path.$file_name."<br/>";
-            if($this->currentDownImage($src, $dir_path.$file_name)) {
-                echo "成功"."<br/>";
-                return $dir.$file_name;
-            }else{
-                echo "失败"."<br/>";
-                return false;
-            }
+//            echo $dir_path.$file_name."<br/>";
+//            if($this->currentDownImage($src, $dir.$file_name)) {
+//                echo "成功"."<br/>";
+//                return $dir.$file_name;
+//            }else{
+//                echo "失败"."<br/>";
+//                return false;
+//            }
 //             echo "1"."<br/>";
-//             try{
-//                 $res = $client->request('get',$src,['save_to'=>$dir_path.$file_name]);
-//             }catch (GuzzleException  $e){
-//                 dump($e);
-//                 echo "失败"."<br/>";
-//                 return false;
-//             }
+             try{
+                 $res = $client->request('get',$src,['save_to'=>$dir_path.$file_name]);
+             }catch (GuzzleException  $e){
+                 dump($e);
+                 echo "失败"."<br/>";
+                 return false;
+             }
           
 //             if($res->getStatusCode()!=200){
 //                 echo "失败"."<br/>";
 //                 return  false;
 //             }
 //            // echo "成功"."<br/>";
-//            return $dir.$pathinfo['basename'];
+            return $dir.$file_name;
        
     }
-    private function getExt($path)
-    {
-        return strrchr($path,".");
-    }
+
     
     /**从文件建立图片
      * @param string $filePath 文件地址路径
@@ -245,28 +238,45 @@ class Image
     {
         return db('admin_attachment')->where(['name'=>$name])->count();
     }
-    /**
-     * 图片下载
-     */
-    private function currentDownImage($url,$filename)
-    {
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 30);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-        // curl_setopt($ch, CURLOPT_MAXREDIRS, 2);
-        // curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-        $temp = curl_exec($ch);
-        if($temp===false){
-            dump(curl_errno($ch));
-            return false;
-        }
-            return false;
-        if (!file_put_contents($filename, $temp)) {
-           
-            return false;
-        }
-    }
+//    public function downloadImage($url, $path=self::SAVE_PATH)
+//    {
+//        $url = trim($url);
+//        $curl = curl_init();
+//        curl_setopt($curl, CURLOPT_URL, $url);
+//        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+//        curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 20); // 设置超时
+//        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+//        $file = curl_exec($curl);
+//
+//        if(curl_errno($curl)){
+//
+//            return false;
+//        }
+//        // 关闭URL请求
+//        curl_close($curl);
+//        $path .=date('Ymd')."/";
+//        // 将文件写入获得的数据
+//        if(!file_exists(".".PUBLIC_PATH . $path)){
+//            mkdir(iconv("UTF-8", "GBK", ".".PUBLIC_PATH . $path),0777,true);
+//        }
+//        $filename = ".".PUBLIC_PATH . $path . md5(time().rand(1111,9999)).".".pathinfo($url,PATHINFO_EXTENSION );
+//
+//        $write = @fopen($filename, "w");
+//
+//        if ($write == false) {
+//
+//            return null;
+//        }
+//        if (fwrite($write, $file) == false) {
+//
+//            return null;
+//        }
+//        if (fclose($write) == false) {
+//
+//            return null;
+//        }
+//        return $path . $filename;
+//    }
 }
 
 ?>
