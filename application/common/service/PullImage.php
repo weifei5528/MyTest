@@ -6,7 +6,7 @@
  * Time: 22:33
  */
 
-namespace app\common\service\picture;
+namespace app\common\service;
 
 
 class PullImage
