@@ -9,13 +9,14 @@
 namespace app\common\service;
 
 
+use app\common\service\picture\DownLoadImage;
 use app\common\service\picture\FingerImage;
 
 class PullImage
 {
-    public static function addImage($src)
+    public static function addImage($src,$image_info)
     {
-        $src_path = DownLoadImage::downImage($src,$image_info=[]);
+        $src_path = DownLoadImage::downImage($src);
         if(empty($image_path))
             return false;
         $thumb_info = ThumbImage::createThumb($src_path);
