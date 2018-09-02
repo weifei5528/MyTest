@@ -9,6 +9,8 @@
 namespace app\common\service;
 
 
+use app\common\service\picture\FingerImage;
+
 class PullImage
 {
     public static function addImage($src)
@@ -34,7 +36,7 @@ class PullImage
             'module' => 'web',
             'width'  => $thumb_info['width'],
             'height' => $thumb_info['height'],
-            'hashimage'=>FingerImage::hashImage(str_replace('\\','/',ROOT_PATH.$src_path)),
+            'hashimage'=>$finger,
             'from_web'=>$image_info['from'],
             'remark'  =>isset($image_info['remark'])?$image_info['remark']:null,
             'tags'    =>$image_info['tags'],
