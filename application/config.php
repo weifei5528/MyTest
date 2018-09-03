@@ -277,4 +277,6 @@ return [
         'var_page'  => 'page',
         'list_rows' => 15,
     ],
+    //密码的加密字符
+    'password'  =>'abcdefg',
 ];

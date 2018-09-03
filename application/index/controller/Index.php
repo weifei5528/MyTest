@@ -26,7 +26,7 @@ class Index extends Home
 {
     public function index()
     {
-//         set_time_limit(0);   // 设置脚本最大执行时间 为0 永不过期
+        set_time_limit(0);   // 设置脚本最大执行时间 为0 永不过期
         $pixabay = new Pixabay();
         
         for ($i = 2;$i < 3; $i++) {

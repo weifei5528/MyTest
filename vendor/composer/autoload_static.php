@@ -11,8 +11,6 @@ class ComposerStaticInit0b753b9c7b89772bafebe4197ceef723
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
-        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
-        '023d27dca8066ef29e6739335ea73bad' => __DIR__ . '/..' . '/symfony/polyfill-php70/bootstrap.php',
         '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
         '1cfd2761b63b0a29ed23657ea394cb2d' => __DIR__ . '/..' . '/topthink/think-captcha/src/helper.php',
         '9b552a3cc426e3287cc811caefa3cf53' => __DIR__ . '/..' . '/topthink/think-helper/src/helper.php',
@@ -29,29 +27,17 @@ class ComposerStaticInit0b753b9c7b89772bafebe4197ceef723
         'Y' => 
         array (
             'Yurun\\Util\\' => 11,
+            'Yurun\\PaySDK\\' => 13,
             'Yurun\\OAuthLogin\\' => 17,
-            'Yansongda\\Supports\\' => 19,
-            'Yansongda\\Pay\\' => 14,
         ),
         'U' => 
         array (
             'Unsplash\\OAuth2\\Client\\' => 23,
         ),
-        'S' => 
-        array (
-            'Symfony\\Polyfill\\Php70\\' => 23,
-            'Symfony\\Polyfill\\Mbstring\\' => 26,
-            'Symfony\\Component\\HttpFoundation\\' => 33,
-        ),
         'P' => 
         array (
-            'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
             'Pixabay\\' => 8,
-        ),
-        'M' => 
-        array (
-            'Monolog\\' => 8,
         ),
         'L' => 
         array (
@@ -62,6 +48,10 @@ class ComposerStaticInit0b753b9c7b89772bafebe4197ceef723
             'GuzzleHttp\\Psr7\\' => 16,
             'GuzzleHttp\\Promise\\' => 19,
             'GuzzleHttp\\' => 11,
+        ),
+        'F' => 
+        array (
+            'Firebase\\JWT\\' => 13,
         ),
         'C' => 
         array (
@@ -91,37 +81,17 @@ class ComposerStaticInit0b753b9c7b89772bafebe4197ceef723
         array (
             0 => __DIR__ . '/..' . '/yurunsoft/yurun-http/src',
         ),
+        'Yurun\\PaySDK\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/yurunsoft/pay-sdk/src',
+        ),
         'Yurun\\OAuthLogin\\' => 
         array (
             0 => __DIR__ . '/..' . '/yurunsoft/yurun-oauth-login/src',
         ),
-        'Yansongda\\Supports\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/yansongda/supports/src',
-        ),
-        'Yansongda\\Pay\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/yansongda/pay/src',
-        ),
         'Unsplash\\OAuth2\\Client\\' => 
         array (
             0 => __DIR__ . '/..' . '/hughbertd/oauth2-unsplash/src',
-        ),
-        'Symfony\\Polyfill\\Php70\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/polyfill-php70',
-        ),
-        'Symfony\\Polyfill\\Mbstring\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
-        ),
-        'Symfony\\Component\\HttpFoundation\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/http-foundation',
-        ),
-        'Psr\\Log\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),
         'Psr\\Http\\Message\\' => 
         array (
@@ -130,10 +100,6 @@ class ComposerStaticInit0b753b9c7b89772bafebe4197ceef723
         'Pixabay\\' => 
         array (
             0 => __DIR__ . '/..' . '/zoonman/pixabay-php-api/src/Pixabay',
-        ),
-        'Monolog\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
         'League\\OAuth2\\Client\\' => 
         array (
@@ -151,6 +117,10 @@ class ComposerStaticInit0b753b9c7b89772bafebe4197ceef723
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
         ),
+        'Firebase\\JWT\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/firebase/php-jwt/src',
+        ),
         'Crew\\Unsplash\\' => 
         array (
             0 => __DIR__ . '/..' . '/unsplash/unsplash/src',
@@ -167,23 +137,12 @@ class ComposerStaticInit0b753b9c7b89772bafebe4197ceef723
         ),
     );
 
-    public static $classMap = array (
-        'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
-        'AssertionError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
-        'DivisionByZeroError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/DivisionByZeroError.php',
-        'Error' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/Error.php',
-        'ParseError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ParseError.php',
-        'SessionUpdateTimestampHandlerInterface' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/SessionUpdateTimestampHandlerInterface.php',
-        'TypeError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/TypeError.php',
-    );
-
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit0b753b9c7b89772bafebe4197ceef723::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit0b753b9c7b89772bafebe4197ceef723::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInit0b753b9c7b89772bafebe4197ceef723::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit0b753b9c7b89772bafebe4197ceef723::$classMap;
 
         }, null, ClassLoader::class);
     }

@@ -23,9 +23,10 @@
         "topthink/think-helper": "^1.0",
         "ezyang/htmlpurifier": "^4.9",
         "yurunsoft/yurun-oauth-login": "^2.0",
-        "yansongda/pay": "^2.4",
         "unsplash/unsplash": "^2.4",
-        "zoonman/pixabay-php-api": "^1.0"
+        "zoonman/pixabay-php-api": "^1.0",
+        "yurunsoft/pay-sdk": "^2.0",
+        "firebase/php-jwt": "^5.0"                         
     },
     "extra": {
         "think-path": "thinkphp"
