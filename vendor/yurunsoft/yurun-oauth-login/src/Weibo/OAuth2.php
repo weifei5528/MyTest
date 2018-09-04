@@ -3,6 +3,7 @@ namespace Yurun\OAuthLogin\Weibo;
 
 use Yurun\OAuthLogin\Base;
 use Yurun\OAuthLogin\ApiException;
+use think\Log;
 
 class OAuth2 extends Base
 {

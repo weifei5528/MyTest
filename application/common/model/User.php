@@ -4,6 +4,8 @@ namespace app\common\model;
 use think\Model;
 class User extends Model
 {
+    protected $name = "users";
+    protected $autoWriteTimestamp =true;
     /**
      * 获取用户的信息
      * @param int $userid

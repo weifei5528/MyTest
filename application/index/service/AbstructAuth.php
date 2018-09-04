@@ -1,8 +1,8 @@
 <?php
 namespace app\index\service;
-
 abstract class AbstructAuth
 {
+    const HOST = "http://46814.3m.dkys.org";
     /**
      * 授权登录的页面
      */
@@ -15,17 +15,17 @@ abstract class AbstructAuth
     /**
      * 获取回调页面的url
      */
-    protected function getCallBackUrl()
+    protected static function getCallBackUrl($type)
     {
-        $type_class = explode('\\',get_class($this));
-        array_filter($type_class);
-        $type = strtolower(end($type_class));
-        return url('User/callback',['type'=>$type]);
+//         $type_class = explode('\\',get_class(static::class));
+//         array_filter($type_class);
+//         $type = strtolower(end($type_class));
+        return self::HOST.url('Login/callback',['type'=>$type]);
     }
     /**
      * 写入userid
      */
-    abstract public function addUserId($userid,$where);
+    abstract public function addUserId($userid,$where=[]);
 }
 
 ?>

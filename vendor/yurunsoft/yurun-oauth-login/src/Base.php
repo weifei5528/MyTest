@@ -2,6 +2,7 @@
 namespace Yurun\OAuthLogin;
 
 use Yurun\Util\HttpRequest;
+use think\Log;
 
 abstract class Base
 {

@@ -67,7 +67,7 @@ class Login extends Home
         $userinfo = OAuth::authCallBack($class);
         if(false!==$userinfo) {
             if(empty($userinfo['userid'])) {
-                return $this->bindUserName($class, $userinfo['id']);
+                return $this->bindUserName($class, $userinfo['openid']);
             }
             $user = User::getUserInfo($userinfo['userid']);
             $this->setUser($user);
@@ -81,9 +81,11 @@ class Login extends Home
      */
     public function bindUserName($class = null, $id = null)
     {
-        $class = $class ? $class :input('post.class', null);
-        $id    = $id ? $id :input('post.id', null);
-        if($this->request->isPost()) {
+       
+        $class = $class ? $class :input('class');
+        $id    = $id ? $id :input('id');
+        
+        if(!$this->request->isPost()) {
             $username = input('username', null);
             $password = input('password', null);
             if(empty($class) || empty($id)) {
@@ -94,8 +96,8 @@ class Login extends Home
             }
             Db::startTrans();
             try{
-                $user = User::create(['username' => $username, 'password' =>getMd5Pass($password)]);
-                OAuth::addUserId($class, $user['id'], ['id' => $id]);
+                $user = User::create(['username' => $username, 'password' =>getMd5Pass($password), 'last_login_ip' => get_client_ip()]);
+                OAuth::addUserId($class, $user['id'], ['openid' => $id]);
                 Db::commit();
             }catch (\Exception $e) {
                 Db::rollback();
@@ -106,7 +108,7 @@ class Login extends Home
         } else {
             $this->assign('class', $class);
             $this->assign('id', $id);
-            return $this->fetch();
+            return $this->fetch('login/bindusername.html');
         }
     }
     /**
@@ -115,6 +117,7 @@ class Login extends Home
     private function getAuthBackUrl()
     {
         $url = session('backurl');
+        session('backurl', null);
         if(empty($url))
             $url = url('index/index');
         return $url;

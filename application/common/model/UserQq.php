@@ -13,9 +13,9 @@ class UserQq extends Model
     /**
      * 判断用户是否存在
      */
-    public static function getUser($openid)
+    public static function getUser($openid,$type='qq')
     {
-        return self::where(['openid' => $openid])->find();
+        return self::where(['openid' => $openid,'type' => $type])->find();
     }
     
     /**
@@ -23,7 +23,7 @@ class UserQq extends Model
      */
     public static function updateUser($where, $data)
     {
-        return self::where($where)->isUpdate(true)->save($data);
+        return self::where($where)->update($data);
     }
 }
 

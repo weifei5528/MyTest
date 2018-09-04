@@ -18,6 +18,7 @@ use app\common\service\unsplash\Unsplash;
 use app\common\service\builder\Pixabay;
 use app\admin\controller\Image;
 use app\common\service\Translate;
+use app\index\service\OAuth;
 /**
  * 前台首页控制器
  * @package app\index\controller
@@ -26,42 +27,43 @@ class Index extends Home
 {
     public function index()
     {
-        set_time_limit(0);   // 设置脚本最大执行时间 为0 永不过期
-        $pixabay = new Pixabay();
+        OAuth::getAuthUrl("weibo");
+//         set_time_limit(0);   // 设置脚本最大执行时间 为0 永不过期
+//         $pixabay = new Pixabay();
         
-        for ($i = 2;$i < 3; $i++) {
-//            ob_flush();
-//            flush();
-            $res=$pixabay->getPublicImageList($i,['category'=>'nature']);
+//         for ($i = 2;$i < 3; $i++) {
+// //            ob_flush();
+// //            flush();
+//             $res=$pixabay->getPublicImageList($i,['category'=>'nature']);
 
 
-            if(empty($res))
-                break;
+//             if(empty($res))
+//                 break;
 
 
 
-            foreach ($res['hits'] as $img) {
-                //$this->downloadImage( $img['largeImageURL']);
-                try{
-                    PullImage::addImage(
-                        $img['largeImageURL'],
-                        [
-                            'from'=>'pixabay',
-                            'tags'=>Translate::getInstance()->translateStr($img['tags']),
-                            'remark'=>json_encode($img),
-                        ]);
-                }catch (\Exception $e){
-                    continue;
-                }
+//             foreach ($res['hits'] as $img) {
+//                 //$this->downloadImage( $img['largeImageURL']);
+//                 try{
+//                     PullImage::addImage(
+//                         $img['largeImageURL'],
+//                         [
+//                             'from'=>'pixabay',
+//                             'tags'=>Translate::getInstance()->translateStr($img['tags']),
+//                             'remark'=>json_encode($img),
+//                         ]);
+//                 }catch (\Exception $e){
+//                     continue;
+//                 }
                
-            }
-        }
+//             }
+//         }
         
     
-//        if (config('home_default_module') != 'index') {
-//            $this->redirect(config('home_default_module'). '/index/index');
-//        }
-//        return '<style type="text/css">*{ padding: 0; margin: 0; } .think_default_text{ padding: 4px 48px;} a{color:#2E5CD5;cursor: pointer;text-decoration: none} a:hover{text-decoration:underline; } body{ background: #fff; font-family: "Century Gothic","Microsoft yahei"; color: #333;font-size:18px} h1{ font-size: 100px; font-weight: normal; margin-bottom: 12px; } p{ line-height: 1.6em; font-size: 42px }</style><div style="padding: 24px 48px;"> <h1>:)</h1><p> '.config("dolphin.product_name").' '.config("dolphin.product_version").'<br/><span style="font-size:30px">极速 · 极简 · 极致</span></p></div>';
+// //        if (config('home_default_module') != 'index') {
+// //            $this->redirect(config('home_default_module'). '/index/index');
+// //        }
+// //        return '<style type="text/css">*{ padding: 0; margin: 0; } .think_default_text{ padding: 4px 48px;} a{color:#2E5CD5;cursor: pointer;text-decoration: none} a:hover{text-decoration:underline; } body{ background: #fff; font-family: "Century Gothic","Microsoft yahei"; color: #333;font-size:18px} h1{ font-size: 100px; font-weight: normal; margin-bottom: 12px; } p{ line-height: 1.6em; font-size: 42px }</style><div style="padding: 24px 48px;"> <h1>:)</h1><p> '.config("dolphin.product_name").' '.config("dolphin.product_version").'<br/><span style="font-size:30px">极速 · 极简 · 极致</span></p></div>';
     }
 
 //    public function downloadImage($url, $path='uploads/images/')

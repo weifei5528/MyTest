@@ -32,7 +32,7 @@ class Home extends Common
             $this->error('站点已经关闭，请稍后访问~');
         }
         $controller = request()->controller();
-        if(!$this->getUser() || !in_array($controller, $this->public_controllers)) {
+        if(!$this->getUser() && !in_array(strtolower($controller), $this->public_controllers)) {
             if(empty($this->getUser())) {
                 $backurl = null;
                 if($controller!='login'){
