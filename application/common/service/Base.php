@@ -52,4 +52,8 @@ abstract class Base
     {
         $this->client->setDefaultOption('verify', $default);
     }
+    /**
+     * 下载添加图片
+     */
+    abstract public function downThumbFinger($from, $data=[]);
 }

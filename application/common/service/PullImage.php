@@ -11,20 +11,22 @@ namespace app\common\service;
 
 use app\common\service\picture\DownLoadImage;
 use app\common\service\picture\FingerImage;
+use app\common\service\picture\ThumbImage;
+use think\File;
 
 class PullImage
 {
     public static function addImage($src,$image_info)
     {
         $src_path = DownLoadImage::downImage($src);
-        if(empty($image_path))
+        if(empty($src_path))
             return false;
         $thumb_info = ThumbImage::createThumb($src_path);
         if(empty($thumb_info))
             return false;
-        $finger = FingerImage::hashImage(ROOT_PATH.$src_path);
-
-        $file = new File(ROOT_PATH.$image_path);
+        $finger = FingerImage::hashImage($src_path,$thumb_info);
+    try{
+        $file = new File(ROOT_PATH.$src_path);
         $file_info = [
             'name'   => $thumb_info['filename'],
             'mime'   => $thumb_info['mime'],
@@ -43,8 +45,13 @@ class PullImage
             'tags'    =>$image_info['tags'],
             'create_time'=>time(),
             'update_time'=>time(),
+            'unique_id' =>isset($image_info['id'])?$image_info['id']:0,
         ];
         db('admin_attachment')->insert($file_info);
+    }catch (\Exception $e){
+        return false;
+    }
+        
 
     }
     /**

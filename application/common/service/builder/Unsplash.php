@@ -73,5 +73,8 @@ class Unsplash extends Base
     private function setHeader(){
         $this->header['Authorization: Client-ID'] = $this->access;
     }
-
+    public function downThumbFinger($from, $data=[])
+    {
+        
+    }
 }

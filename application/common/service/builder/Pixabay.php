@@ -2,6 +2,8 @@
 namespace app\common\service\builder;
 
 use app\common\service\Base;
+use think\Db;
+use app\common\service\PullImage;
 class Pixabay extends Base
 {
     /**
@@ -56,10 +58,15 @@ class Pixabay extends Base
         $params['key'] = self::KEY;
         $params['page'] = $page;
         $params['per_page'] = self::PER_PAGE;
+        $params['lang'] ='zh';
+        $params['image_type'] ="all";
         $this->parseOptions($params);
         $response = $this->client->request('GET', self::API_ROOT . self::SEGMENT_IMAGES, ['query' => $this->options]);
         $data = $response->getBody()->getContents();
-        return \GuzzleHttp\json_decode($data,true);
+        $res = \GuzzleHttp\json_decode($data,true);
+        if(empty($res) || empty($res['hits']))
+            return false;
+        return $res['hits'];
     }
     
     /**
@@ -85,6 +92,26 @@ class Pixabay extends Base
                 unset($this->options[$option]);
             }
         }
+    }
+    public function downThumbFinger($from, $data=[])
+    {
+    
+        if(!Db::name('admin_attachment')->where(['unique_id'=>$data['id'],'from_web'=>$from])->count()){
+            try{
+                PullImage::addImage(
+                    $data['largeImageURL'],
+                    [
+                        'from'=>$from,
+                        'id'  =>$data['id'] ,
+                        //'tags'=>Translate::getInstance()->translateStr($img['tags']),
+                        'tags'=>$data['tags'],
+                        'remark'=>json_encode($data),
+                    ]);
+            }catch (\Exception $e){
+                return false;
+            }
+        }
+    
     }
 }
 

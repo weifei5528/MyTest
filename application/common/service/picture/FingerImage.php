@@ -28,22 +28,25 @@ class FingerImage
      * @staticvar string
      * */
     private static $_createFunc = array(
-        IMAGETYPE_GIF   =>'imageCreateFromGIF',
-        IMAGETYPE_JPEG  =>'imageCreateFromJPEG',
-        IMAGETYPE_PNG   =>'imageCreateFromPNG',
-        IMAGETYPE_BMP   =>'imageCreateFromBMP',
-        IMAGETYPE_WBMP  =>'imageCreateFromWBMP',
-        IMAGETYPE_XBM   =>'imageCreateFromXBM',
+        'gif'   =>'imageCreateFromGIF',
+        'jpeg'  =>'imageCreateFromJPEG',
+        'jpg'   =>'imageCreateFromJPEG',
+        'png'   =>'imageCreateFromPNG',
+        'bmp'   =>'imageCreateFromBMP',
+        'wbmp'  =>'imageCreateFromWBMP',
+        'xbm'   =>'imageCreateFromXBM',
     );
     /**从文件建立图片
      * @param string $filePath 文件地址路径
      * @return resource 当成功开启图片则传递图片 resource ID，失败则是 false
      * */
     protected static function createImage($filePath){
-        if(!file_exists($filePath)){ return false; }
+        $filePath = str_replace('\\','/', $filePath);
+        if(!file_exists($filePath)){ echo "++++";return false; }
 
         /*判断文件类型是否可以开启*/
-        $type = exif_imagetype($filePath);
+        //$type = exif_imagetype($filePath);
+        $type = pathinfo($filePath,PATHINFO_EXTENSION );
         if(!array_key_exists($type,self::$_createFunc)){ return false; }
 
         $func = self::$_createFunc[$type];
@@ -57,9 +60,10 @@ class FingerImage
      * @param resource $src 图片 resource
      * @return string 图片 hash 值，失败则是 null
      * */
-    public static function hashImage($src)
+    public static function hashImage($src,$info=[])
     {
         if(!$src) return null;
+        $src = ROOT_PATH.$src;
         try {
             /*缩小图片尺寸*/
             $delta = 8 * self::$rate;
@@ -69,7 +73,7 @@ class FingerImage
 //             if($func_src===false)
 //                 return null;
 
-            imagecopyresized($img,$func_src, 0,0,0,0, $delta,$delta,imagesX($src),imagesY($src));
+            imagecopyresized($img,$func_src, 0,0,0,0, $delta,$delta,$info['width'],$info['height']);
 
             /*计算图片灰阶值*/
             $grayArray = array();

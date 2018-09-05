@@ -1,5 +1,6 @@
 <?php
 namespace app\common\service\picture;
+use think\Log;
 /**
  * Created by PhpStorm.
  * User: Administrator
@@ -18,15 +19,16 @@ class ThumbImage
      */
     public static function createThumb($src)
     {
+        Log::write($src,'error');
         $thumb = DownLoadImage::DIR_PATH.date('Ymd')."/thumb/";
         $thum_path =  ROOT_PATH.$thumb;
         if(!file_exists($thum_path)) {
             mkdir($thum_path,0777,true);
         }
 
-
-        $image = \think\Image::open(str_replace('\\','/',$src));
-
+        Log::write("111111","error");
+        
+        $image = \think\Image::open(str_replace('\\','/',ROOT_PATH.$src));
         $thumb_name = md5(time().rand(1111,9999)).".".pathinfo($src,PATHINFO_EXTENSION);
         $image_info = [
             'path'      => $thumb.$thumb_name,
@@ -34,7 +36,7 @@ class ThumbImage
             'height'    => $image->height(),
             'mime'      => $image->mime(),
             'ext'       => $image->type(),
-
+            'filename'  =>pathinfo($src,PATHINFO_BASENAME ),
         ];
         // 获取要生成的缩略图最大宽度和高度
         $thumb_size =  config('upload_image_thumb') ?config('upload_image_thumb'): "640,426";

@@ -27,7 +27,7 @@ class Index extends Home
 {
     public function index()
     {
-        OAuth::getAuthUrl("weibo");
+        //OAuth::getAuthUrl("weibo");
 //         set_time_limit(0);   // 设置脚本最大执行时间 为0 永不过期
 //         $pixabay = new Pixabay();
         
@@ -42,7 +42,7 @@ class Index extends Home
 
 
 
-//             foreach ($res['hits'] as $img) {
+//             foreach ($res as $img) {
 //                 //$this->downloadImage( $img['largeImageURL']);
 //                 try{
 //                     PullImage::addImage(
