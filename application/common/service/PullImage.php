@@ -18,13 +18,13 @@ class PullImage
 {
     public static function addImage($src,$image_info)
     {
-        $src_path = DownLoadImage::downImage($src);
+        $src_path = DownLoadImage::downImage($src,isset($image_info['type']) ? $image_info['type'] : null);
         if(empty($src_path))
             return false;
         $thumb_info = ThumbImage::createThumb($src_path);
         if(empty($thumb_info))
             return false;
-        $finger = FingerImage::hashImage($src_path,$thumb_info);
+        $finger = FingerImage::hashImage($thumb_info);
     try{
         $file = new File(ROOT_PATH.$src_path);
         $file_info = [
@@ -46,6 +46,7 @@ class PullImage
             'create_time'=>time(),
             'update_time'=>time(),
             'unique_id' =>isset($image_info['id'])?$image_info['id']:0,
+            'color'     =>isset($image_info['color'])?$image_info['color']:null,
         ];
         db('admin_attachment')->insert($file_info);
     }catch (\Exception $e){

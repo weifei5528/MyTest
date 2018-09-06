@@ -19,6 +19,7 @@ use app\common\service\builder\Pixabay;
 use app\admin\controller\Image;
 use app\common\service\Translate;
 use app\index\service\OAuth;
+use app\common\service\picture\FingerImage;
 /**
  * 前台首页控制器
  * @package app\index\controller
@@ -27,6 +28,8 @@ class Index extends Home
 {
     public function index()
     {
+        
+       
         //OAuth::getAuthUrl("weibo");
 //         set_time_limit(0);   // 设置脚本最大执行时间 为0 永不过期
 //         $pixabay = new Pixabay();

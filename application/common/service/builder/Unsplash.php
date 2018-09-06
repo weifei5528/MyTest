@@ -10,14 +10,13 @@ namespace app\common\service\builder;
 
 use app\common\service\Base;
 
-use Crew\Unsplash\Photo;
 use Crew\Unsplash\HttpClient;
-
+use think\Db;
+use app\common\service\PullImage;
+use app\common\service\Translate;
 class Unsplash extends Base
 {
-    const PUBLIC_PHOTOS = "https://api.unsplash.com/photos";
-    const PUBLIC_CURATED = "https://api.unsplash.com/photos/curated";
-    const USER_AUTH = "https://unsplash.com/oauth/authorize";
+    const HOST_NAME   =  "https://api.unsplash.com/";
     const ACCESS = "213dd1485346e67e2d3f1a194c77da264aa403b66a2b32ebbc388369e4ef57da";
     const SECRET = "d3cea798e3c255f83dc9959cef6cdf58298309ef3d7c135fd195cb2bc9974908";
     
@@ -48,7 +47,7 @@ class Unsplash extends Base
         //$url =  self::PUBLIC_PHOTOS.'?client_id='.static::ACCESS;
         $res=$this->client->request(
             'GET',
-            self::PUBLIC_CURATED,
+            self::HOST_NAME."photos",
             [
                 'query'   =>[
                     'page'      =>$page,
@@ -57,8 +56,14 @@ class Unsplash extends Base
                 ]
             ]
             );
-        return $res->getBody()->getContents();
-       // $photos = Photo::all();
+        if(200 != $res->getStatusCode()) {
+            return false;
+        }
+        $data = $res->getBody()->getContents();
+        if(empty($data)) {
+            return false;
+        }
+        return json_decode($data,true);
         
     }
 
@@ -75,6 +80,23 @@ class Unsplash extends Base
     }
     public function downThumbFinger($from, $data=[])
     {
-        
+        if(!Db::name('admin_attachment')->where(['unique_id'=>$data['id'],'from_web'=>$from])->count()){
+            try{
+                parse_str(parse_url($data['urls']['full'],PHP_URL_QUERY),$url_params);
+                PullImage::addImage(
+                    $data['urls']['raw'],
+                    [
+                        'from'=>$from,
+                        'id'  =>$data['id'] ,
+                        'tags'=>empty($data['description'])?'':Translate::getInstance()->translateStr($data['description']),
+                        //'tags'=>$data['tags'],
+                        'color'=>$data['color'],
+                        'remark'=>json_encode($data),
+                        'type'  =>isset($url_params['fm'])?$url_params['fm']:'jpg',
+                    ]);
+            }catch (\Exception $e){
+                return false;
+            }
+        }
     }
 }

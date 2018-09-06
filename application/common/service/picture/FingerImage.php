@@ -9,6 +9,7 @@
 namespace app\common\service\picture;
 
 
+use think\Log;
 class FingerImage
 {
     /**取样倍率 1~10
@@ -60,20 +61,22 @@ class FingerImage
      * @param resource $src 图片 resource
      * @return string 图片 hash 值，失败则是 null
      * */
-    public static function hashImage($src,$info=[])
+    public static function hashImage($info=[])
     {
-        if(!$src) return null;
-        $src = ROOT_PATH.$src;
+        if(empty($info) || !$info['path']) return null;
+        $src = ROOT_PATH.$info['path'];
+        Log::write($src,'error');
         try {
             /*缩小图片尺寸*/
             $delta = 8 * self::$rate;
+            list($width, $height) = getimagesize($src);
             $img = imagecreatetruecolor($delta,$delta);
             // imageCopyResized($img,$src, 0,0,0,0, $delta,$delta,imagesX($src),imagesY($src));
             $func_src = self::createImage($src);
 //             if($func_src===false)
 //                 return null;
 
-            imagecopyresized($img,$func_src, 0,0,0,0, $delta,$delta,$info['width'],$info['height']);
+            imagecopyresized($img,$func_src, 0,0,0,0, $delta,$delta,$info['thumb_width'],$info['thumb_height']);
 
             /*计算图片灰阶值*/
             $grayArray = array();
@@ -96,6 +99,7 @@ class FingerImage
             }
             return $hashStr;
         } catch (\Exception $e) {
+            Log::write($e,'error');
             return null;
         }
 

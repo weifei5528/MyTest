@@ -54,9 +54,11 @@ class Imagegrab extends Admin
                 }
                 foreach ($res as $img) {
                     $class->downThumbFinger($name, $img) ;
+                    flush();
                 }
             }
             Db::name('grab_web')->where(['id'=>$id,'name'=>$name])->update(['page_num'=>$endpage,'update_time'=>time()]);
+            
             return $this->success('抓取成功！');
         }
         
@@ -69,7 +71,7 @@ class Imagegrab extends Admin
                 ['number', 'page_num', '起始页码','',($info['page_num']+1)],
                 ['number','endpage','终止页码','建议不要一次性抓取太多(包括此页)'],
             ])
-            ->setFormData($info)
+            
             ->fetch();
     }
 }
