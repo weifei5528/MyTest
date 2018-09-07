@@ -25,8 +25,8 @@
         "yurunsoft/yurun-oauth-login": "^2.0",
         "unsplash/unsplash": "^2.4",
         "zoonman/pixabay-php-api": "^1.0",
-        "yurunsoft/pay-sdk": "^2.0",
-        "firebase/php-jwt": "^5.0"                         
+        "firebase/php-jwt": "^5.0",
+        "riverslei/payment": "^4.1"                         
     },
     "extra": {
         "think-path": "thinkphp"

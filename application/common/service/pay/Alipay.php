@@ -2,59 +2,17 @@
 namespace app\common\service\pay;
 
 use app\common\service\PayInterface;
-use Yurun\PaySDK\Alipay\Params\Pay\Request;
-use Yurun\PaySDK\Alipay\SDK;
-use Yurun\PaySDK\Alipay\Params\PublicParams;
+use Payment\Client\Charge;
+use Payment\Common\PayException;
+use Payment\Config;
+
 class Alipay implements PayInterface
 {
-    //支付的网关
-    const API_HOST      = 'https://openapi.alipaydev.com/gateway.do';
-    //商户的商户号
-    const APP_ID        = '2016080700186622';
-    //md5加密的方式
-    const MD5_KEY     = '1shf5fcfevbtp5pglli2haqxm9yih0uu';
-    //公钥
-    const PUBLIC_KEY    = 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3Srpi62nEeOTFI2yeuNihg0S+WmC5jc12OGlKsXYyJxfKT4S7DUh9O5MZDJBHrSzNEw1q54Qo/4psu3GETdhmU4j59X28J/wBBVVm80+kP9d1tUn3wW4IE7MmWnMwP8h6ulPK5/j5GFPnrV9Z52SqWedGafuCvnPIstekDYHJUFpsWOODua15DSzSNzgW+BxeXVlDrdpg2gLWknEc87E14FwUtnWan16ltjujoaAtapoNBKvX4P4JGXImaw7qmOv6hu9oV4WD6zSbMqadjp1+AdlvGhlgCRIcJoMLfOEXHpRCtGnCJu6Lm+CPTeRoDrGmhfPmiXKIXxEQrrwVO7TvQIDAQAB';
-    //私钥 
-    const PRIVATE_KEY   = 'MIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDdKumLracR45MU
-                            jbJ642KGDRL5aYLmNzXY4aUqxdjInF8pPhLsNSH07kxkMkEetLM0TDWrnhCj/imy
-                            7cYRN2GZTiPn1fbwn/AEFVWbzT6Q/13W1SffBbggTsyZaczA/yHq6U8rn+PkYU+e
-                            tX1nnZKpZ50Zp+4K+c8iy16QNgclQWmxY44O5rXkNLNI3OBb4HF5dWUOt2mDaAta
-                            ScRzzsTXgXBS2dZqfXqW2O6OhoC1qmg0Eq9fg/gkZciZrDuqY6/qG72hXhYPrNJs
-                            ypp2OnX4B2W8aGWAJEhwmgwt84RcelEK0acIm7oub4I9N5GgOsaaF8+aJcohfERC
-                            uvBU7tO9AgMBAAECggEBANQK3Wjmb6RuDMiK5dB+Cyq8hDGN4Es6Ka0rAYDVuPb1
-                            PSM8eUXv1wOOKL1zlQ2Mb7e3TUmhvRCNkIsU/m3pK/Cggzo14JBotuQjVDWQ/Ohl
-                            fSGIsbZYNGT9R5naXs22jl07nIUVwZdnWL+v/3CFGWTDi1Jat5XcVaRlWN9ofUdP
-                            /HCuEtBn6kKNHWM7yGMSczBbA25K3OKjkG9JWFX+297ob63pl4k3jkBL+/GpQJAQ
-                            XBKuhyRWMKkWdACBW9S17C3hiMrPuF46l8a5SXA+Nbp8g37zm0md+Al+HrE2GYJu
-                            2j2rswe6bNvRPFyU7zvAveH5hMXl0h6YkyUZpvU9FJ0CgYEA7yoJlcEUnYGKYasG
-                            lOpNgucj9rH3c0OQxiyolQI/B1p2qMVjrBH5UMrZF8Ky724ORWuhlBaYAZ0KBhVX
-                            HfYIzgKHiGMrn+BMiVzrXPDheBaVCq6xJwq8nfVHpUcv3xD22sVkas7ki/up9ELa
-                            +jGGlMtqGTxbX0weapFuuiuVthcCgYEA7LyPQnl6UvrgES8srveLpWG7OJF0JZH7
-                            GnOlsWqMgG2QB+mqcNon4fnRYgtzJPagIdd2FxSq5pCFY/1L98bSGcrfZXPgvit8
-                            PkBps01s4e2cjqkmTdvIX+/Ewij/LSI/Y9pvn78W+ABIXf7ra7EuHXtahC+JctZ2
-                            vcO+K1YpPUsCgYAJChC0rUiHL3c4e8tS44wsb2oHj/BnVd1p8BQrFZumPoAPnu5G
-                            eaNvr0sHP9+ddw5pB0ljHHuATBwt4K6bPkpU5vmSaRUkBMk/w9hNefk7nbbiYXnm
-                            nNxGKBgeIhOoHa8G08EY3Fr9A3UH+2LlY+vPQeTvsT1O28SmiHqj5LPS3wKBgQCO
-                            BtoT0Xl3yxceeCTgm5bmE2oVF/6Mg7YYOoWPmRLOAe1FMgSVS+xdgFkD70aXSHbt
-                            lqw8UKPvS4kbYd1vu5JU8wdvgEO3E7OoTVCcx7ipGrqwQ/68+zyNgfWTXrEozMEn
-                            EOei+Su4gcLo0YU/yL6X5Wd6omJdyRjX5FV0/m4jXQKBgQCVnQfbzXjciRcJtqQP
-                            6kWOCDx0vGDCRT5XQyx3WjZFLHPCaJBudQb4MaRnZGWlILNRbkngalgYMl2awPxs
-                            zvo+/puh172shqga4wm1nhrg07Wv3sNiLQ9IjCAML7U7jdgbkz1CQt2vqKF6eh9u
-                            YSOj3dtGDS+k65n7YY2t1i974w==';
-    //通知的地址
-    const NOTICE_URL    = '';
-    protected $alipay = null;
+    
+    protected $aliConfig = [];
     public function __construct()
     {
-        $params = new PublicParams();
-        $params->appID = static::APP_ID;
-        $params->md5Key = static::MD5_KEY;
-        $params->sign_type = 'MD5';
-        $params->apiDomain =static::API_HOST;
-        $params->appPrivateKey = static::PRIVATE_KEY;
-        $params->appPrivateKeyFile =null;
-        $this->alipay = new SDK($params);
+        $this->aliConfig = require APP_PATH.'common/service/pay/config/aliconfig.php';
     }
     
     
@@ -72,28 +30,55 @@ class Alipay implements PayInterface
      */
     public function webPayMoney($params = array())
     {
-        // TODO Auto-generated method stub
-        $request = new Request();
-        $request->notify_url = $_SERVER['SERVER_NAME'].url('index/index/notice');
-        $request->return_url = $_SERVER['SERVER_NAME'].url('index/index/payreturn');
         
-//         $request->businessParams->out_trade_no = $params['orderid'];
-//         $request->businessParams->total_fee = $params['total_money'];
-//         $request->businessParams->goods_type = 0;//虚拟类商品
-//         $request->businessParams->subject = $params['title'];
-//         $request->businessParams->enable_paymethod = "";
-//        // $request->businessParams->extra_common_param ="alipay_web";
-//         $request->businessParams->seller_id = "2088102170319862";
-        $request->businessParams->seller_id = 2088102170319862; // 卖家支付宝用户号
-        $request->businessParams->out_trade_no = 'test' . mt_rand(10000000,99999999); // 商户订单号
-        $request->businessParams->total_fee = 0.01; // 价格
-        $request->businessParams->subject = '测试商品'; // 商品标题
-        $request->businessParams->show_url = 'http://www.yurunsoft.com'; // 用户付款中途退出返回商户网站的地址。
-        return $this->alipay->redirectExecute($request);
+        $payData = [
+            'body'    => $params['discription'],
+            'subject'    => $params['title'],
+            'order_no'    => $params['orderid'],
+            'timeout_express' => time() + 600,// 表示必须 600s 内付款
+            'amount'    => $params['money'],// 单位为元 ,最小为0.01
+            'return_param' => 'ali_pay',
+            // 'client_ip' => isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '127.0.0.1',// 客户地址
+            'goods_type' => '0',// 0—虚拟类商品，1—实物类商品
+            'store_id' => '',
+            'operator_id' => '',
+            'terminal_id' => '',// 终端设备号(门店号或收银设备ID) 默认值 web
         
+        ];
+        //$this->aliConfig['notify_url']=url('index\notice\notice',['type'=>'ali_charge'],true,true);
+        if(isset($params['return_url'])) {
+            $this->aliConfig['return_url'] = $params['return_url'];
+        }
+        if(isset($params['notify_url'])) {
+            $this->aliConfig['notify_url'] = $params['notify_url'];
+        }
+        //$this->aliConfig=array_merge($this->aliConfig,$config);
+        try {
+            $url = Charge::run($this->getPayType($params['pay_type']), $this->aliConfig, $payData);
+        } catch (PayException $e) {
+            $this->ajaxreturn(90001,$e->errorMessage());
+            exit;
+        }
+        header('Location:'.$url);
+        exit;
         
     }
-
+    protected function getPayType($pay_type){
+        switch ($pay_type){
+            case 'ali_web':
+                return Config::ALI_CHANNEL_WEB;
+                break;
+            case "ali_app":
+                return Config::ALI_CHANNEL_APP;
+                break;
+            case "wx_web":
+                return Config::WX_CHANNEL_QR;
+                break;
+            case "wx_app":
+                return Config::WX_CHANNEL_APP;
+                break;
+        }
+    }
     
 }
 
