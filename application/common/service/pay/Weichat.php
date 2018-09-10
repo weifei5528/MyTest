@@ -7,7 +7,7 @@ class Weichat implements PayInterface
     /* (non-PHPdoc)
      * @see \app\common\service\PayInterface::notice()
      */
-    public function notice()
+    public function notice($data=[])
     {
         // TODO Auto-generated method stub
         

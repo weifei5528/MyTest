@@ -8,7 +8,7 @@ interface PayInterface
      * @param unknown $params
      */
     public function webPayMoney($params=[]);
-    public function notice();
+    public function notice($data = []);
 }
 
 ?>

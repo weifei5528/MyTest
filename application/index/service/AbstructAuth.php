@@ -20,7 +20,7 @@ abstract class AbstructAuth
 //         $type_class = explode('\\',get_class(static::class));
 //         array_filter($type_class);
 //         $type = strtolower(end($type_class));
-        return self::HOST.url('Login/callback',['type'=>$type]);
+        return url('Login/callback',['type'=>$type],true,true);
     }
     /**
      * 写入userid

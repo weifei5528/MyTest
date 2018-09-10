@@ -27,6 +27,7 @@ class Home extends Common
      */
     protected function _initialize()
     {
+        
         // 系统开关
         if (!config('web_site_status')) {
             $this->error('站点已经关闭，请稍后访问~');
@@ -46,6 +47,10 @@ class Home extends Common
     protected  function getUser()
     {
         $user = session('user');
+        $user = [
+            'id'    =>  10,
+            'username'=>'weifei',
+        ];
         if(empty($user))
             return false;
         $this->user = $user;

@@ -13,6 +13,7 @@ namespace app\index\controller;
 
 use app\common\model\AdminAttachment;
 use app\common\service\PayMoney;
+use think\Log;
 /**
  * 前台首页控制器
  * @package app\index\controller
@@ -21,6 +22,9 @@ class Index extends Home
 {
     public function index()
     {
+        
+        
+        
         return PayMoney::webPayMoney('alipay',['orderid'=>time(), 'money' => 0.01, 'title' => '测试','discription' => 'ceshi','pay_type' => 'ali_web']);
 //         $list = AdminAttachment::getImages();
 //         $this->assign('list' , $list);
@@ -34,5 +38,21 @@ class Index extends Home
        $list = AdminAttachment::getImages();
        return json_encode($list,true);
        return $this->success("查询成功！",'',$list);
+   }
+   /**
+    * 支付成功通知
+    */
+   public function paynotify()
+   {
+       
+       Log::write($_REQUEST,'error');
+       Log::write($_POST,'error');
+   }
+   /**
+    * 支付成功页面
+    */
+   public function paysuccess()
+   {
+       Log::write($_GET,'success');
    }
 }
