@@ -25,7 +25,7 @@ class Index extends Home
         
         
         
-        return PayMoney::webPayMoney('alipay',['orderid'=>time(), 'money' => 0.01, 'title' => '测试','discription' => 'ceshi','pay_type' => 'ali_web']);
+        //return PayMoney::webPayMoney('alipay',['orderid'=>time(), 'money' => 0.01, 'title' => '测试','discription' => 'ceshi','pay_type' => 'ali_web']);
 //         $list = AdminAttachment::getImages();
 //         $this->assign('list' , $list);
 //         return $this->fetch();

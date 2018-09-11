@@ -23,7 +23,8 @@ class Weibo extends AbstructAuth
     }
     public function authCallBack()
     {
-        $accessToken = $this->client->getAccessToken($_GET['state']);                              
+        $accessToken = $this->client->getAccessToken($_GET['state']);  
+        $this->client->getOpenID($accessToken);
         try{
             // 用户唯一标识
             $openid = $this->client->openid;
