@@ -25,58 +25,8 @@ class Alipay implements PayInterface
     public function notice($data=[])
     {
        try{
-           return Notify::run('ali_charge', $this->aliConfig, function($data){
-               $orderid = $data['out_trade_no'];
-               Db::startTrans();
-               $where = ['orderid' => $orderid];
-               $info = Db::name('order')->where($where)->find();
-               if($info['is_pay'] == 1) {
-                   return true;
-               }
-               $where['is_pay'] = 0;
-               try{
-                   Db::name('order')->where($where)->update(['is_pay' => 1,'pay_time' => time(), 'pay_money' => $data['point_amount']]);
-                   Db::name('user_pay_log')->insert(
-                            [
-                                'money'     =>$data['point_amount'],
-                                'type'      =>$info['type'],
-                                'pay_type'  =>'alipay',
-                                'trade_id'  =>$data['trade_no'],
-                                'remark'    =>json_encode($data),
-                            ]
-                       );
-                   $good_info = Db::name('money_type')->where(['id' => $info['good_id']])->find();
-                   $vip_info = Db::name('user_vips')->where(['userid' => $info['userid'], 'type' => $good_info['type']])->find();
-                   $vip_end = empty($vip_info['end_time']) ? time() : $vip_info['end_time'];
-                   $end_time = strtotime("+ ".$good_info['date_type'],$vip_end);
-                   $start_time = empty($vip_info['start_time']) ? time() : ($vip_info['start_time'] > time() ? $vip_info['start_time'] :time());
-                   if(empty($vip_info)) {
-                       Db::name('user_vips')->where(['id' => $vip_info['id']])->insert([
-                           'userid'     =>  $info['userid'],
-                           'start_time' =>  $start_time,
-                           'end_time'   =>  $end_time,
-                           'type'       =>  $good_info['type'],
-                           'create_time'=>  time(),
-                           'update_time'=>  time(),
-                           'name'       =>  ''
-                       ]);
-                   } else {
-                       Db::name('user_vips')->where(['id' => $vip_info['id']])->update([
-                           'start_time' =>  $start_time,
-                           'end_time'   =>  $end_time,
-                           'update_time'=>  time(),
-                           'name'       =>  ''
-                       ]);
-                   }
-                   
-                       
-
-                   
-                   
-               } catch (\Exception $e) {
-                   
-               }
-           });
+           return Notify::run('ali_charge', $this->aliConfig, (new \app\common\service\pay\notice\Notify()));
+              
        } catch(PayException $e) {
            Log::write($e->errorMessage(),'alipayerror');
            return false;
