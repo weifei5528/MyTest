@@ -54,7 +54,7 @@ class Login extends Home
     public function authlogin()
     {
         $type = input('type',null);
-        $type = "weibo";
+        $type = "qq";
         if(empty($type))
             return $this->error('请选择登录方式',url('Login/login'));
        OAuth::getAuthUrl($type);

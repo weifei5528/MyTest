@@ -2,7 +2,7 @@
 namespace app\index\service;
 abstract class AbstructAuth
 {
-    const HOST = "http://46814.3m.dkys.org";
+    //const HOST = "http://46814.3m.dkys.org";
     /**
      * 授权登录的页面
      */
