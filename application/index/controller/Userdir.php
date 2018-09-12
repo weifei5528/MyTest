@@ -2,7 +2,7 @@
 namespace app\index\controller;
 
 use think\Db;
-use app\common\model\UserDirs;
+use app\common\model\UserDirs as UDModel;
 use app\common\model\UserDirImages;
 use app\index\service\CommonFunc;
 
@@ -19,7 +19,13 @@ class Userdir extends Home
     public function getmydirs($type)
     {
         if(empty($type)) {
-            
+            return $this->error('类型不存在！');
+        }
+        $list =  UDModel::where(['userid' => $this->user['id'] ,'type' => $type])->value('name','id');
+        if($list) {
+            return $this->success('查询成功！',null, $list);
+        } else {
+            return $this->error('没有文件夹！');
         }
     }
     /**
@@ -33,7 +39,7 @@ class Userdir extends Home
             if(empty($name)) {
                 return $this->error('文件夹名称不能为空！');
             }
-            if(UserDirs::create(['type' => $type, 'userid' => $this->user['id'] ,'auth' => $auth ])) {
+            if(UDModel::create(['type' => $type, 'userid' => $this->user['id'] ,'auth' => $auth ])) {
                 return $this->success("创建成功！");
             } else {
                 return $this->error('创建失败！');
@@ -111,7 +117,7 @@ class Userdir extends Home
      */
     private function isAuth($type,$dirid)
     {
-        return UserDirs::where(['id' => $dirid, 'type' =>$type, 'userid' => $this->user['id']])->find();
+        return UDModel::where(['id' => $dirid, 'type' =>$type, 'userid' => $this->user['id']])->find();
         
     }
 }

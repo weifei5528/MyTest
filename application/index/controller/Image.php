@@ -16,7 +16,7 @@ class Image extends Home
         }
         $info = AttModel::getImageInfo($id);
         $info['tags'] = specify_segmentation($info['tags']);
-        CommonFunc::addBrowse($id);
+        $this->addBrowse($id);
         $this->assign('title','图片详情');
         $this->assign('info',$info);
         return $this->fetch();
@@ -35,7 +35,7 @@ class Image extends Home
             return $this->error('图片不存在或已被删除！');
         }
         imageDownload($info['path']);
-        CommonFunc::downloadRecord($id);
+        $this->downloadRecord($id);
         exit;    
     }
     

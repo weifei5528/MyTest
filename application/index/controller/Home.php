@@ -88,5 +88,35 @@ class Home extends Common
         $image->thumb(840, 580)->save('./thumb.png');
         echo file_get_contents('./thumb.png');
     }
+
+    /**
+     * 下载图片添加记录
+     */
+    protected function downloadRecord($id)
+    {
+        $where = ['userid' => $this->user['id'], 'att_id' => $id];
+        //用户以前浏览过 更新浏览时间
+        if(UDLModel::where($where)->count()) {
+            UDLModel::where($where)->update(['update_time' => time()]);
+        } else {
+            UDLModel::create($where);
+        }
+        AttModel::where(['id' => $id])->setInc('download');
+    }
+    /**
+     * 添加浏览记录
+     * @param int $id 图片的id
+     */
+    protected function addBrowse($id)
+    {
+        $where = ['userid' => $this->user['id'], 'att_id' => $id];
+        //用户以前浏览过 更新浏览时间
+        if(UBModel::where($where)->count()) {
+            UBModel::where($where)->update(['update_time' => time()]);
+        } else {
+            UBModel::create($where);
+        }
+        AttModel::where(['id' => $id])->setInc('browse');
+    }
    
 }
