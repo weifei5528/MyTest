@@ -1,6 +1,10 @@
 <?php
 namespace app\index\service;
 use think\Db;
+use app\common\model\AdminAttachment as AttModel;
+
+use app\common\model\UserDownloads as UDLModel;
+use think\Image;
 class CommonFunc
 {
     /**
@@ -30,6 +34,48 @@ class CommonFunc
     public static function addImageToDir($dirid, $imgid)
     {
         return Db::name('UserDirImages')->insertGetId(['dir_id' => $dirid, 'attr_id' => $imgid, 'create_time' => time(), 'update_time' => time()]);
+    }
+    /**
+     * 获取图片
+     */
+    public static function getimage($id)
+    {
+        if(empty($id)) {
+            exit("");
+        }
+        $path = AttModel::where(['id' => $id])->value('path');
+        $image = Image::open(ROOT_PATH.'public/'.$path);
+        $image->thumb(840, 580)->save('./thumb.png');
+        echo file_get_contents('./thumb.png');
+    }
+    /**
+     * 下载图片添加记录
+     */
+    protected static function downloadRecord($id)
+    {
+        $where = ['userid' => $this->user['id'], 'att_id' => $id];
+        //用户以前浏览过 更新浏览时间
+        if(UDLModel::where($where)->count()) {
+            UDLModel::where($where)->update(['update_time' => time()]);
+        } else {
+            UDLModel::create($where);
+        }
+        AttModel::where(['id' => $id])->setInc('download');
+    }
+    /**
+     * 添加浏览记录
+     * @param int $id 图片的id
+     */
+    protected function addBrowse($id)
+    {
+        $where = ['userid' => $this->user['id'], 'att_id' => $id];
+        //用户以前浏览过 更新浏览时间
+        if(UBModel::where($where)->count()) {
+            UBModel::where($where)->update(['update_time' => time()]);
+        } else {
+            UBModel::create($where);
+        }
+        AttModel::where(['id' => $id])->setInc('browse');
     }
 }
 

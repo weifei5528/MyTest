@@ -13,6 +13,16 @@ namespace app\index\controller;
 
 use app\common\controller\Common;
 
+use app\common\model\AdminAttachment as AttModel;
+
+use app\common\model\UserBrowses as UBModel;
+
+use think\Image;
+
+use app\common\model\UserDownloads as UDLModel;
+
+use think\Db;
+use think\Log;
 /**
  * 前台公共控制器
  * @package app\index\controller
@@ -64,4 +74,19 @@ class Home extends Common
     {
         session('user',$user);
     }
+    
+    /**
+     * 获取图片
+     */
+    public function getimage($id)
+    {
+        if(empty($id)) {
+            exit("");
+        }
+        $path = AttModel::where(['id' => $id])->value('path');
+        $image = Image::open(ROOT_PATH.'public/'.$path);
+        $image->thumb(840, 580)->save('./thumb.png');
+        echo file_get_contents('./thumb.png');
+    }
+   
 }

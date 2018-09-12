@@ -1,0 +1,78 @@
+{extend name="public:layout" /}
+
+{block name="main-container"}
+<div class="wp cl hl_picview mt50">
+  <div class="hl_picheader cl">
+      <div class="z">
+        <div class="pictitle">{:current($info['tags'])}＃{$info.id}</div>
+        <div class="summary">来自   <a href="">{$info.from_web}</a>  该作品可用于个人用途，企业商业用途，不包含肖像权与物权；</div>
+      </div>
+      <div class="y">
+        <div class="banquan">
+          <p><i class="iconfont icon-check"></i> 商业和个人使用</p>
+          <p><i class="iconfont icon-check"></i> 100％免版税</p>
+        </div>
+      </div>
+  </div>
+  <div class="piccontent cl mt20">
+      <div class="picbox z">
+        <img  src="{:url('index/getimage',['id' => $info['id']])}" width="840" height="580">
+      </div>
+      <div class="picinfo y">
+        <a href="{:url('image/download',['id' => $info['id']])}" class="bg_c pic_download" ><span>下载</span> </a>
+        <p class="addfav cl mt20"><a href="" class="f_g"><i class="iconfont icon-like"></i> 添加到收藏</a></p>
+        <p class="picnum cl mt20">{$info.download}次下载    {$info.collect}次收藏    {$info.browse}次浏览</p>
+        <div class="infos cl mt50">
+          <div class="infotit hl_tit">文件详情</div>
+          <dl><dt>授权协议：</dt><dd>CCO</dd></dl>
+          <dl><dt>文件：</dt><dd>{$info.ext} {:format_bytes($info['size'],2)}</dd></dl>
+          <dl><dt>分辨率：</dt><dd><span  class="f_g">{$info.width}×{$info.height}</span> 像素</dd></dl>
+        </div>
+        <div class="infos cl mt20">
+          <div class="infotit hl_tit">关键词</div>
+          <div class="keywords">
+                <a href="/image/search/三维" target="_blank">三维</a>
+                            ,
+                <a href="/image/search/三维空间" target="_blank">三维空间</a>
+                            ,
+                <a href="/image/search/应用" target="_blank">应用</a>
+                            ,
+                <a href="/image/search/应用程序" target="_blank">应用程序</a>
+                            ,
+                <a href="/image/search/应用程式" target="_blank">应用程式</a>
+                            ,
+                <a href="/image/search/用场" target="_blank">用场</a>
+                            ,
+                <a href="/image/search/用途" target="_blank">用途</a>
+                            ,
+                <a href="/image/search/申请" target="_blank">申请</a>
+                            ,
+                <a href="/image/search/申请书" target="_blank">申请书</a>
+                            ,
+                <a href="/image/search/请求" target="_blank">请求</a>
+            </div>
+        </div>
+        <div class="colors cl mt20">
+          <div class="infotit hl_tit">色彩</div>
+          <div class="hl_color">
+            <span style="background:#353545"></span>
+            <span style="background:#bb864d"></span>
+            <span style="background:#d2ae7f"></span>
+            <span style="background:#e3eff3"></span>
+            <span style="background:#dfcbb1"></span>
+            <span style="background:#f4e57e"></span>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+	
+	
+{include file="public/copyright"}	
+	
+	
+{include file="public/imgfrom" /}
+
+	
+	
+{/block}

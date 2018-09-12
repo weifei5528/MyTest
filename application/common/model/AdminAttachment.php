@@ -12,6 +12,13 @@ class AdminAttachment extends Model
     {
         return self::where(['status' => 1])->order('browse desc')->field('id,thumb,size,download,browse,create_time,from_web,tags')->paginate();
     }
+    /**
+     * 获取图片详情
+     */
+    public static function getImageInfo($id)
+    {
+        return self::where('id','=',$id)->find();
+    }
 }
 
 ?>

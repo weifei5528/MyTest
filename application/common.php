@@ -1431,3 +1431,54 @@ if (!function_exists('dp_send_message')) {
         return false !== $MessageModel->saveAll($list);
     }
 }
+
+if(!function_exists('specify_segmentation')) {
+    /**
+     * 分割指定的字符串
+     * @param string $str 要分割的字符串
+     */
+    function specify_segmentation($str) {
+        $list =[];
+        
+        if(strpos($str,'，') !== false) {
+            $list = explode('，', $str);
+        }
+        if(strpos($str, '、') !==false) {
+            $list = explode('、', $str);
+        }
+        if(strpos($str, ',')) {
+            $list = explode(',', $str);
+        }
+        if(empty($str) && empty($list)) {
+            return [];
+        }
+        return array_unique(array_filter($list));
+        
+    }
+}
+/**
+ * 下载文件
+ */
+ if(!function_exists('imageDownload')) {
+     function imageDownload($file_url,$new_name=''){
+         if(!isset($file_url)||trim($file_url)==''){
+             echo '500';
+         }
+         if(!file_exists($file_url)){ //检查文件是否存在
+             echo '404';
+         }
+         $file_name=basename($file_url);
+         $file_type=explode('.',$file_url);
+         $file_type=$file_type[count($file_type)-1];
+         $file_name=trim($new_name=='') ? date('YmdHis').".".$file_type : urlencode($new_name);
+         $file_type=fopen($file_url,'r'); //打开文件
+         //输入文件标签
+         header("Content-type: application/octet-stream");
+         header("Accept-Ranges: bytes");
+         header("Accept-Length: ".filesize($file_url));
+         header("Content-Disposition: attachment; filename=".$file_name);
+         //输出文件内容
+         echo fread($file_type,filesize($file_url));
+         fclose($file_type);
+     }
+ }
