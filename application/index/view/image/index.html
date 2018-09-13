@@ -16,10 +16,10 @@
   </div>
   <div class="piccontent cl mt20">
       <div class="picbox z">
-        <img  src="{:url('index/getimage',['id' => $info['id']])}" width="840" height="580">
+      	<img  src="{:url('index/getimage',['id' => $info['id']])}" width="840" height="580">
       </div>
       <div class="picinfo y">
-        <a href="#" class="bg_c pic_download" ><span>下载</span> </a>
+        <a href="{:url('image/download',array('id'=>$info['id']))}" class="bg_c pic_download" ><span>下载</span> </a>
         <p class="addfav cl mt20"><a href="" class="f_g"><i class="iconfont icon-like"></i> 添加到收藏</a></p>
         <p class="picnum cl mt20">{$info.download}次下载    {$info.collect}次收藏    {$info.browse}次浏览</p>
         <div class="infos cl mt50">
@@ -77,8 +77,5 @@
 	
 {/block}
 {block name="script"}
-<script type="text/javascript">
-    layer.msg("=======");
-
-</script>
+	
 {/block}

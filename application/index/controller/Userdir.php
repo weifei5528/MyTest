@@ -16,31 +16,36 @@ class Userdir extends Home
     /**
      * 我的文件夹列表
      */
-    public function getmydirs($type)
+    public function getmydirs($type=1)
     {
         if(empty($type)) {
             return $this->error('类型不存在！');
         }
-        $list =  UDModel::where(['userid' => $this->user['id'] ,'type' => $type])->value('name','id');
+        $list =  UDModel::where(['userid' => $this->user['id'] ,'type' => $type])->column('name','id');
+        
         if($list) {
             return $this->success('查询成功！',null, $list);
         } else {
-            return $this->error('没有文件夹！');
+            return $this->error('没有下载文件夹,请先创建！');
         }
     }
     /**
      * 创建文件夹
      */
-    public function createmydir($type)
+    public function createmydir($type=null)
     {
+        $type = input('type');
+        if(empty($type)) {
+            return $this->error("请选择要创建的文件夹类型！");
+        }
         if($this->request->isPost()) {
             $name = input('name');
             $auth = input('auth',0);
             if(empty($name)) {
                 return $this->error('文件夹名称不能为空！');
             }
-            if(UDModel::create(['type' => $type, 'userid' => $this->user['id'] ,'auth' => $auth ])) {
-                return $this->success("创建成功！");
+            if($info=UDModel::create(['type' => $type, 'userid' => $this->user['id'] ,'auth' => $auth ,'name' => $name])) {
+                return $this->success("创建成功！",'',$info);
             } else {
                 return $this->error('创建失败！');
             }

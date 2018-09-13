@@ -20,6 +20,9 @@ use app\common\model\UserBrowses as UBModel;
 use think\Image;
 
 use app\common\model\UserDownloads as UDLModel;
+use app\common\model\UserVips;
+use app\common\model\CompanyUsers;
+use app\common\model\Companies;
 
 use think\Db;
 use think\Log;
@@ -118,5 +121,22 @@ class Home extends Common
         }
         AttModel::where(['id' => $id])->setInc('browse');
     }
-   
+    /**
+     * 查询用户是否为vip
+     * @return int  0 普通用户 1：vip用户 2：企业用户
+     */
+    protected function isVip()
+    {
+        $time=time();
+        if(UserVips::where(['userid' => $this->user['id'],'end_time' => ['gt',$time]])->count()){
+            return 1;
+        }
+        $comid = CompanyUsers::where(['userid' => $this->user['id']])->value('com_id');
+        if($comid){
+            if(Companies::where(['id' => $comid ,'end_time' => ['gt' ,$time]])->count()){
+                return 2;
+            }
+        }
+        return 0;
+    }
 }

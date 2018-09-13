@@ -2,7 +2,7 @@
 namespace app\index\controller;
 
 use app\common\model\AdminAttachment as AttModel;
-use app\index\service\CommonFunc;
+use think\Db;
 
 class Image extends Home
 {
@@ -19,7 +19,15 @@ class Image extends Home
         $this->addBrowse($id);
         $this->assign('title','图片详情');
         $this->assign('info',$info);
+        $this->assign('iscolect',$this->isCollect($id));//用户是否收藏
         return $this->fetch();
+    }
+    /**
+     * 用户图片是否收藏
+     */
+    public function isCollect($id)
+    {
+        return Db::name('user_collects')->where(['userid'=>$this->user['id'] , 'att_id' => $id])->count();
     }
     
     /**
@@ -27,10 +35,12 @@ class Image extends Home
      */
     public function download($id)
     {
+        
         if(empty($id)) {
             return $this->error('请选择要下载的图片！');
         }
         $info = AttModel::getImageInfo($id);
+        
         if(empty($info)) {
             return $this->error('图片不存在或已被删除！');
         }
