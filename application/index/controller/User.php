@@ -35,7 +35,10 @@ class User extends Home
      */
     public function mybrowses()
     {
-        
+        $this->assign('userinfo',$this->user);
+        $this->assign('isvip',$this->isVip());
+        $this->assign('count',UDModel::getMyDownloadCount(['userid' => $this->user['id']]));
+        return $this->fetch();
     }
    
 }

@@ -60,30 +60,5 @@
 	
 	
 {include file="public/imgfrom" /}
-{block name="script"}
-<script type="text/javascript">
-	function mylove(){
-		var index = layer.load(2,{shade:0.3});
-		$.ajax({
-			url:"{:url('Image/userlove',array('id'=>$info['id']))}",
-			type:"post",
-			dataType:"json",
-			data:{},
-			timeout:20*1000,
-			success:function(data){
-				layer.close(index);
-				layer.msg(data.msg,{icon: 1});
-				if(data.code){
-					
-				} 
-			},error(){
-				layer.clode(index);
-				layer.msg("请检查网络线路~~");
-			}
-		})
-	}
-		
-	
-</script>	
-{/block}
+
 {/block}
