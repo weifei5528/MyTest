@@ -20,7 +20,7 @@
       </div>
       <div class="picinfo y">
         <a href="{:url('image/download',array('id'=>$info['id']))}" class="bg_c pic_download" ><span>下载</span> </a>
-        <p class="addfav cl mt20"><a href="" class="f_g"><i class="iconfont icon-like"></i> 添加到收藏</a></p>
+        <p class="addfav cl mt20"><a href="#" class="f_g" onclick="mylove();"><i class="iconfont icon-like"></i> 添加到收藏</a></p>
         <p class="picnum cl mt20">{$info.download}次下载    {$info.collect}次收藏    {$info.browse}次浏览</p>
         <div class="infos cl mt50">
           <div class="infotit hl_tit">文件详情</div>
@@ -31,25 +31,13 @@
         <div class="infos cl mt20">
           <div class="infotit hl_tit">关键词</div>
           <div class="keywords">
-                <a href="/image/search/三维" target="_blank">三维</a>
-                            ,
-                <a href="/image/search/三维空间" target="_blank">三维空间</a>
-                            ,
-                <a href="/image/search/应用" target="_blank">应用</a>
-                            ,
-                <a href="/image/search/应用程序" target="_blank">应用程序</a>
-                            ,
-                <a href="/image/search/应用程式" target="_blank">应用程式</a>
-                            ,
-                <a href="/image/search/用场" target="_blank">用场</a>
-                            ,
-                <a href="/image/search/用途" target="_blank">用途</a>
-                            ,
-                <a href="/image/search/申请" target="_blank">申请</a>
-                            ,
-                <a href="/image/search/申请书" target="_blank">申请书</a>
-                            ,
-                <a href="/image/search/请求" target="_blank">请求</a>
+          		{foreach name="info.tags" key="i" item="tag"}
+          			{if condition="count($info['tags']) eq $i"}
+          				<a href="/image/search/{$tag}" target="_blank">{$tag}</a>
+          			{else/}
+          				<a href="/image/search/{$tag}" target="_blank">{$tag}</a>,
+                	{/if}
+                {/foreach}
             </div>
         </div>
         <div class="colors cl mt20">
@@ -72,10 +60,30 @@
 	
 	
 {include file="public/imgfrom" /}
-
-	
-	
-{/block}
 {block name="script"}
+<script type="text/javascript">
+	function mylove(){
+		var index = layer.load(2,{shade:0.3});
+		$.ajax({
+			url:"{:url('Image/userlove',array('id'=>$info['id']))}",
+			type:"post",
+			dataType:"json",
+			data:{},
+			timeout:20*1000,
+			success:function(data){
+				layer.close(index);
+				layer.msg(data.msg,{icon: 1});
+				if(data.code){
+					
+				} 
+			},error(){
+				layer.clode(index);
+				layer.msg("请检查网络线路~~");
+			}
+		})
+	}
+		
 	
+</script>	
+{/block}
 {/block}

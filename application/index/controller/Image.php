@@ -48,6 +48,20 @@ class Image extends Home
         $this->downloadRecord($id);
         exit;    
     }
+    /**
+     * 用户喜爱
+     */
+    public function userlove($id)
+    {
+        if(empty($id)) {
+            return $this->error("请选择图片！");
+        }
+        if($this->addOurLove($id)) {
+            return $this->success("添加成功！");
+        } else {
+            return $this->error("添加失败，请重试~~");
+        }
+    }
     
 }
 

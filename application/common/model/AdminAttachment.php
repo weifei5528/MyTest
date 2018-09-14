@@ -19,6 +19,13 @@ class AdminAttachment extends Model
     {
         return self::where('id','=',$id)->find();
     }
+    /**
+     * 获取图片的某个字段
+     */
+    public static function getImageValue($id,$field)
+    {
+        return self::where(['id' => $id])->value($field);
+    }
 }
 
 ?>

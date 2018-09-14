@@ -65,9 +65,9 @@
 	        <li><a href="" class="picBox"><img src="__STATIC__/home/img/4-1.jpg"></a></li>
 	
 	      </ul>
-	      <div class="hl_more cl mb50"><a href="">加载更多...</a></div>
+	      <div class="hl_more cl mb50"><a href="#">加载更多...</a></div>
 	    </div>
-	
+		<input type="hidden" name="page"/>
 	</div>
 	
 	
@@ -76,6 +76,26 @@
 	
 {include file="public/imgfrom" /}
 
+{block name="script"}
+	<script type="text/javascript">
+		function loadImage(){
+			var page = $("input[name=page]").val();
+			$.ajax({
+				url:"{}",
+				type:"post",
+				dataType:"json",
+				data:{page:page},
+				timeout:20*1000,
+				success:function(data){
+					
+				},error:function(){
+					
+				}
+			});
+		}
+	</script>
 	
+{/block}
+{/block}	
 	
 {/block}

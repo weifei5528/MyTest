@@ -23,6 +23,7 @@ use app\common\model\UserDownloads as UDLModel;
 use app\common\model\UserVips;
 use app\common\model\CompanyUsers;
 use app\common\model\Companies;
+use app\common\model\UserLoves as ULModel;
 
 use think\Db;
 use think\Log;
@@ -60,10 +61,7 @@ class Home extends Common
     protected  function getUser()
     {
         $user = session('user');
-        $user = [
-            'id'    =>  10,
-            'username'=>'weifei',
-        ];
+        $user = Db::name('users')->where(['id'=>10])->find();
         if(empty($user))
             return false;
         $this->user = $user;
@@ -105,6 +103,29 @@ class Home extends Common
             UDLModel::create($where);
         }
         AttModel::where(['id' => $id])->setInc('download');
+    }
+    /**
+     * 添加到喜爱
+     */
+    protected function addOurLove($id)
+    {
+        Db::startTrans();
+        try{
+            $where = ['userid' => $this->user['id'], 'att_id' => $id];
+            //用户以前浏览过 更新浏览时间
+            if(ULModel::where($where)->count()) {
+                ULModel::where($where)->update(['update_time' => time()]);
+            } else {
+                ULModel::create($where);
+            }
+            AttModel::where(['id' => $id])->setInc('love');
+            Db::commit();
+            return true;
+        } catch(\Exception $e) {
+            Db::rollback();
+            return false;
+        }
+        
     }
     /**
      * 添加浏览记录
