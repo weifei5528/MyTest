@@ -32,7 +32,7 @@ class Userdir extends Home
     /**
      * 创建文件夹
      */
-    public function createmydir($type=null)
+    public function createmydir($type=1)
     {
         $type = input('type');
         if(empty($type)) {

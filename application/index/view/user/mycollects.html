@@ -1,0 +1,120 @@
+{extend name="public:layout" /}
+
+{block name="main-container"}
+
+{include file="user/info"}
+
+{include file="user/menu"}
+<div class="wp cl mt50 mb50">
+<div class="hl_addfav">
+
+  <a href="#" class="addfav" "><i  class="iconfont icon-xiangji"></i> 新建收藏分类</a>
+  <a href="" class="y del"><i  class="iconfont icon-delete"></i></a>
+</div>
+<ul class="bg-main-imgRouter">
+  
+
+</ul>
+
+</div>
+
+{include file="public/copyright"}	
+	
+	
+{include file="public/imgfrom" /}
+
+	
+	
+{/block}
+{block name="script"}
+
+<script >
+$(function(){
+	$("div.hl_more.cl.mb50 > a").bind('click',getmydowns);
+	getmydowns();
+	
+});
+$("div.hl_addfav a.addfav").click(function(){
+	layer.open({
+		title:"创建收藏夹",
+		content:"<div><input type='text' name='name'/></div><div><input type='radio' name='auth' value='0' />私有<input type='radio' name='auth' value='1' />公开</div>",
+		yes: function(index, layero){
+			console.log(index);
+			console.log(layero);
+		    //按钮【按钮一】的回调
+		  }
+		,cancel: function(){ 
+		    //右上角关闭回调
+		    
+		    //return false 开启该代码可禁止点击该按钮关闭
+		  }  
+		  
+	});
+	/* layer.prompt({
+		  formType: 0,
+		  value: '',
+		  title: '请输入名称',
+		  shade:0.3
+		}, function(value, index, elem){
+		  	 $.ajax({
+		  		url:"{:url('Userdir/createmydir')}",
+		  		type:"post",
+		  		data:{},
+		  		dataType:"json",
+		  		timeout:20*1000,
+		  		success:function(data){
+		  			layer.msg(data.msg,{icon: 6});
+		  			if(data.code){
+		  				
+		  			}
+		  		},error(){
+		  			
+		  		}
+		  	}); 
+		  
+		}); */
+})
+	
+
+function getmydowns(){
+	var page = $("input[name=page]").val();
+	$.ajax({
+		url:"{:url('user/ajaxmycollects')}",
+		type:"post",
+		dataType:"json",
+		type:"get",
+		data:{page:page},
+		timeout:20*1000,
+		success:function(data){
+			if(data.code){
+				var images = data.data.data;
+				console.log(images);
+				for(var i =0;i<images.length;i++){
+					var str ='';
+					str +='<li><div class="boxnum"><span>'+image[i]['count']+'张图片</span>';
+					if(image[i]['auth'] == 1){
+						str += '<span class="onlymy">仅自己可见<i class="iconfont icon-suoding"></i></span>';
+					}
+					str += '</div><div class="bg-main-imgRouter-item"><div class="item-img"><img src="'+image[i]['thumb']+'" alt=""></div><a href="#" target="_blank" class="item-link"><span class="item-title">'+image[i]['name']+'</span></a></div>';
+					$("ul.bg-main-imgRouter").append(str);
+					
+				}
+				if(page >= data.data.last_page){
+					console.log(data.data.last_page);
+					var $many = $("div.hl_more.cl.mb50 > a");
+					$many.unbind();
+					$many.html("已经到底了...");
+				}
+				
+					
+				
+			}else{
+				layer.msg(data.msg,{icon: 6});
+			}
+		},error:function(){
+			layer.msg("请检查网络状况~~~",{icon: 6});
+		}
+	})
+}
+</script>
+{/block}

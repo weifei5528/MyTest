@@ -1,6 +1,7 @@
 {extend name="public:layout" /}
 
 {block name="main-container"}
+
 {include file="user/info"}
 
 {include file="user/menu"}
@@ -34,7 +35,7 @@ $(function(){
 function getmydowns(){
 	var page = $("input[name=page]").val();
 	$.ajax({
-		url:"{:url('user/ajaxmydowns')}",
+		url:"{:url('user/ajaxmybrowse')}",
 		type:"post",
 		dataType:"json",
 		type:"get",

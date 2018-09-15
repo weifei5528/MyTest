@@ -1,0 +1,19 @@
+<div class="home-information-wrap">
+    <div class="home-information-box">
+        <div class="avatar-container-80 center">
+        	{if condition="$isvip eq 1 OR $isvip eq 2"}
+            <div class="hl_vip_tip">
+              <div class="hl_vip bg_c">VIP</div>
+              <p class="hl_vip_txt">随便下载状态~</p>
+            </div>
+            {/if}
+            <div class="information-headimg-box"><img src="{$userinfo.head_img}" width="120" height="120"></div>
+
+        </div>
+        <div class="information-content-wrap text-center">
+            <p class="people-nick-name">{$userinfo.nickname}</p>
+            <p class="user-background">{$userinfo.discription|default='没有个性签名'}</p>
+        </div>
+    </div>
+
+</div>
