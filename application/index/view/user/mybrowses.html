@@ -36,7 +36,6 @@ function getmydowns(){
 	var page = $("input[name=page]").val();
 	$.ajax({
 		url:"{:url('user/ajaxmybrowse')}",
-		type:"post",
 		dataType:"json",
 		type:"get",
 		data:{page:page},

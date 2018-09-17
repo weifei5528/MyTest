@@ -1,101 +1,118 @@
 {extend name="public:layout" /}
 
 {block name="main-container"}
-	<div class="hl_banner swiper-container">
-	    <div class="swiper-wrapper">
-	      <div class="swiper-slide"><a href="#"><img src="__STATIC__/home/img/banner.jpg" ></a></div>
-	      <div class="swiper-slide"><a href="#"><img src="__STATIC__/home/img/banner.jpg" ></a></div>
-	    </div>
-	    <div class="swiper-button-prev  swiper-button-black"></div>
-	    <div class="swiper-button-next  swiper-button-black"></div>
-	    <div class="swiper-pagination"></div>
-	</div>
-	<script type="text/javascript">
-	var mySwiper = new Swiper('.hl_banner', {
-				loop: true,
-				pagination: {
-				    el: '.swiper-pagination',
-				  },
-				paginationClickable :true,
-				autoplay: 5000,
-				navigation: {
-				  nextEl: '.swiper-button-next',
-				  prevEl: '.swiper-button-prev',
-				},
-				loopAdditionalSlides: 1,
-			});
-	</script>
-	
-	<div class="hlfav cl">
-	  <div class="favtxt z">
-	    <p>来自蒜瓣er的×</p>
-	    <p class="f_c">收藏合集</p>
-	   </div>
-	<ul class="bg-main-imgRouter z">
-	  <li><div class="bg-main-imgRouter-item"><div class="item-img"><img src="__STATIC__/home/img/sc.jpg" alt=""></div><a href="#" target="_blank" class="item-link"><span class="item-title">教师节·卡通背景</span></a></div></li>
-	  <li><div class="bg-main-imgRouter-item"><div class="item-img"><img src="__STATIC__/home/img/sc2.jpg" alt=""></div><a href="#" target="_blank" class="item-link"><span class="item-title">中秋节·中国风</span></a></div></li>
-	  <li><div class="bg-main-imgRouter-item"><div class="item-img"><img src="__STATIC__/home/img/sc.jpg" alt=""></div><a href="#" target="_blank" class="item-link"><span class="item-title">教师节·卡通背景</span></a></div></li>
-	  <li><div class="bg-main-imgRouter-item"><div class="item-img"><img src="__STATIC__/home/img/sc2.jpg" alt=""></div><a href="#" target="_blank" class="item-link"><span class="item-title">中秋节·中国风</span></a></div></li>
-	  <li><div class="bg-main-imgRouter-item"><div class="item-img"><img src="__STATIC__/home/img/sc.jpg" alt=""></div><a href="#" target="_blank" class="item-link"><span class="item-title">教师节·卡通背景</span></a></div></li>
-	
-	</ul>
-	<div class="favmore"><a href=""><i class="iconfont icon-gengduo"></i></a> </div>
-	</div>
-	
-	
-	<div class="indexpart partpic cl">
-	    <div class="hl_h2">免版权照片，商业和个人使用</div>
-	    <div class="hl_p">
-	      <p>超过50万张免版权创意照片   找到更适合您产品的图片或灵感</p>
-	      <p># 避免侵权赔偿 # + # 大尺寸 # + # 创意 #</p>
-	    </div>
-	    <div class="hl_piclist cl">
-	      <ul>
-	        <li><a href="" class="picBox"><img src="__STATIC__/home/img/2-1.jpg"></a></li>
-	        <li><a href="" class="picBox"><img src="__STATIC__/home/img/3-1.jpg"></a></li>
-	        <li><a href="" class="picBox"><img src="__STATIC__/home/img/4-1.jpg"></a></li>
-	        <li><a href="" class="picBox"><img src="__STATIC__/home/img/2-1.jpg"></a></li>
-	        <li><a href="" class="picBox"><img src="__STATIC__/home/img/3-1.jpg"></a></li>
-	        <li><a href="" class="picBox"><img src="__STATIC__/home/img/4-1.jpg"></a></li>
-	        <li><a href="" class="picBox"><img src="__STATIC__/home/img/2-1.jpg"></a></li>
-	        <li><a href="" class="picBox"><img src="__STATIC__/home/img/3-1.jpg"></a></li>
-	        <li><a href="" class="picBox"><img src="__STATIC__/home/img/4-1.jpg"></a></li>
-	        <li><a href="" class="picBox"><img src="__STATIC__/home/img/2-1.jpg"></a></li>
-	        <li><a href="" class="picBox"><img src="__STATIC__/home/img/3-1.jpg"></a></li>
-	        <li><a href="" class="picBox"><img src="__STATIC__/home/img/4-1.jpg"></a></li>
-	
-	      </ul>
-	      <div class="hl_more cl mb50"><a href="#">加载更多...</a></div>
-	    </div>
-		<input type="hidden" name="page"/>
-	</div>
-	
+
+
+
+<div class="hl_banner swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><a href="#"><img src="img/banner.jpg" ></a></div>
+      <div class="swiper-slide"><a href="#"><img src="img/banner.jpg" ></a></div>
+    </div>
+    <div class="swiper-button-prev  swiper-button-black"></div>
+    <div class="swiper-button-next  swiper-button-black"></div>
+    <div class="swiper-pagination"></div>
+</div>
+<script type="text/javascript">
+var mySwiper = new Swiper('.hl_banner', {
+loop: true,
+pagination: {
+    el: '.swiper-pagination',
+  },
+paginationClickable :true,
+autoplay: 5000,
+navigation: {
+  nextEl: '.swiper-button-next',
+  prevEl: '.swiper-button-prev',
+},
+loopAdditionalSlides: 1,
+});
+</script>
+
+<div class="hlfav cl">
+  <div class="favtxt z">
+    <p>来自蒜瓣er的×</p>
+    <p class="f_c">收藏合集</p>
+   </div>
+<ul class="bg-main-imgRouter z">
+  <li><div class="bg-main-imgRouter-item"><div class="item-img"><img src="img/sc.jpg" alt=""></div><a href="#" target="_blank" class="item-link"><span class="item-title">教师节·卡通背景</span></a></div></li>
+  <li><div class="bg-main-imgRouter-item"><div class="item-img"><img src="img/sc2.jpg" alt=""></div><a href="#" target="_blank" class="item-link"><span class="item-title">中秋节·中国风</span></a></div></li>
+  <li><div class="bg-main-imgRouter-item"><div class="item-img"><img src="img/sc.jpg" alt=""></div><a href="#" target="_blank" class="item-link"><span class="item-title">教师节·卡通背景</span></a></div></li>
+  <li><div class="bg-main-imgRouter-item"><div class="item-img"><img src="img/sc2.jpg" alt=""></div><a href="#" target="_blank" class="item-link"><span class="item-title">中秋节·中国风</span></a></div></li>
+  <li><div class="bg-main-imgRouter-item"><div class="item-img"><img src="img/sc.jpg" alt=""></div><a href="#" target="_blank" class="item-link"><span class="item-title">教师节·卡通背景</span></a></div></li>
+
+</ul>
+<div class="favmore"><a href=""><i class="iconfont icon-gengduo"></i></a> </div>
+</div>
+
+
+<div class="indexpart partpic cl">
+    <div class="hl_h2">免版权照片，商业和个人使用</div>
+    <div class="hl_p">
+      <p>超过50万张免版权创意照片   找到更适合您产品的图片或灵感</p>
+      <p># 避免侵权赔偿 # + # 大尺寸 # + # 创意 #</p>
+    </div>
+    <div class="hl_piclist cl">
+      <ul>
+       
+
+      </ul>
+      <div class="hl_more cl mb50"><a href="#" onclick="return false;">加载更多...</a></div>
+    </div>
+
+</div>
+
+
 	
 {include file="public/copyright"}	
 	
 	
 {include file="public/imgfrom" /}
 
-{block name="script"}
-	<script type="text/javascript">
-		function loadImage(){
-			var page = $("input[name=page]").val();
-			$.ajax({
-				url:"{}",
-				type:"post",
-				dataType:"json",
-				data:{page:page},
-				timeout:20*1000,
-				success:function(data){
-					
-				},error:function(){
-					
-				}
-			});
-		}
-	</script>
+	
 	
 {/block}
-{/block}	
-	
+{block name="script"}
+
+<script >
+$(function(){
+	$("div.hl_more.cl.mb50").bind('click',getmydowns);
+	getmydowns();
+});
+function getmydowns(){
+	var page = $("input[name=page]").val();
+	$.ajax({
+		url:"{:url('index/getimages')}",
+		type:"post",
+		dataType:"json",
+		type:"get",
+		data:{page:page},
+		timeout:20*1000,
+		success:function(data){
+			if(data.code){
+				var images = data.data.data;
+				console.log(images);
+				for(var i =0;i<images.length;i++){
+					$("div.hl_piclist ul").append('<li><a href="'+images[i]['url']+'" class="picBox"><img src="'+images[i]['thumb']+'"></a></li>')
+				}
+				if(page >= data.data.last_page){
+					console.log(data.data.last_page);
+					var $many = $("div.hl_more.cl.mb50 > a");
+					$many.unbind();
+					$many.html("已经到底了...");
+				} else {
+					$("input[name=page]").val(page+1);
+				}
+				
+					
+				
+			}else{
+				layer.msg(data.msg,{icon: 6});
+			}
+		},error:function(){
+			layer.msg("请检查网络状况~~~",{icon: 6});
+		}
+	})
+}
+</script>
 {/block}

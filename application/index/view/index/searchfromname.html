@@ -1,0 +1,63 @@
+{extend name="public:layout" /}
+
+{block name="main-container"}
+<div id="search_list" class="flex-images">
+  <div class="cl">
+    <div class="item" >
+       
+    </div>
+    
+    </div>
+
+</div>
+<div class="hl_more cl mb50"><a href="#" onlick="return false;">加载更多...</a></div>
+
+	
+{include file="public/copyright"}	
+	
+	
+{include file="public/imgfrom" /}
+
+{/block}
+{block name="script"}
+	<script type="text/javascript">
+	    //$('#search_list').flexImages({ truncate: 1 });
+	    $(function(){
+	    	$("div.hl_more.cl.mb50").bind('click',getmydowns);
+	    	getmydowns();
+	    });
+	    function getmydowns(){
+	    	var page = $("input[name=page]").val();
+	    	$.ajax({
+	    		url:"{:url('index/ajaxgetname')}",
+	    		dataType:"json",
+	    		type:"get",
+	    		data:{page:page,name:'山'},
+	    		timeout:20*1000,
+	    		success:function(data){
+	    			if(data.code){
+	    				var images = data.data.data;
+	    				console.log(images);
+	    				for(var i =0;i<images.length;i++){
+	    					$("#search_list div.cl").append('<div class="item" data-w="450" data-h="300" ><a href="#"><img src="__STATIC__/home/img/1.jpg" data-src="'+images[i]['thumb']+'"></a></div>');
+	    				}
+	    				$('#search_list').flexImages({ truncate: 1 });
+	    				if(page >= data.data.last_page){
+	    					console.log(data.data.last_page);
+	    					var $many = $("div.hl_more.cl.mb50 ");
+	    					$many.unbind();
+	    					$many.html("已经到底了...");
+	    				}
+	    				
+	    					
+	    				
+	    			}else{
+	    				layer.msg(data.msg,{icon: 6});
+	    			}
+	    		},error:function(){
+	    			layer.msg("请检查网络状况~~~",{icon: 6});
+	    		}
+	    	})
+	    }
+	</script>
+{/block}
