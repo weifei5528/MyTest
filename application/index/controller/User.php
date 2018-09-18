@@ -116,7 +116,7 @@ class User extends Home
     public function getusercollects($id)
     {
         $this->assign('name','收藏夹');
-        $dirinfo = UDModel::where(['id' => $id])->find();
+        $dirinfo = UDSModel::where(['id' => $id])->find();
         $userinfo = UserModel::where(['id' => $dirinfo['userid']])->find();
         $this->assign('dirinfo', $dirinfo);
         $this->assign('userinfo',$userinfo);
