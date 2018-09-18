@@ -27,6 +27,8 @@ use app\common\model\UserLoves as ULModel;
 
 use think\Db;
 use think\Log;
+use app\common\model\UserDirs;
+use app\common\model\UserDirBrowse;
 /**
  * 前台公共控制器
  * @package app\index\controller
@@ -146,18 +148,27 @@ class Home extends Common
      * 查询用户是否为vip
      * @return int  0 普通用户 1：vip用户 2：企业用户
      */
-    protected function isVip()
+    protected function isVip($userid = null)
     {
+        $userid = empty($userid) ? $this->user['id'] : $userid;
         $time=time();
-        if(UserVips::where(['userid' => $this->user['id'],'end_time' => ['gt',$time]])->count()){
+        if(UserVips::where(['userid' => $userid,'end_time' => ['gt',$time]])->count()){
             return 1;
         }
-        $comid = CompanyUsers::where(['userid' => $this->user['id']])->value('com_id');
+        $comid = CompanyUsers::where(['userid' => $userid])->value('com_id');
         if($comid){
             if(Companies::where(['id' => $comid ,'end_time' => ['gt' ,$time]])->count()){
                 return 2;
             }
         }
         return 0;
+    }
+    /**
+     * 用户浏览文件夹
+     */
+    protected function userBrowseDir($dirid)
+    {
+        UserDirs::where(['id' => $dirid])->setInc('browse');
+        UserDirBrowse::create(['userid'=>$this->user['id'],'dir_id' => $dirid]);
     }
 }

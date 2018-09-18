@@ -6,6 +6,10 @@ use app\common\model\AdminAttachment as AttModel;
 use app\common\model\UserBrowses as UBModel;
 use app\common\model\UserLoves as ULModel;
 use app\common\model\UserDirs as UDSModel;
+use app\common\model\UserDirLoves;
+use app\common\model\UserDirBrowse;
+
+use app\common\model\User as UserModel;
 
 class User extends Home
 {
@@ -105,6 +109,25 @@ class User extends Home
         }
         return $this->success("查询成功！",'',$list);
     
+    }
+    /**
+     * 收藏夹
+     */
+    public function getusercollects($id)
+    {
+        $this->assign('name','收藏夹');
+        $dirinfo = UDModel::where(['id' => $id])->find();
+        $userinfo = UserModel::where(['id' => $dirinfo['userid']])->find();
+        $this->assign('dirinfo', $dirinfo);
+        $this->assign('userinfo',$userinfo);
+        $this->assign('isvip',$this->isVip($userinfo['id']));
+        $browseusers = UserDirBrowse::where(['dir_id' => $id])->order('create_time desc')->paginate(3);
+        $this->userBrowseDir($id);
+        foreach ($browseusers as &$v) {
+            $v['info'] = UserModel::getUserInfo($v['userid']);
+        }
+        $this->assign('browseusers', $browseusers);
+        return $this->fetch();
     }
 }
 

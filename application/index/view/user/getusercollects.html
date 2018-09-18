@@ -1,0 +1,80 @@
+{extend name="public:layout" /}
+
+{block name="main-container"}
+<div class="fl-banner">
+  <div class="fl_banner_top wp cl">
+    <div class="y addlike">
+        <a href=""><i  class="iconfont icon-like"></i> 添加到喜爱</a>
+    </div>
+    <div class="hl_from z">
+      <p>来自{$userinfo['nickname']}的×</p>
+      <p class="f_c">{$dirinfo['name']}</p>
+     </div>
+  </div>
+
+</div>
+
+
+<div class="basetit cl mt40">
+  <div class="wp">
+    <div class="z">
+
+      <div class="avatarimg z"><img src="img/user.jpg" ></div>
+      <span class="username z">{$userinfo['nickname']}
+      	{if condition="$isvip eq 1 OR $isvip eq 2"}
+        	<span class="hl_vip bg_c">VIP</span>
+        {/if}
+        <span class="ms">创建，收藏{$dirinfo.count}副图片</span>
+          <a href="" class="gx f_g">感谢ta</a>
+      </span>
+
+    </div>
+    <div class="y rightbox">
+      <span class="z">浏览 {$dirinfo.browse} 人   </span>
+      <div class="likebox z">
+      	{foreach name="browseusers" item="browse"}
+        	<div class="likeimg"><img src="{$browse['info']['head_img']}" ></div>
+        {/foreach}
+      </div>
+      <span class="z">还得到{$dirinfo.loves}人喜爱</span>
+      <span class="sendlink z">
+        <a href=""><i  class="iconfont icon-link1"></i> <span>发送给朋友</span></a>
+
+        </span>
+    </div>
+
+  </div>
+</div>
+
+<div class="hl_piclist">
+  <ul>
+    <li><a href="" class="picBox"><img src="img/2-1.jpg"></a></li>
+    <li><a href="" class="picBox"><img src="img/3-1.jpg"></a></li>
+    <li><a href="" class="picBox"><img src="img/4-1.jpg"></a></li>
+    <li><a href="" class="picBox"><img src="img/2-1.jpg"></a></li>
+    <li><a href="" class="picBox"><img src="img/3-1.jpg"></a></li>
+    <li><a href="" class="picBox"><img src="img/4-1.jpg"></a></li>
+    <li><a href="" class="picBox"><img src="img/2-1.jpg"></a></li>
+    <li><a href="" class="picBox"><img src="img/3-1.jpg"></a></li>
+    <li><a href="" class="picBox"><img src="img/4-1.jpg"></a></li>
+    <li><a href="" class="picBox"><img src="img/2-1.jpg"></a></li>
+    <li><a href="" class="picBox"><img src="img/3-1.jpg"></a></li>
+    <li><a href="" class="picBox"><img src="img/4-1.jpg"></a></li>
+
+  </ul>
+</div>
+
+
+	
+{include file="public/copyright"}	
+	
+	
+{include file="public/imgfrom" /}
+
+	
+	
+{/block}
+{block name="script"}
+
+
+{/block}

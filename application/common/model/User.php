@@ -13,7 +13,7 @@ class User extends Model
      */
     public static function getUserInfo($userid)
     {
-        return self::where(['userid' => $userid])->find();
+        return self::where(['id' => $userid])->find();
     }
     /**
      * 添加用户
