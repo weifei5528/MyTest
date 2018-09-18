@@ -39,8 +39,7 @@ $("div.hl_addfav a.addfav").click(function(){
 		title:"创建收藏夹",
 		content:"<div><input type='text' name='name'/></div><div><input type='radio' name='auth' value='0' />私有<input type='radio' name='auth' value='1' />公开</div>",
 		yes: function(index, layero){
-			console.log(index);
-			console.log(layero);
+			layero.find('input[]')
 		    //按钮【按钮一】的回调
 		  }
 		,cancel: function(){ 

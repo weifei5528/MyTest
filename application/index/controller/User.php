@@ -83,7 +83,7 @@ class User extends Home
     
     }
     /**
-     * 我喜爱的记录
+     * 我收藏的记录
      */
     public function mycollects()
     {

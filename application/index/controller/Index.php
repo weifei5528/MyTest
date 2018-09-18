@@ -55,6 +55,8 @@ class Index extends Home
    public function searchfromname($name)
    {
       $this->assign('title','搜索');
+      $this->assign('name',$name);
+      $this->assign('type','text');
       return $this->fetch();
        
    }
@@ -75,5 +77,12 @@ class Index extends Home
         }
        $this->success("查询成功！",'',$list);
    }
-   
+   /**
+    * 关于
+    */
+   public function about()
+   {
+       $this->assign('title','关于');
+       return $this->fetch();
+   }
 }

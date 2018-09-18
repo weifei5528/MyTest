@@ -3,9 +3,7 @@
 {block name="main-container"}
 <div id="search_list" class="flex-images">
   <div class="cl">
-    <div class="item" >
-       
-    </div>
+    
     
     </div>
 
@@ -28,34 +26,37 @@
 	    });
 	    function getmydowns(){
 	    	var page = $("input[name=page]").val();
+	    	var name = $("input[name=searchname]").val();
 	    	$.ajax({
 	    		url:"{:url('index/ajaxgetname')}",
 	    		dataType:"json",
 	    		type:"get",
-	    		data:{page:page,name:'山'},
+	    		data:{page:page,name:name},
 	    		timeout:20*1000,
 	    		success:function(data){
+	    			console.log(data);
 	    			if(data.code){
 	    				var images = data.data.data;
-	    				console.log(images);
+	    				var dataHList = [300,437,298];
 	    				for(var i =0;i<images.length;i++){
-	    					$("#search_list div.cl").append('<div class="item" data-w="450" data-h="300" ><a href="#"><img src="__STATIC__/home/img/1.jpg" data-src="'+images[i]['thumb']+'"></a></div>');
+	    					var dataH = parseInt(2*Math.random()); 
+	    					$("#search_list div.cl").append('<div class="item" data-w="450" data-h="'+dataHList[dataH]+'" ><a href="#"><img src="'+images[i]['thumb']+'" /></a></div>');
 	    				}
-	    				$('#search_list').flexImages({ truncate: 1 });
 	    				if(page >= data.data.last_page){
 	    					console.log(data.data.last_page);
-	    					var $many = $("div.hl_more.cl.mb50 ");
+	    					var $many = $("div.hl_more.cl.mb50");
 	    					$many.unbind();
-	    					$many.html("已经到底了...");
+	    					$many.find("a").html("已经到底了...");
+	    				}else{
+	    					$("input[name=page]").val(page);
 	    				}
-	    				
-	    					
-	    				
 	    			}else{
 	    				layer.msg(data.msg,{icon: 6});
 	    			}
 	    		},error:function(){
 	    			layer.msg("请检查网络状况~~~",{icon: 6});
+	    		},complete:function(){
+	    			$('#search_list div.cl').flexImages({ truncate: 1 });
 	    		}
 	    	})
 	    }
