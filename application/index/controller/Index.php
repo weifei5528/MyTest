@@ -14,6 +14,7 @@ namespace app\index\controller;
 use app\common\model\AdminAttachment;
 use app\common\service\PayMoney;
 use app\common\model\UserDirs as UDModel;
+use app\index\service\OAuth;
 /**
  * 前台首页控制器
  * @package app\index\controller
@@ -22,8 +23,8 @@ class Index extends Home
 {
     public function index()
     {
-        
-        return $this->fetch();
+        OAuth::getAuthUrl('taobao');
+        //return $this->fetch();
         
 
    }
@@ -85,17 +86,5 @@ class Index extends Home
        $this->assign('title','关于');
        return $this->fetch();
    }
-   /**
-    * 收藏夹
-    */
-   public function getusercollects($id)
-   {
-       $this->assign('name','收藏夹');
-       $dirinfo = UDModel::where(['id' => $id])->find();
-       $userinfo = User::where(['id' => $dirinfo['userid']])->find();
-       $this->assign('dirinfo', $dirinfo);
-       $this->assign('userinfo',$userinfo);
-       $this->assign('isvip',$this->isVip($userinfo['id']));
-       return $this->fetch();
-   }
+  
 }

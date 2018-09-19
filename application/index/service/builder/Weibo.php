@@ -13,18 +13,19 @@ class Weibo extends AbstructAuth
     const NAME = "weibo";
     public function __construct()
     {
-        $this->client = new OAuth2(static::APP_ID,static::APP_KEY,self::getCallBackUrl(self::NAME));
+        $this->client = new OAuth2(static::APP_ID,static::APP_KEY,$this->getCallBackUrl(self::NAME));
     }
     public function getAuthUrl()
     {
         $url = $this->client->getAuthUrl();
        // $_SESSION['YURUN_WEIBO_STATE'] = $this->client->state;
         header('location:' . $url);
+        exit;
     }
     public function authCallBack()
     {
         $accessToken = $this->client->getAccessToken($_GET['state']);  
-        $this->client->getOpenID($accessToken);
+        //$this->client->getOpenID($accessToken);
         try{
             // 用户唯一标识
             $openid = $this->client->openid;

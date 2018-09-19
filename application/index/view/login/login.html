@@ -1,0 +1,60 @@
+{extend name="public:layout" /}
+{block name="style"}
+<link rel="stylesheet" type="text/css" href="__STATIC__/home/css/login.css">
+{/block}
+{block name="header"} {/block}
+{block name="main-container"}
+ <div class="container_login cl" style="background-image: url('__STATIC__/home/img/login_bg.png');">
+   {include file="login/search"}
+            <div class="hl_user y">
+
+
+
+                <div class="user-box">
+                    <div class="user-title">
+                        <p>登录</p>
+                    </div>
+
+                    <div class="flex-c-m">
+      						<a href="#" class="login100-social-item bg1">
+      							<i class="iconfont icon-comiiserweima"></i>
+      						</a>
+
+       						<a href="{:url('login/authlogin',array('type'=>'qq'))}" class="login100-social-item bg2">
+       							<i class="iconfont icon-qq"></i>
+       						</a>
+
+       						<a href="{:url('login/authlogin',array('type'=>'weibo'))}" class="login100-social-item bg3">
+       							<i class="iconfont icon-weibo"></i>
+       						</a>
+                   			<a href="{:url('login/authlogin',array('type'=>'taobao'))}" class="login100-social-item bg4">
+       							<i class="iconfont icon-taobao"></i>
+       						</a>
+        			</div>
+                    <div class="hl_txttip">或者</div>
+                    <form class="login-table" name="login" id="login-form" action="login.php" method="post">
+                        <div class="login-left cl ">
+                            <div class="username cl">用户名或电子邮件</div>
+                            <input type="text" class="yhmiput" name="username" placeholder="Username" id="username">
+                        </div>
+                        <div class="login-left cl">
+                            <div class="passwd cl">密码</div>
+                            <input type="password" class="yhmiput" name="password" placeholder="Password" id="password">
+                        </div>
+                        <div class="login-btn">
+                            <button type="submit">登录</button>
+                        </div>
+                    </form>
+
+                    <div class="hl_login_link"><a href="{:url('login/register')}">注册</a>  <a href="">忘记密码？</a></div>
+
+                </div>
+            </div>
+  	</div>
+
+{/block}
+{block name="page-footer"}
+{include file="public/loginfoot"/}
+{/block}
+{block name="script"}
+{/block}

@@ -17,9 +17,6 @@ abstract class AbstructAuth
      */
     protected static function getCallBackUrl($type)
     {
-//         $type_class = explode('\\',get_class(static::class));
-//         array_filter($type_class);
-//         $type = strtolower(end($type_class));
         return url('Login/callback',['type'=>$type],true,true);
     }
     /**

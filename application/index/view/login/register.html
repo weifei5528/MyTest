@@ -1,0 +1,95 @@
+{extend name="public:layout" /}
+{block name="style"}
+<link rel="stylesheet" type="text/css" href="__STATIC__/home/css/login.css">
+{/block}
+{block name="header"} {/block}
+{block name="main-container"}
+  <div class="container_login cl" style="background-image: url('__STATIC__/home/img/login_bg.png');">
+    	{include file="login/search"}
+            <div class="hl_user y">
+
+
+
+                <div class="user-box">
+                    <div class="user-title">
+                        <p>登录</p>
+                    </div>
+
+                    <div class="flex-c-m">
+                    						<a href="#" class="login100-social-item bg1">
+                    							<i class="iconfont icon-comiiserweima"></i>
+                    						</a>
+
+                    						<a href="#" class="login100-social-item bg2">
+                    							<i class="iconfont icon-qq"></i>
+                    						</a>
+
+                    						<a href="#" class="login100-social-item bg3">
+                    							<i class="iconfont icon-weibo"></i>
+                    						</a>
+                                <a href="#" class="login100-social-item bg4">
+                    							<i class="iconfont icon-taobao"></i>
+                    						</a>
+                    					</div>
+                    <form class="login-table" name="login" id="login-form" action="login.php" method="post">
+                        <div class="login-left cl ">
+                            <div class="username cl">电子邮件地址</div>
+                            <input type="text" class="yhmiput" name="email" placeholder="请输入邮箱" id="email">
+                        </div>
+                        <div class="login-left cl">
+                            <div class="passwd cl">用户名</div>
+                            <input type="password" class="yhmiput" name="username" placeholder="请输入用户名" id="username">
+                        </div>
+                        <div class="login-left cl">
+                            <div class="passwd cl">密码</div>
+                            <input type="password" class="yhmiput" name="password" placeholder="请输入密码" id="password">
+                        </div>
+                        <div class="login-left cl">
+                            <div class="passwd cl">确认密码</div>
+                            <input type="password" class="yhmiput" name="surepass" placeholder="请在此输入密码" id="surepass">
+                        </div>
+                        <div class="msg">
+                          <label>
+                            <span class="z"><i class="iconfont icon-gouxuan"></i></span><input type="hidden" name="agree" value="0">我确认我已阅读并同意Paisuan.com <a href="#" class="inspect_link agreement_link" title="用户协议" target="_blank">服务条款</a>和<a href="#" class="inspect_link privacy_link" title=" 隐私政策 " target="_blank"> 隐私政策 </a>
+                          </label>
+                        </div>
+                        <div class="login-btn">
+                            <button type="button" onclick="register();">登录</button>
+                        </div>
+                    </form>
+
+                    <div class="hl_login_link">已经是会员？<a href="{:url('login/login')}">登录</a></div>
+
+                </div>
+            </div>
+  	</div>
+<script type="text/javascript">
+  $(".icon-gouxuan").click(function(){
+    verify = $(this).hasClass('icon-gouxuan1') ? 0 : 1;
+    $(this).toggleClass('icon-gouxuan1');
+    ob = $('input[name=agree]');
+    ob.val(ob.val()==0?1:0);
+    ob.val(ob.val() !== verify ? verify : ob.val());
+
+    ob.val() == 0 ? $('#errormsg').removeClass('hide').addClass('show') : $('#errormsg').removeClass('show').addClass('hide');
+  });
+</script>
+{/block}
+{block name="page-footer"}
+	{include file="public/loginfoot"/}
+{/block}
+{block name="script"}
+<script type="text/javascript" src ="__STATIC__/home/js/jquery.validate.min.js"></script>
+<script type="text/javascript">
+	function register(){
+		var load = layer.load(1,{shade:0.3});
+		$.ajax({
+			url:"{:url('login/register')}",
+			type:"post",
+			dataType:'json',
+			
+		});
+	}
+</script>
+
+{/block}

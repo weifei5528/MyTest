@@ -52,7 +52,7 @@ class Home extends Common
         if(!$this->getUser() && !in_array(strtolower($controller), $this->public_controllers)) {
             if(empty($this->getUser())) {
                 $backurl = null;
-                if($controller!='login'){
+                if($controller!='Login'){
                     $backurl = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'];
                     session('backurl',$backurl);
                 }
@@ -63,7 +63,7 @@ class Home extends Common
     protected  function getUser()
     {
         $user = session('user');
-        $user = Db::name('users')->where(['id'=>10])->find();
+       
         if(empty($user))
             return false;
         $this->user = $user;

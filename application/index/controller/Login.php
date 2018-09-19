@@ -3,7 +3,7 @@ namespace app\index\controller;
 
 use app\index\service\OAuth;
 use think\Db;
-use app\common\model\User;
+use app\common\model\User as UserModel;
 class Login extends Home
 {
     /**
@@ -14,7 +14,7 @@ class Login extends Home
         if($this->request->isPost()) {
             $username = input('post.username', null);
             $password = input('post.password', null);
-            if($user = User::where(['username' => $username,'password' => getMd5Pass($password)])){
+            if($user = UserModel::where(['username' => $username,'password' => getMd5Pass($password)])){
                 $this->setUser($user);
                 return $this->redirect($this->getAuthBackUrl());
             } else {
@@ -36,7 +36,7 @@ class Login extends Home
              if ($result !== true) {
                 return $this->error($result);
             } else {
-                if($user=User::create($data)) {
+                if($user=UserModel::create($data)) {
                     $this->setUser($user);
                     return $this->redirect($this->getAuthBackUrl());
                 } else {
@@ -44,6 +44,7 @@ class Login extends Home
                 }
             }
         } else {
+            $this->assign('title','注册');
             return $this->fetch();
         }
     }
@@ -54,7 +55,6 @@ class Login extends Home
     public function authlogin()
     {
         $type = input('type',null);
-        $type = "qq";
         if(empty($type))
             return $this->error('请选择登录方式',url('Login/login'));
        OAuth::getAuthUrl($type);
@@ -67,14 +67,41 @@ class Login extends Home
         $class = input('type');
         $userinfo = OAuth::authCallBack($class);
         if(false!==$userinfo) {
-            if(empty($userinfo['userid'])) {
-                return $this->bindUserName($class, $userinfo['openid']);
+            $userid = $userinfo['userid'];
+            if(empty($userid)) {//用户第一次登录
+                $userid = $this->userfirstlogin($userinfo);
+                if(false === $userid) {
+                    return $this->success("登录失败，请重试！",url('login/login'));
+                }
             }
-            $user = User::getUserInfo($userinfo['userid']);
+            $user = UserModel::getUserInfo($userid);
             $this->setUser($user);
             return $this->redirect($this->getAuthBackUrl());
         } else {
           return $this->error('获取个人信息失败，请重试！',url('Login/login'));  
+        }
+    }
+    /**
+     * 用户第一次登录
+     */
+    private function userfirstlogin($user)
+    {
+        Db::startTrans();
+        try{
+            $userid = Db::name('users')->insertGetId([
+                    'last_login_ip' => get_client_ip(), 
+                    'create_time'   => time(),
+                    'update_time'   =>time(),
+                    'head_img'      => $user['head_img'],
+                    'nickname'      =>empty($user['nickname'])?'拍蒜用户':$user['nickname'],
+                    
+                ]);
+            Db::name('user_qq')->where(['id' => $user['id']])->update(['userid'=>$userid, 'update_time'=>time()]);
+            Db::commit();
+            return $userid;
+        } catch (\Exception $e) {
+            Db::rollback();
+            return false;
         }
     }
     /**
@@ -86,7 +113,7 @@ class Login extends Home
         $class = $class ? $class :input('class');
         $id    = $id ? $id :input('id');
         
-        if(!$this->request->isPost()) {
+        if($this->request->isPost()) {
             $username = input('username', null);
             $password = input('password', null);
             if(empty($class) || empty($id)) {
@@ -97,7 +124,7 @@ class Login extends Home
             }
             Db::startTrans();
             try{
-                $user = User::create(['username' => $username, 'password' =>getMd5Pass($password), 'last_login_ip' => get_client_ip()]);
+                $user = UserModel::create(['username' => $username, 'password' =>getMd5Pass($password), 'last_login_ip' => get_client_ip()]);
                 OAuth::addUserId($class, $user['id'], ['openid' => $id]);
                 Db::commit();
             }catch (\Exception $e) {

@@ -1,0 +1,46 @@
+
+input{outline:none;border:none}
+input:focus::-webkit-input-placeholder{color:transparent}
+input:focus:-moz-placeholder{color:transparent}
+input:focus::-moz-placeholder{color:transparent}
+input:focus:-ms-input-placeholder{color:transparent}
+textarea:focus::-webkit-input-placeholder{color:transparent}
+textarea:focus:-moz-placeholder{color:transparent}
+textarea:focus::-moz-placeholder{color:transparent}
+textarea:focus:-ms-input-placeholder{color:transparent}
+input::-webkit-input-placeholder{color:#adadad}
+input:-moz-placeholder{color:#adadad}
+input::-moz-placeholder{color:#adadad}
+input:-ms-input-placeholder{color:#adadad}
+textarea::-webkit-input-placeholder{color:#adadad}
+textarea:-moz-placeholder{color:#adadad}
+textarea::-moz-placeholder{color:#adadad}
+textarea:-ms-input-placeholder{color:#adadad}
+button{outline:none !important;border:none;background:transparent}
+button:hover{cursor:pointer}
+.hl_leftbox{margin-right:150px;text-align:center}
+.hl_leftbox .hl_logo{margin-bottom:50px}
+.hl_leftbox .hl_h2{font-size:24px;font-weight:300;text-align:center;margin-top:50px;color:#fff}
+.hl_leftbox .hl_h2 span{color:#00ce84;font-weight:800;font-size:30px}
+.hl_search_container{position:relative;font-size:18px;width:520px;z-index:99}
+.user-box{width:300px}
+.hl_txttip{text-align:center;color:#ccc;margin-top:60px;margin-bottom:30px}
+.container_login{width: 1500px;margin: 0 auto;min-height:700px;margin-top: 30px;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;padding:15px;background-repeat:no-repeat;background-position:center;background-size:cover;border-radius:10px}
+.hl_user{background:#fff;padding:50px 80px;border-radius:10px;overflow:hidden}
+.username,.passwd{font-family:'Microsoft Yahei';font-size:14px;color:#333333;line-height:1.5;margin-bottom:10px}
+.yhmiput{width:280px;height:44px;border:1px solid #e4e4e4;background:#f4f4f4;border-radius:4px;padding:0 10px}
+.login-left input:focus{border:1px solid #00ce84;background:#ffff}
+.bg1{color:#333}
+.bg2{color:#388bfd}
+.bg3{color:#f3504f}
+.bg4{color:#f3664f}
+.flex-c-m{text-align:center;margin-bottom:10px}
+.login100-social-item{font-size:25px;width:50px;height:50px;border-radius:50%;display:inline-block}
+.user-title{display:block;font-size:39px;color:#333333;line-height:1.2;text-align:center;padding-bottom:49px}
+.login100-social-item i{font-size:30px}
+.login-btn{background:#00ce84;width:300px;height:44px;line-height:44px;text-align:center;border-radius:4px}
+.login-btn button{color:#fff;font-size:16px}
+.hl_login_link{margin-top:20px;margin-bottom:30px;text-align:center}
+.login-left{margin-bottom:20px}
+.msg{color:#999;margin-bottom:10px}
+.msg i{margin-right:5px;margin-top:3px}

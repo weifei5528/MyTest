@@ -8,6 +8,7 @@ class User extends Validate
     protected $rule = [
         'username|用户名'      => 'require|unique:User',
         'password|密码'       => 'require',
+        'email|邮箱'          =>'require|email'
         
     ];
     
@@ -15,7 +16,9 @@ class User extends Validate
     protected $message = [
         'username.require' => '用户名不能为空',
         'username.unique'  => '用户名已存在',
-        'password.require'  =>'密码不能为空'
+        'password.require'  =>'密码不能为空',
+        'email.require'     =>'邮箱不能为空',
+        'email.require'     =>'邮箱格式不正确',
     ];
     
 }
