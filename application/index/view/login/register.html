@@ -79,9 +79,13 @@
 	{include file="public/loginfoot"/}
 {/block}
 {block name="script"}
-<script type="text/javascript" src ="__STATIC__/home/js/jquery.validate.min.js"></script>
 <script type="text/javascript">
 	function register(){
+		var email = $("#email").val();
+		if(email == '' || email == undefined || email == null) {
+			layer.msg("请填写邮件地址！");
+			$("#email").focus();
+		}
 		var load = layer.load(1,{shade:0.3});
 		$.ajax({
 			url:"{:url('login/register')}",
