@@ -23,8 +23,8 @@ class Index extends Home
 {
     public function index()
     {
-        OAuth::getAuthUrl('taobao');
-        //return $this->fetch();
+        //OAuth::getAuthUrl('taobao');
+        return $this->fetch();
         
 
    }

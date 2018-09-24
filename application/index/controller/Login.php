@@ -150,7 +150,32 @@ class Login extends Home
             $url = url('index/index');
         return $url;
     }
-    
+    /**
+     * 验证邮件地址是否已经存在
+     */
+    public function emailisexits(){
+        if($this->request->isPost()) {
+            $email = input("email");
+            if(UserModel::where(['email'=>$email])->count()){
+                return $this->error("此邮箱已注册，请使用其他邮箱注册！");
+            } else {
+                return $this->success('恭喜你,此邮箱可以使用！');
+            }
+        }
+    }
+    /**
+     * 验证邮件地址是否已经存在
+     */
+    public function usernameisexits(){
+        if($this->request->isPost()) {
+            $username = input("username");
+            if(UserModel::where(['username'=>$username])->count()){
+                return $this->error("此用户名义存在！");
+            } else {
+                return $this->success('恭喜你,用户名可以使用！');
+            }
+        }
+    }
 }
 
 ?>
