@@ -16,17 +16,17 @@
                     </div>
 
                     <div class="flex-c-m">
-                    						<a href="#" class="login100-social-item bg1">
-                    							<i class="iconfont icon-comiiserweima"></i>
-                    						</a>
+                						<a href="#" class="login100-social-item bg1">
+                							<i class="iconfont icon-comiiserweima"></i>
+                						</a>
 
-                    						<a href="#" class="login100-social-item bg2">
-                    							<i class="iconfont icon-qq"></i>
-                    						</a>
+                						<a href="#" class="login100-social-item bg2">
+                							<i class="iconfont icon-qq"></i>
+                						</a>
 
-                    						<a href="#" class="login100-social-item bg3">
-                    							<i class="iconfont icon-weibo"></i>
-                    						</a>
+                						<a href="#" class="login100-social-item bg3">
+                							<i class="iconfont icon-weibo"></i>
+                						</a>
                                 <a href="#" class="login100-social-item bg4">
                     							<i class="iconfont icon-taobao"></i>
                     						</a>
@@ -38,7 +38,7 @@
                         </div>
                         <div class="login-left cl">
                             <div class="passwd cl">用户名</div>
-                            <input type="password" class="yhmiput" name="username" placeholder="请输入用户名" id="username">
+                            <input type="password" class="yhmiput" name="username" placeholder="请输入用户名 (英文数字最少6位)" id="username">
                         </div>
                         <div class="login-left cl">
                             <div class="passwd cl">密码</div>
@@ -80,11 +80,82 @@
 {/block}
 {block name="script"}
 <script type="text/javascript">
+
+function email(){
+	var email = $("#email").val();
+	if(email == '' || email == undefined || email == null) {
+		layer.msg("请填写邮件地址！");
+		$("#email").focus();
+		return false;
+	}
+	var myreg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+	if(!myreg.test(email)){
+		layer.msg("请填写正确的邮件地址！");
+		$("#email").focus();
+		return false;
+	}
+	$.ajax({
+		url:"{:url('login/emailisexits')}",
+		type:'post',
+		dataType:"json",
+		timeout:20*1000,
+		data:{email:$("#email").val()},
+		success:function(data){
+			if(data.code==0){
+				layer.msg(data.msg);
+				return false;
+			}
+		},error:function(){
+			layer.msg("请检查网络是否可用~~~");
+			return false;
+		}
+	});
+	return true;
+}
+function checkUsername(){
+	var username = $.trim($("#username").val());
+	if(username == '' || username == null || username == undefined) {
+		layer.msg("用户名不能为空！");
+		$("#username").focus();
+		return false;
+	}
+	var reg = /^[0-9a-zA-Z]{6,}$/;
+	if(!reg.test(username)){
+		layer.msg("请填写正确的用户名！");
+		$("#username").focus();
+		return false;
+	}
+	$.ajax({
+		url:"{:url('login/usernameisexits')}",
+		type:'post',
+		dataType:"json",
+		timeout:20*1000,
+		data:{email:$("#email").val()},
+		success:function(data){
+			if(data.code==0){
+				layer.msg(data.msg);
+				return false;
+			}
+		},error:function(){
+			layer.msg("请检查网络是否可用~~~");
+			return false;
+		}
+	});
+	return true;
+}
+
+$("#email").blur(function(){
+	email();
+});
 	function register(){
+<<<<<<< HEAD
 		var email = $("#email").val();
 		if(email == '' || email == undefined || email == null) {
 			layer.msg("请填写邮件地址！");
 			$("#email").focus();
+=======
+		if(false === email()){
+>>>>>>> f54b7995628b423a90b95fffa0931708d16b83c6
 			return false;
 		}
 		if(!email.match(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/)) {
