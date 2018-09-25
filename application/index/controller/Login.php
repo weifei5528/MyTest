@@ -14,9 +14,15 @@ class Login extends Home
         if($this->request->isPost()) {
             $username = input('post.username', null);
             $password = input('post.password', null);
+            $where = ['password' => getMd5Pass($password)];
+            if(strpos($username,"@") !== false) {
+                $where['email'] = $username;
+            } else{
+                $where['username'] = $username;
+            }
             if($user = UserModel::where(['username' => $username,'password' => getMd5Pass($password)])){
                 $this->setUser($user);
-                return $this->redirect($this->getAuthBackUrl());
+                return $this->success("登录成功,正在跳转，请稍等...",$this->getAuthBackUrl());
             } else {
                 return $this->error('用户名或密码错误,请重试！');
             }
