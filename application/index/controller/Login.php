@@ -20,7 +20,7 @@ class Login extends Home
             } else{
                 $where['username'] = $username;
             }
-            if($user = UserModel::where(['username' => $username,'password' => getMd5Pass($password)])){
+            if($user = UserModel::where(['username' => $username,'password' => getMd5Pass($password)])->find()){
                 $this->setUser($user);
                 return $this->success("登录成功,正在跳转，请稍等...",$this->getAuthBackUrl());
             } else {

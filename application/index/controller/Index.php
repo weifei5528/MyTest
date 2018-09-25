@@ -92,6 +92,11 @@ class Index extends Home
        return $this->fetch();
    }
   /**
-   * 
+   * 收藏合集
    */
+   public function getallcollect()
+   {
+       $this->assign('title',"收藏合集");
+       return $this->fetch();
+   }
 }

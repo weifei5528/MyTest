@@ -3,6 +3,7 @@ namespace app\index\controller;
 
 use app\common\model\AdminAttachment as AttModel;
 use think\Db;
+use app\common\model\UserLoves as ULModel;
 
 class Image extends Home
 {
@@ -56,11 +57,21 @@ class Image extends Home
         if(empty($id)) {
             return $this->error("请选择图片！");
         }
-        if($this->addOurLove($id)) {
-            return $this->success("添加成功！");
-        } else {
-            return $this->error("添加失败，请重试~~");
+        $where = ['userid' => $this->user['id'], 'att_id' => $id];
+        if(ULModel::where($where)->count()){
+            if(ULModel::where($where)->delete()) {
+                return $this->success("取消喜爱成功！");
+            } else {
+                return $this->error("取消喜爱失败，请重试！");
+            }
+        }else {
+            if($this->addOurLove($id)) {
+                return $this->success("添加喜爱成功！");
+            } else {
+                return $this->error("添加喜爱失败，请重试~~");
+            }
         }
+        
     }
     
 }

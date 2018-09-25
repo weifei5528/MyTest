@@ -53,7 +53,9 @@ class Home extends Common
             if(empty($this->getUser())) {
                 $backurl = null;
                 if($controller!='Login'){
-                    $backurl = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'].'?'.$_SERVER['QUERY_STRING'];
+                    $action = request()->action();
+                    $params = input('param.');
+                    $backurl = url($controller."/".$action,$params);
                     session('backurl',$backurl);
                 }
                 return $this->redirect(url('Login/login'));
