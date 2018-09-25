@@ -24,7 +24,6 @@ class Index extends Home
 {
     public function index()
     {
-        
         return $this->fetch();
         
 
