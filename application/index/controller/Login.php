@@ -32,13 +32,15 @@ class Login extends Home
     {
         if($this->request->isPost()) {
              $data = $this->request->post();
+             
              $result = $this->validate($data, 'User');
              if ($result !== true) {
                 return $this->error($result);
             } else {
+                $data['password'] = getMd5Pass($data['password']);
                 if($user=UserModel::create($data)) {
                     $this->setUser($user);
-                    return $this->redirect($this->getAuthBackUrl());
+                    return $this->success("注册成功,正在跳转~~",$this->getAuthBackUrl());
                 } else {
                     return $this->error('注册失败，请重试！');
                 }
@@ -157,9 +159,11 @@ class Login extends Home
         if($this->request->isPost()) {
             $email = input("email");
             if(UserModel::where(['email'=>$email])->count()){
-                return $this->error("此邮箱已注册，请使用其他邮箱注册！");
+                //return $this->error("此邮箱已注册，请使用其他邮箱注册！");
+                return false;
             } else {
-                return $this->success('恭喜你,此邮箱可以使用！');
+                //return $this->success('恭喜你,此邮箱可以使用！');
+                return true;
             }
         }
     }
@@ -170,9 +174,11 @@ class Login extends Home
         if($this->request->isPost()) {
             $username = input("username");
             if(UserModel::where(['username'=>$username])->count()){
-                return $this->error("此用户名义存在！");
+                //return $this->error("此用户名义存在！");
+                return false;
             } else {
-                return $this->success('恭喜你,用户名可以使用！');
+                //return $this->success('恭喜你,用户名可以使用！');
+                return true;
             }
         }
     }
