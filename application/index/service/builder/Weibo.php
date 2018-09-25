@@ -19,8 +19,7 @@ class Weibo extends AbstructAuth
     {
         $url = $this->client->getAuthUrl();
        // $_SESSION['YURUN_WEIBO_STATE'] = $this->client->state;
-        header('location:' . $url);
-        exit;
+        return $url;
     }
     public function authCallBack()
     {

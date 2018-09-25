@@ -19,8 +19,7 @@ class Qq extends AbstructAuth
     {
         $url = $this->client->getAuthUrl();
         $_SESSION['YURUN_QQ_STATE'] = $this->client->state;
-        header('location:' . $url);
-        exit;
+        return $url;
     }
     public function authCallBack()
     {

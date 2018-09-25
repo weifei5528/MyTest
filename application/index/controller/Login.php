@@ -65,7 +65,9 @@ class Login extends Home
         $type = input('type',null);
         if(empty($type))
             return $this->error('请选择登录方式',url('Login/login'));
-       OAuth::getAuthUrl($type);
+       $url = OAuth::getAuthUrl($type);
+       header('location:' . $url);
+       exit;
     }
     /**
      * 登录回调的Url

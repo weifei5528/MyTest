@@ -71,8 +71,7 @@ class Taobao extends AbstructAuth
         // TODO Auto-generated method stub
         $url = $this->client->getAuthUrl();
         $_SESSION['YURUN_QQ_STATE'] = $this->client->state;
-        header('location:' . $url);
-        exit;
+        return $url;
     }
 
     
