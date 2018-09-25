@@ -85,7 +85,15 @@
 		if(email == '' || email == undefined || email == null) {
 			layer.msg("请填写邮件地址！");
 			$("#email").focus();
+			return false;
 		}
+		if(!email.match(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/)) {
+			layer.msg("邮箱格式不正确，请重新填写！");
+			$("#email").focus();
+			return false;
+		}
+		var password = $("#password").val();
+		
 		var load = layer.load(1,{shade:0.3});
 		$.ajax({
 			url:"{:url('login/register')}",

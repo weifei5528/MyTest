@@ -15,7 +15,7 @@ class Order extends Home
         }
         $good_info = Db::name('money_type')->where(['id' => $good_id])->find();
         if(empty($good_info))
-            return $this->error('充值类型不存在！');
+            return $this->error('商品不存在！');
         $sum = $good_info['money'];
         $orderid = self::createOrderNum($type);
        
