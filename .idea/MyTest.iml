@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/ezyang/htmlpurifier" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/firebase/php-jwt" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/guzzle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/promises" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/guzzlehttp/psr7" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/hughbertd/oauth2-unsplash" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/league/oauth2-client" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/paragonie/random_compat" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/http-message" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/topthink/think-captcha" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/topthink/think-helper" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/topthink/think-image" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/topthink/think-installer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/unsplash/unsplash" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/yurunsoft/pay-sdk" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/yurunsoft/yurun-http" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/yurunsoft/yurun-oauth-login" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/zoonman/pixabay-php-api" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="PHP" type="php">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/composer" />
+          <root url="file://$MODULE_DIR$/vendor/ezyang/htmlpurifier" />
+          <root url="file://$MODULE_DIR$/vendor/firebase/php-jwt" />
+          <root url="file://$MODULE_DIR$/vendor/guzzlehttp/guzzle" />
+          <root url="file://$MODULE_DIR$/vendor/guzzlehttp/promises" />
+          <root url="file://$MODULE_DIR$/vendor/guzzlehttp/psr7" />
+          <root url="file://$MODULE_DIR$/vendor/hughbertd/oauth2-unsplash" />
+          <root url="file://$MODULE_DIR$/vendor/league/oauth2-client" />
+          <root url="file://$MODULE_DIR$/vendor/paragonie/random_compat" />
+          <root url="file://$MODULE_DIR$/vendor/psr/http-message" />
+          <root url="file://$MODULE_DIR$/vendor/topthink/think-captcha" />
+          <root url="file://$MODULE_DIR$/vendor/topthink/think-helper" />
+          <root url="file://$MODULE_DIR$/vendor/topthink/think-image" />
+          <root url="file://$MODULE_DIR$/vendor/topthink/think-installer" />
+          <root url="file://$MODULE_DIR$/vendor/unsplash/unsplash" />
+          <root url="file://$MODULE_DIR$/vendor/yurunsoft/pay-sdk" />
+          <root url="file://$MODULE_DIR$/vendor/yurunsoft/yurun-http" />
+          <root url="file://$MODULE_DIR$/vendor/yurunsoft/yurun-oauth-login" />
+          <root url="file://$MODULE_DIR$/vendor/zoonman/pixabay-php-api" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/composer" />
+          <root url="file://$MODULE_DIR$/vendor/ezyang/htmlpurifier" />
+          <root url="file://$MODULE_DIR$/vendor/firebase/php-jwt" />
+          <root url="file://$MODULE_DIR$/vendor/guzzlehttp/guzzle" />
+          <root url="file://$MODULE_DIR$/vendor/guzzlehttp/promises" />
+          <root url="file://$MODULE_DIR$/vendor/guzzlehttp/psr7" />
+          <root url="file://$MODULE_DIR$/vendor/hughbertd/oauth2-unsplash" />
+          <root url="file://$MODULE_DIR$/vendor/league/oauth2-client" />
+          <root url="file://$MODULE_DIR$/vendor/paragonie/random_compat" />
+          <root url="file://$MODULE_DIR$/vendor/psr/http-message" />
+          <root url="file://$MODULE_DIR$/vendor/topthink/think-captcha" />
+          <root url="file://$MODULE_DIR$/vendor/topthink/think-helper" />
+          <root url="file://$MODULE_DIR$/vendor/topthink/think-image" />
+          <root url="file://$MODULE_DIR$/vendor/topthink/think-installer" />
+          <root url="file://$MODULE_DIR$/vendor/unsplash/unsplash" />
+          <root url="file://$MODULE_DIR$/vendor/yurunsoft/pay-sdk" />
+          <root url="file://$MODULE_DIR$/vendor/yurunsoft/yurun-http" />
+          <root url="file://$MODULE_DIR$/vendor/yurunsoft/yurun-oauth-login" />
+          <root url="file://$MODULE_DIR$/vendor/zoonman/pixabay-php-api" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+  </component>
+</module>

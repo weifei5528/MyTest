@@ -99,4 +99,9 @@ class Index extends Home
        $this->assign('title',"收藏合集");
        return $this->fetch();
    }
+   
+   /**
+    * 受欢迎的
+    */
+   
 }
