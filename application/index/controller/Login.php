@@ -4,6 +4,8 @@ namespace app\index\controller;
 use app\index\service\OAuth;
 use think\Db;
 use app\common\model\User as UserModel;
+use app\index\service\HashId;
+use app\common\model\UserVips;
 class Login extends Home
 {
     /**
@@ -46,14 +48,60 @@ class Login extends Home
                 $data['password'] = getMd5Pass($data['password']);
                 if($user=UserModel::create($data)) {
                     $this->setUser($user);
+                    $this->awardUser($user->id);//添加奖励
                     return $this->success("注册成功,正在跳转~~",$this->getAuthBackUrl());
                 } else {
                     return $this->error('注册失败，请重试！');
                 }
             }
         } else {
+            //注册推广的用户
+            $this->generalize();
             $this->assign('title','注册');
             return $this->fetch();
+        }
+    }
+    
+    /**
+     * 判断是否有推广用户
+     */
+    private function generalize()
+    {
+        $id = input('id',null);
+        if($id) {
+            $id = HashId::decode_hex($id);
+            if($id) {
+                session('generalizeid',$id);
+            }
+        }
+    }
+    
+    /**
+     * 用户第一次登录注册奖励活动
+     * @param int 当前注册用户的id
+     */
+    private function awardUser($userid)
+    {
+        $generalizeid = session('generalizeid');
+        if($generalizeid) {
+            Db::startTrans();
+            try{
+                if(!UserVips::addVip("5 days", $generalizeid)){
+                    Db::rollback();
+                } else {
+                    Db::name('')
+                }
+                if(!UserVips::addVip("1 day", $userid)){
+                    Db::rollback();
+                }
+                
+                Db::commit();
+                
+            }catch (\Exception $e) {
+                Db::rollback();
+                
+            }
+            session('generalizeid',null);
         }
     }
     
@@ -80,7 +128,9 @@ class Login extends Home
             $userid = $userinfo['userid'];
             if(empty($userid)) {//用户第一次登录
                 $userid = $this->userfirstlogin($userinfo);
+                
                 if(false === $userid) {
+                    $this->awardUser($userid);//添加奖励
                     return $this->success("登录失败，请重试！",url('login/login'));
                 }
             }
@@ -104,7 +154,7 @@ class Login extends Home
                     'update_time'   =>time(),
                     'head_img'      => $user['head_img'],
                     'nickname'      =>empty($user['nickname'])?'拍蒜用户':$user['nickname'],
-                    
+                    'username'      =>'paike'.date('Ymdhis'),
                 ]);
             Db::name('user_qq')->where(['id' => $user['id']])->update(['userid'=>$userid, 'update_time'=>time()]);
             Db::commit();
@@ -113,6 +163,7 @@ class Login extends Home
             Db::rollback();
             return false;
         }
+        
     }
     /**
      * 用户绑定帐号密码

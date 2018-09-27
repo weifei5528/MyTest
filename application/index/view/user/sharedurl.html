@@ -1,0 +1,49 @@
+{extend name="public:layout" /}
+
+{block name="main-container"}
+{include file="user/info"}
+
+{include file="user/menu"}
+
+<div class="promotiontit cl mt20"><span class="f_g">限免</span>正在进行</div>
+
+<div class="promotionbox cl mt30" id="foo">分享一个收藏很久的免版权图片网站，里面都是大尺寸创意图！
+→ {$shareurl}  你注册，送你1天VIP~ </div>
+<a href=" javascript:;" id="copy-link-wrap" data-clipboard-action="copy" data-clipboard-target="#foo" class="copyurl">复制内容   送好友1天VIP，自己+5天VIP</a>
+
+
+<div class="promotionbox cl mt30" id="foo2">做设计的朋友注意了，分享一个收藏很久的免版权图片网站，里面都是大尺
+寸创意图！不用再担心侵权赔偿 → {$shareurl} </div>
+<a href=" javascript:;"  class="copyurl" data-clipboard-action="copy" data-clipboard-target="#foo2">复制内容   每发送1群，自己+10天VIP</a>
+
+
+<a href="" class="copyurl2 cl mt20" >提交截图</a>
+
+<div class="promotiontip cl mt40 mb50">
+<h2>小提示</h2>
+<p>1.  好友通过您的链接注册后，系统自动为您与您的好友赠送VIP；</p>
+<p>2.  分享以上完整内容到设计群并截图提交，审核后将为您赠送 10天VIP / 群，可累计；</p>
+</div>
+
+	
+{include file="public/copyright"}	
+	
+	
+{include file="public/imgfrom" /}
+
+	
+	
+{/block}
+{block name="script"}
+
+<script src="__STATIC__/home/js/clipboard.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+var clipboard = new ClipboardJS("a.copyurl");
+clipboard.on('success', function(e) {
+	layer.msg("复制成功,快去分享吧~~~");
+});
+clipboard.on('error', function(e) {
+	layer.msg("复制失败，请重试！");
+});
+</script>
+{/block}

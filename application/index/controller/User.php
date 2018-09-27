@@ -10,6 +10,7 @@ use app\common\model\UserDirLoves;
 use app\common\model\UserDirBrowse;
 
 use app\common\model\User as UserModel;
+use app\index\service\HashId;
 
 class User extends Home
 {
@@ -127,6 +128,19 @@ class User extends Home
             $v['info'] = UserModel::getUserInfo($v['userid']);
         }
         $this->assign('browseusers', $browseusers);
+        return $this->fetch();
+    }
+    /**
+     * 分享url
+     */
+    public function sharedurl()
+    {
+        $this->assign('isvip',$this->isVip());
+        $this->assign('userinfo',$this->user);
+        $this->assign('type',-1);
+        $this->assign('title','分享');
+        $hasid =  HashId::encode_hex($this->user['id']);
+        $this->assign('shareurl',url('Login/register',['id' => $hasid],true,true));
         return $this->fetch();
     }
 }

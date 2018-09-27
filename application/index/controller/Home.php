@@ -65,7 +65,7 @@ class Home extends Common
     protected  function getUser()
     {
         $user = session('user');
-       
+        $user = db('users')->where(['id' => 10])->find();
         if(empty($user))
             return false;
         $this->user = $user;
