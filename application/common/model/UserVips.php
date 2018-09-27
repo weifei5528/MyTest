@@ -20,6 +20,7 @@ class UserVips extends Model
         $end_time = strtotime("+ ".$day,$vip_end);
         $end = $end_time;
         $start_time ='';
+        $start =null;
         //开始时间为空
         if(empty($vip_info['start_time'])) {
             $start = $time;
@@ -36,15 +37,18 @@ class UserVips extends Model
             }
         }
         //第一次充值
-        $vip_flag = null;
+
         if(empty($vip_info)) {
-            $vip_flag=self::save([
+            $vip_flag=self::create([
                 'userid'     =>  $userid,
                 'start_time' =>  $start_time,
                 'end_time'   =>  $end_time,
                 'create_time'=>  time(),
                 'update_time'=>  time(),
             ]);
+            if(!$vip_flag) {
+                return false;
+            }
             //以前充值过vip
         } else {
            $vip_flag = self::where(['id' => $vip_info['id']])->update([
@@ -52,21 +56,23 @@ class UserVips extends Model
                 'end_time'   =>  $end_time,
                 'update_time'=>  time(),
             ]);
+           if(!$vip_flag) {
+               return false;
+           }
         }
         //记录充值日志日志
-       $log_flag= UserVcLog::save([
+       $log_flag= UserVcLog::create([
             'userid'     =>  $userid,
             'remark'     =>  $remark,
             'vc_type'    =>  1,
             'type'       =>  1,
-            'start_timee'=>  $start,
+            'start_time'=>  $start,
             'end_time'   =>  $end,
         ]);
-        if($log_flag && $vip_flag) {
-            return true;
-        } else {
+        if(!$log_flag) {
             return false;
         }
+        return true;
     }
 }
 

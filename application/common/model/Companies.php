@@ -37,7 +37,7 @@ class Companies extends Model
         }
         //第一次充值
         if(empty($com_info)) {
-            $com = self::save([
+            $com = self::create([
                 'userid'     =>  $userid,
                 'start_time' =>  $start_time,
                 'end_time'   =>  $end_time,
@@ -49,7 +49,7 @@ class Companies extends Model
                 return false;
             }
             //添加主账号
-            $com_users=CompanyUsers::save([
+            $com_users=CompanyUsers::create([
                 'com_id'     =>  $com->id,
                 'userid'     =>  $userid,
                 'is_host'    =>  1,
@@ -73,7 +73,7 @@ class Companies extends Model
         
         
         //记录充值日志日志
-        if(!UserVcLog::save([
+        if(!UserVcLog::create([
             'userid'     =>  $userid,
             'remark'     =>  $remark,
             'vc_type'    =>  1,

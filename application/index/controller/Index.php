@@ -46,7 +46,7 @@ class Index extends Home
     */
    public function paynotify()
    {
-       Log::write($_POST,'notifyerror');
+       Log::write($_POST,'notifyerror' );
        Log::write($_GET,'notifyerror');
        exit('ok');
       

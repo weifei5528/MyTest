@@ -50,7 +50,8 @@ class Home extends Common
         }
         $controller = request()->controller();
         if(!$this->getUser() && !in_array(strtolower($controller), $this->public_controllers)) {
-            if(empty($this->getUser())) {
+            $userinfo = $this->getUser();
+            if(empty($userinfo)) {
                 $backurl = null;
                 if($controller!='Login'){
                     $action = request()->action();
@@ -65,7 +66,7 @@ class Home extends Common
     protected  function getUser()
     {
         $user = session('user');
-        $user = db('users')->where(['id' => 10])->find();
+       // $user = db('users')->where(['id' => 10])->find();
         if(empty($user))
             return false;
         $this->user = $user;
