@@ -46,7 +46,7 @@ class Index extends Home
     */
    public function paynotify()
    {
-       Log::write($_POST,'notifyerror' );
+       Log::write($_POST,'notifyerror');
        Log::write($_GET,'notifyerror');
        exit('ok');
       
@@ -99,9 +99,4 @@ class Index extends Home
        $this->assign('title',"收藏合集");
        return $this->fetch();
    }
-   
-   /**
-    * 受欢迎的
-    */
-   
 }

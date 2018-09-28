@@ -39,7 +39,6 @@ class Login extends Home
     public function register()
     {
         if($this->request->isPost()) {
-
              $data = $this->request->post();
              
              $result = $this->validate($data, 'User');
@@ -89,24 +88,20 @@ class Login extends Home
         if($generalizeid) {
             Db::startTrans();
             try{
-                if(!UserVips::addVip("5 days", $generalizeid,'推广用户增加5天:'.$userid)){
+                if(!UserVips::addVip("5 days", $generalizeid,'推广用户注册增加5天VIP:'.$userid.')')){
 
                     Db::rollback();
-                    echo "1111111";exit;
                     return false;
                 }
-                if(!UserVips::addVip("1 day", $userid,'推广注册增加1天:'.$generalizeid)){
+                if(!UserVips::addVip("1 day", $userid,'用户注册增加1天VIP:'.$generalizeid)){
                     Db::rollback();
-                    echo "2222";exit;
                     return false;
                 }
                 
                 Db::commit();
                 
             }catch (\Exception $e) {
-
                 Db::rollback();
-                dump($e);exit;
             }
             session('generalizeid',null);
         }

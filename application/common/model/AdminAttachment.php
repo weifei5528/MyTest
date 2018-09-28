@@ -10,7 +10,7 @@ class AdminAttachment extends Model
      */
     public static function getImages()
     {
-        return self::where(['status' => 1])->order('browse desc')->field('id,thumb,size,download,browse,create_time,from_web,tags')->paginate();
+        return self::where(['status' => 1,'model' => 'web'])->order('browse desc')->field('id,thumb,size,download,browse,create_time,from_web,tags')->paginate();
     }
     /**
      * 获取图片详情

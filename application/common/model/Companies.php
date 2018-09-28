@@ -76,7 +76,7 @@ class Companies extends Model
         if(!UserVcLog::create([
             'userid'     =>  $userid,
             'remark'     =>  $remark,
-            'vc_type'    =>  1,
+            'vc_type'    =>  2,
             'type'       =>  1,
             'start_timee'=>  $start,
             'end_time'   =>  $end,
