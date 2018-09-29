@@ -62,7 +62,38 @@ class Usershared extends Admin
      */
     public function edit($id = '')
     {
+        if ($id === 0) $this->error('参数错误');
         
+        // 保存数据
+        if ($this->request->isPost()) {
+            // 表单数据
+            $data = $this->request->post();
+        
+            // 验证
+            $result = $this->validate($data, 'Config');
+            if(true !== $result) $this->error($result);
+        
+            
+        
+          
+        }
+        
+        // 获取数据
+        $info = USAModel::get($id);
+        
+        // 使用ZBuilder快速创建表单
+        return ZBuilder::make('form')
+        ->setPageTitle('审核')
+        ->addHidden('id')
+        ->addHidden('id')
+        ->addColumns([
+            ['userid','用户昵称','static',User::where(['id' => $info['userid']])->value()],
+            ['att_id','审核图片','gallery'],
+            ['status','审核状态','select',['审核','通过','拒绝']],
+            ['tex']
+        ])
+        ->setFormData($info)
+        ->fetch();
     }
 }
 
