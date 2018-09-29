@@ -6,6 +6,7 @@ use app\common\model\UserSharedApply as USAModel;
 use app\common\builder\ZBuilder;
 
 use think\Db;
+use app\common\model\User as UserModel;
 
 class Usershared extends Admin
 {
@@ -53,6 +54,7 @@ class Usershared extends Admin
         ])
         ->addFilter('status' ,['status'=>["申请",'通过','拒绝']]) // 添加筛选
         ->setRowList($data_list) // 设置表格数据
+        ->addRightButton('edit')
         ->hideCheckbox()
         ->fetch(); // 渲染页面
     }
@@ -80,18 +82,19 @@ class Usershared extends Admin
         
         // 获取数据
         $info = USAModel::get($id);
-        
+        $userinfo = UserModel::get($info['userid']);
         // 使用ZBuilder快速创建表单
         return ZBuilder::make('form')
         ->setPageTitle('审核')
         ->addHidden('id')
-        ->addHidden('id')
-        ->addColumns([
-            ['userid','用户昵称','static',User::where(['id' => $info['userid']])->value()],
-            ['att_id','审核图片','gallery'],
-            ['status','审核状态','select',['审核','通过','拒绝']],
-            ['tex']
+        ->addFormItems([
+            ['static','nickname','用户昵称','',$userinfo['nickname']],
+            ['gallery','att_id','审核图片'],
+            ['radio','status','审核状态','',['审核','通过','拒绝']],
+            ['textarea','remark','拒绝原因'],
+            
         ])
+        ->setTrigger('status',2,'remak')
         ->setFormData($info)
         ->fetch();
     }
