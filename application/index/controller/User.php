@@ -2,15 +2,17 @@
 namespace app\index\controller;
 
 use app\common\model\UserDownloads as UDModel;
-use app\common\model\AdminAttachment as AttModel;
+
 use app\common\model\UserBrowses as UBModel;
 use app\common\model\UserLoves as ULModel;
 use app\common\model\UserDirs as UDSModel;
-use app\common\model\UserDirLoves;
+
 use app\common\model\UserDirBrowse;
 
 use app\common\model\User as UserModel;
 use app\index\service\HashId;
+
+use app\common\model\UserSharedApply as USAModel;
 
 class User extends Home
 {
@@ -142,6 +144,41 @@ class User extends Home
         $hasid =  HashId::encode_hex($this->user['id']);
         $this->assign('shareurl',url('Login/register',['id' => $hasid],true,true));
         return $this->fetch();
+    }
+    /**
+     * 上传分享群
+     */
+    public function uploadImg()
+    {
+        if($this->request->isPost()) {
+            $att = new Attachment();
+            $resjson = $att->upload('images','','usershared');
+            $res = json_decode($resjson,true);
+            if($res['code']!=1){
+                return $this->error($res['info']);
+            } else {
+                $info = USAModel::where(['userid' => $this->user['id'],'att_id' => $res['id']])->find();
+                if($info) {
+                    if($info['status'] == 0){
+                        return json_encode(['code'=>0,'info' =>'您已经提交申请，请等待管理员审核!']);
+                    } elseif ($info['status'] == 2) {
+                        return json_encode(['code'=>0,'info' =>'您的申请未通过,原因为:'.$info['remark']]);
+                    } else {
+                        return json_encode(['code'=>0,'info' =>'你提交的申请,已经处理完毕！处理时间为:'.date('Y-m-d H:i:s',$info['update_time'])]);
+                    }
+                } else {
+                    if(USAModel::create(['userid' => $this->user['id'],'att_id' => $res['id']])){
+                        $res['info'] = "提交成功,请等待管理员审核...";
+                        return json_encode($res);
+                    } else {
+                        $res['info'] = "提交失败,请重试！";
+                        return json_encode($res);
+                    }
+                }
+                
+               
+            }
+        }
     }
 }
 
