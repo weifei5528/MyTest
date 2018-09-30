@@ -5,6 +5,8 @@ use think\Model;
 class UserSharedApply extends Model
 {
     protected $autoWriteTimestamp = true;
+    
+    
 }
 
 ?>
