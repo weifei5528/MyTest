@@ -61,13 +61,16 @@ function uploadImage(){
                     data:{},
                     success: function (data)  //服务器成功响应处理函数
                     {
-						console.log(data);
                        layer.close(load);
-					   layer.msg(data.info);
+						if(data.code==1){
+							layer.msg(data.info);
+						} else {
+							layer.alert(data.info);
+						}
+					   
                     },
                     error: function (data)//服务器响应失败处理函数
                     {
-						console.log(data);
 						layer.close(load);
 						layer.msg("请检查网络是否可用~~~");
                     }

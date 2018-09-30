@@ -7,6 +7,9 @@ use app\common\builder\ZBuilder;
 
 use think\Db;
 use app\common\model\User as UserModel;
+use app\common\model\UserSharedApply;
+use app\common\model\UserVips;
+use app\common\model\UserVcLog;
 
 class Usershared extends Admin
 {
@@ -72,9 +75,28 @@ class Usershared extends Admin
             $data = $this->request->post();
         
             // 验证
-            $result = $this->validate($data, 'Config');
+            $result = $this->validate($data, 'UserSharedApply.update');
             if(true !== $result) $this->error($result);
-        
+                    
+            if($data['status'] ==  1) {
+                $info = UserSharedApply::get($id);
+                $res = UserVips::addVip('15 days',$info['userid'] ,'群推广用户增加15天VIP');
+                if($res) {
+                    if(UserSharedApply::update($data)){
+                        return $this->success("操作成功！",url('index'));
+                    } else {
+                        return $this->error("操作失败！");
+                    }
+                }
+            } elseif($data['status'] == 2) {
+                if(UserSharedApply::update($data)) {
+                    return $this->success("操作成功！",url('index'));
+                } else {
+                    return $this->error("操作失败，请重试！");
+                }
+            } else {
+                return $this->error("没有修改");
+            }
             
         
           
@@ -92,12 +114,12 @@ class Usershared extends Admin
             ['gallery','att_id','审核图片'],
             ['radio','status','审核状态','',['审核','通过','拒绝']],
             ['textarea','remark','拒绝原因'],
-            
         ])
-        ->setTrigger('status',2,'remak')
+        ->setTrigger('status',2,'remark')
         ->setFormData($info)
         ->fetch();
     }
+    
 }
 
 ?>
