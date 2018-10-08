@@ -22,7 +22,7 @@ class FingerImage
      * @access public
      * @staticvar int
      * */
-    // public static $similarity = 80;
+    public static $similarity = 70;
 
     /**图片类型对应的开启函数
      * @access private
@@ -103,5 +103,25 @@ class FingerImage
             return null;
         }
 
+    }
+    /**比较两个 hash 值，是不是相似
+     * @param string $aHash A图片的 hash 值
+     * @param string $bHash B图片的 hash 值
+     * @return bool 当图片相似则传递 true，否则是 false
+     * */
+    public static function isHashSimilar($aHash, $bHash){
+        $aL = strlen($aHash); $bL = strlen($bHash);
+        
+        if ($aL !== $bL){ return false; }
+    
+        /*计算容许落差的数量*/
+        $allowGap = $aL*(100-self::$similarity)/100;
+    
+        /*计算两个 hash 值的汉明距离*/
+        $distance = 0;
+        for($i=0; $i<$aL; $i++){
+            if ($aHash{$i} !== $bHash{$i}){ $distance++; }
+        }
+        return ($distance<=$allowGap) ? true : false;
     }
 }

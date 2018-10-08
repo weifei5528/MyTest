@@ -4,6 +4,8 @@ namespace app\index\controller;
 use app\common\model\AdminAttachment as AttModel;
 use think\Db;
 use app\common\model\UserLoves as ULModel;
+use app\common\service\picture\FingerImage;
+use think\Cache;
 
 class Image extends Home
 {
@@ -71,6 +73,56 @@ class Image extends Home
                 return $this->error("添加喜爱失败，请重试~~");
             }
         }
+        
+    }
+    /**
+     * 相似的
+     */
+    public function ajaxsimilar($id)
+    {
+        set_time_limit(0);
+        $page = input('page',1);
+        $datalist = Cache::get($id."_".$page);
+        $lastid = Cache::get('lastid_'.$id);
+        $lastid = $lastid ? $lastid : 205;
+        $last = AttModel::where('hashimage','not null')->order('id desc')->value('id');
+        $hashimage =   AttModel::where('id', '=' , $id)->order('id asc')->value('hashimage');
+        if(!$datalist && ($lastid < $last )) {
+            $size =0 ;
+            $maxsize = 10;
+            $where['id'] =['>',$lastid];
+            $list =[];
+            while ($lastid < $last && $size < 10) {
+               $pagelist = AttModel::where($where)->where('hashimage','not null')->order('id asc')->field('id,hashimage,thumb')->limit(10)->select();
+            
+                foreach ($pagelist as $k => $v){
+                    $flag = FingerImage::isHashSimilar($hashimage, $v['hashimage']);
+                    if($flag) {
+                        $size++;
+            
+                        $list = ['id' => $v['id'],'imgurl' => get_thumb($v['id'])];
+                    }
+                    if($size >= $maxsize) {
+                        break;
+                    }
+                    $lastid = $v['id'];
+                }
+            }
+            if($list) {
+                Cache::set($id."_".$page,$list);
+            }
+            Cache::set('lastid_'.$id,$lastid);
+            $datalist = $list;
+           
+        } elseif($datalist) {
+            return $this->success("查询成功！",'',$datalist);
+        } else {
+           return $this->success("没有更多了!");
+        }
+        
+        return $this->success("查询成功！",'',$datalist);
+        
+        
         
     }
     
