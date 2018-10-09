@@ -26,12 +26,13 @@
 	    });
 	    function getmydowns(){
 	    	var page = $("input[name=page]").val();
+	    	var type = $("input[name=type]").val();
 	    	var name = $("input[name=name]").val();
 	    	$.ajax({
 	    		url:"{:url('index/ajaxgetname')}",
 	    		dataType:"json",
 	    		type:"get",
-	    		data:{page:page,name:name},
+	    		data:{page:page,name:name,type:type},
 	    		timeout:20*1000,
 	    		success:function(data){
 	    			console.log(data);

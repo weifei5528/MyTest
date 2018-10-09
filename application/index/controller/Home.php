@@ -37,6 +37,7 @@ class Home extends Common
 {
     protected $user = [];
     protected $public_controllers = ['login','index'];
+    protected $searchType = ['image' => '图片','text' => '设计'];
     /**
      * 初始化方法
      * @author 蔡伟明 <314013107@qq.com>
@@ -62,6 +63,9 @@ class Home extends Common
                 return $this->redirect(url('Login/login'));
             }
         }
+        $this->assign('search_type',$this->searchType);
+        $searchtype = input('type',null);
+        $this->assign('type',empty($searchtype) ? 'text' : $searchtype);
     }
     protected  function getUser()
     {
