@@ -1,0 +1,44 @@
+
+  <div class="search__dropDown pointer">
+    <button  class="search__dropDown_button input_none inline-block pointer" id="searchtype"><span >设计</span>
+      <i  class="iconfont icon-unfold"></i></button>
+    <div class="wrap">
+      <div  class="searchMenuContainer">
+        <ul  class="list-reset selectOptions">
+          {foreach name="search_type" key="skey" item="stype"}
+         	<li  class="pointer selectOptions_li" data-type="{$skey}">{$stype}</li>
+          {/foreach}
+        </ul>
+      </div>
+    </div>
+  </div>
+  <input type="hidden" name="type" value="{$type}" />
+  <input  type="text" name="name" value="{$name|default=''}" placeholder="开始免版权创意和灵感照片搜索..." class="search_input input_none">
+  <i class="iconfont icon-xiangji1 similar_container_icon"></i>
+  <div  class="search_container_text">搜索</div>
+
+<script type="text/javascript">
+	$(function(){
+		setSearchName();
+	});
+	function setSearchName(){
+		var searchtype = $("input[name=type]").val();
+		var text = $("li.pointer.selectOptions_li[data-type="+searchtype+"]").html();
+		$("#searchtype span").html(text);
+	}
+	$("li.pointer.selectOptions_li").click(function(){
+		var type = $(this).attr('data-type');
+		var text = $(this).html();
+		$("input[name=type]").val(type);
+		$("#searchtype span").html(text);
+	});
+	$("div.search_container_text").click(function(){
+		var name = $("input[name=name]").val();
+		if(name == '' || name == undefined || name == null) {
+			layer.alert("请输入搜索内容！");
+			return false;
+		}
+		var type = $("input[name=type]").val();
+		window.location.href = "{:url('Index/searchfromname')}"+"?name="+name+"&type="+type;
+	});
+</script> 

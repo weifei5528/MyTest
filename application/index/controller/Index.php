@@ -69,24 +69,22 @@ class Index extends Home
     */
    public function ajaxgetname()
    {
-       try{
-           $name = input('name');
-           if(empty($name)) {
-               return $this->error("请输入搜索的描述~~");
-           }
-           $searchDirs = UDModel::getSearchName($name);
-           $model = AdminAttachment::where('tags' , 'like' ,"%$name%");
-           if($searchDirs) {
-               $model->whereOr('id' , 'in',$searchDirs);
-           }
-           $list = $model->order(['browse' =>'desc'])->field('id,thumb')->paginate();
-           
-           foreach ($list as &$v){
-               $v['thumb'] = PUBLIC_PATH.$v['thumb'];
-           } 
-       }catch (\Exception $e) {
-           print_r($e);exit;
+       
+       $name = input('name');
+       if(empty($name)) {
+           return $this->error("请输入搜索的描述~~");
        }
+       $searchDirs = UDModel::getSearchName($name);
+       $model = AdminAttachment::where('tags' , 'like' ,"%$name%");
+       if($searchDirs) {
+           $model->whereOr('id' , 'in',$searchDirs);
+       }
+       $list = $model->order(['browse' =>'desc'])->field('id,thumb')->paginate();
+       
+       foreach ($list as &$v){
+           $v['thumb'] = PUBLIC_PATH.$v['thumb'];
+       } 
+       
       
        $this->success("查询成功！",'',$list);
    }

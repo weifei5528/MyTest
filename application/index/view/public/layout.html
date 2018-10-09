@@ -25,25 +25,9 @@
 <!-- header -->
   <div class="header" id="header">
       <div class="container-fluid header-container">
-        <a class="logo" href="index.html"></a>
+        <a class="logo" href="{:url('index/index')}"></a>
         <div class="search_container inPageSearch">
-          <div class="search__dropDown pointer">
-            <button  class="search__dropDown_button input_none inline-block pointer" id="searchtype"><span >设计</span>
-              <i  class="iconfont icon-unfold"></i></button>
-            <div class="wrap">
-              <div  class="searchMenuContainer">
-                <ul  class="list-reset selectOptions">
-                  {foreach name="search_type" key="skey" item="stype"}
-                 	<li  class="pointer selectOptions_li" data-type="{$skey}">{$stype}</li>
-                  {/foreach}
-                </ul>
-              </div>
-            </div>
-          </div>
-          <input type="hidden" name="type" value="{$type}" />
-          <input  type="text" name="name" value="{$name|default=''}" placeholder="开始免版权创意和灵感照片搜索..." class="search_input input_none">
-          <i class="iconfont icon-xiangji1 similar_container_icon"></i>
-          <div  class="search_container_text">搜索</div>
+          {include file="public/searchimg"}
         </div>
         <ul class="menu" id="menu">
             <li><a href="#">探索</a></li>
