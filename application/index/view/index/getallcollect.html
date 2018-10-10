@@ -1,10 +1,87 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+{extend name="public:layout" /}
 
-</body>
-</html>
+{block name="main-container"}
+
+
+<div class="catenav cl">
+	<div class="catenav_c">
+        <ul id="user_tabnav" class="cates">
+          <li><a href="#"  class="on">全部收藏</a></li>
+          {foreach name="clttypelist" item="ntype"}
+          	<li><a href="#" >{$ntype}</a></li>
+          {/foreach}
+        </ul>
+    </div>
+</div>
+
+<div class="ordernav wp cl mt20">
+  <ul>
+    <li>
+    	{foreach name="sortlist" key="skey" item="isort"}
+    		<a href="javascript:void(0)" {if condition="$skey eq $sortval"} class="on" {/if}>按{$isort}</a>
+    	{/foreach}
+    </li>
+  </ul>
+</div>
+
+
+<div class="wp cl mt50 mb50 mycollection">
+
+<ul class="bg-main-imgRouter">
+  <li>
+    <div class="avatarimg"><img src="img/user.jpg" ></div>
+    <div class="bg-main-imgRouter-item"><div class="item-img"><img src="img/sc.jpg" alt=""></div><a href="#" target="_blank" class="item-link"><span class="item-title">教师节·卡通背景</span></a></div>
+  </li>
+  
+</ul>
+
+</div>
+
+
+
+	
+{include file="public/copyright"}	
+	
+	
+{include file="public/imgfrom" /}
+
+	
+	
+{/block}
+{block name="script"}
+<script>
+
+function getmydowns(){
+	var page = $("input[name=page]").val();
+	$.ajax({
+		url:"{:url('user/ajaxmydowns')}",
+		dataType:"json",
+		type:"get",
+		data:{page:page},
+		timeout:20*1000,
+		success:function(data){
+			if(data.code){
+				var images = data.data.data;
+				console.log(images);
+				for(var i =0;i<images.length;i++){
+					$("div.hl_piclist ul").append('<li><a href="'+images[i]['url']+'" class="picBox"><img src="'+images[i]['thumb']+'"></a></li>')
+				}
+				if(page >= data.data.last_page){
+					console.log(data.data.last_page);
+					var $many = $("div.hl_more.cl.mb50 > a");
+					$many.unbind();
+					$many.html("已经到底了...");
+				}
+				
+					
+				
+			}else{
+				layer.msg(data.msg,{icon: 6});
+			}
+		},error:function(){
+			layer.msg("请检查网络状况~~~",{icon: 6});
+		}
+	})
+}	
+</script>
+{/block}

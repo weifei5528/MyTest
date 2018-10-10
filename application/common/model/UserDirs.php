@@ -19,6 +19,21 @@ class UserDirs extends Model
             return false;
         return array_unique($att_ids);
     }
+    
+    /**
+     * 获取指定文件夹
+     */
+    public static function getDirsList($where=[],$order=[])
+    {
+        $model = self::where(['auth' =>'0']);
+        if($where) {
+            $model->where($where);
+        }
+        if($order) {
+            $model->order($order);
+        }
+        return $model->paginate();
+    }
 }
 
 ?>

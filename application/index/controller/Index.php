@@ -16,12 +16,16 @@ use app\common\service\PayMoney;
 use app\common\model\UserDirs as UDModel;
 use app\index\service\OAuth;
 use think\Log;
+use app\common\model\Types;
+use app\common\model\User;
 /**
  * 前台首页控制器
  * @package app\index\controller
  */
 class Index extends Home
 {
+    public $sort_list = ['1'=>'人气','2'=>'最新'];
+    public $default_sort = 1;
     public function index()
     {
         return $this->fetch();
@@ -102,6 +106,42 @@ class Index extends Home
    public function getallcollect()
    {
        $this->assign('title',"收藏合集");
+       $cl_list = Types::getList();
+       array_unshift($cl_list, "全部收藏");
+       $this->assign('clttypelist',$cl_list);
+       $this->assign('sortlist',$this->sort_list);
+       $this->assign('sortval',$this->default_sort);
        return $this->fetch();
    }
+   /**
+    * ajax获取分类的合集列表
+    */
+   public function ajaxgetallcollect()
+   {
+       $sortval = input('sortval/d',$this->default_sort);
+       
+       $order = ['browse'=>'desc']; 
+       
+       $cltype = input('cltype/d',0);
+       $where = [];
+       if($cltype) {
+           $info = Types::get($cltype);
+           if($info) {
+               $where['name'] = ['like',"%".$info['name']."%"];
+           }
+       }
+       
+       $list = UDModel::getDirsList($where,$order);
+       $unsetlist = ['userid','auth','type'];
+       foreach ($list as $k => &$val) {
+           $val['coverimg'] = get_thumb($val['cover']);
+           $val['userimg']  = User::where('id','=',$val['userid'])->value('head_img');
+           foreach ($unsetlist as $key => $value) {
+               unset($val[$value]);
+           }
+       }
+       $this->success("查询成功",'',$list);
+       
+   }
+   
 }
