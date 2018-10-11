@@ -99,7 +99,7 @@ class User extends Home
      */
     public function ajaxmycollects()
     {
-        $list = UDSModel::where(['userid' => $this->user['id'] ,'type' => 1])->order(['update_time' =>'desc'])->paginate();
+        $list = UDSModel::where(['userid' => $this->user['id'] ,'auth' => 0,'type' => 1])->order(['update_time' =>'desc'])->paginate();
         $this->assign('list', $list);
         $html = '';
         if($list) {
@@ -115,7 +115,7 @@ class User extends Home
     public function getusercollects($id)
     {
         $this->assign('title','收藏夹');
-        $dirinfo = UDSModel::where(['id' => $id])->find();
+        $dirinfo = UDSModel::where(['id' => $id,'auth' => 0])->find();
         $userinfo = UserModel::where(['id' => $dirinfo['userid']])->find();
         $this->assign('dirinfo', $dirinfo);
         $this->assign('userinfo',$userinfo);
@@ -128,6 +128,17 @@ class User extends Home
         $this->assign('browseusers', $browseusers);
         return $this->fetch();
     }
+    /**
+     * ajax 获取 用户收藏图片
+     */
+    public function ajaxgetusercols()
+    {
+        $id = input('id/d',0);
+        if(empty($id)) {
+            return $this->error("缺少必要参数！");
+        }
+    }
+    
     /**
      * 分享url
      */
@@ -173,6 +184,25 @@ class User extends Home
                 }
                 
                
+            }
+        }
+    }
+    
+    
+    /**
+     * @param int $id 收藏夹的id
+     * @return bool 有权限 返回true  无权限返回false
+     */
+    private function is_auth($id)
+    {
+        $info = UDSModel::get($id);
+        if(empty($info)) {
+            return false;
+        } else{
+            if($info['auth'] == 0) {
+                return true;
+            } else {
+                return $this->user['id'] == $info['userid'] ? true : false;
             }
         }
     }
