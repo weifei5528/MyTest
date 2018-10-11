@@ -42,16 +42,13 @@ function getmydowns(){
 		timeout:20*1000,
 		success:function(data){
 			if(data.code){
-				var images = data.data.data;
-				console.log(images);
-				for(var i =0;i<images.length;i++){
-					$("div.hl_piclist ul").append('<li><a href="'+images[i]['url']+'" class="picBox"><img src="'+images[i]['thumb']+'"></a></li>')
-				}
-				if(page >= data.data.last_page){
-					console.log(data.data.last_page);
+				if(data.data == '' || data.data == null || data.data == undefined) {
 					var $many = $("div.hl_more.cl.mb50 > a");
 					$many.unbind();
 					$many.html("已经到底了...");
+				} else {
+					$("ul.bg-main-imgRouter").append(data.data);
+					setPage(++page);
 				}
 				
 					

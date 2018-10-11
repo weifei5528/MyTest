@@ -34,11 +34,9 @@ class User extends Home
     public function ajaxmydowns()
     {
         $list = UDModel::where(['userid' => $this->user['id']])->order(['update_time' =>'desc'])->paginate();
-        foreach ($list as &$v) {
-            $v['thumb'] = get_file_path($v['id']);
-            $v['url'] = url('Image/index',['id'=>$v['id']]);
-        }
-        return $this->success("查询成功！",'',$list);
+        $this->assign('list',$list);
+        $html = $this->fetch('user/mydowns_item');
+        return $this->success("查询成功！",'',$html);
         
     }
     /**
@@ -58,11 +56,9 @@ class User extends Home
     public function ajaxmybrowse()
     {
         $list = UBModel::where(['userid' => $this->user['id']])->order(['update_time' =>'desc'])->paginate();
-        foreach ($list as &$v) {
-            $v['thumb'] = get_file_path($v['id']);
-            $v['url'] = url('Image/index',['id'=>$v['id']]);
-        }
-        return $this->success("查询成功！",'',$list);
+        $this->assign('list',$list);
+        $html = $this->fetch('user/mybrowse_item');
+        return $this->success("查询成功！",'',$html);
         
     }
     /**
@@ -82,11 +78,9 @@ class User extends Home
     public function ajaxmyloves()
     {
         $list = ULModel::where(['userid' => $this->user['id']])->order(['update_time' =>'desc'])->paginate();
-        foreach ($list as &$v) {
-            $v['thumb'] = get_file_path($v['id']);
-            $v['url'] = url('Image/index',['id'=>$v['id']]);
-        }
-        return $this->success("查询成功！",'',$list);
+        $this->assign('list',$list);
+        $html = $this->fetch('user/myloves_item');
+        return $this->success("查询成功！",'',$html);
     
     }
     /**
