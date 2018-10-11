@@ -19,7 +19,7 @@
   <div class="wp">
     <div class="z">
 
-      <div class="avatarimg z"><img src="img/user.jpg" ></div>
+      <div class="avatarimg z"><img src="{$userinfo['head_img']}" ></div>
       <span class="username z">{$userinfo['nickname']}
       	{if condition="$isvip eq 1 OR $isvip eq 2"}
         	<span class="hl_vip bg_c">VIP</span>
@@ -60,7 +60,6 @@
     <li><a href="" class="picBox"><img src="img/2-1.jpg"></a></li>
     <li><a href="" class="picBox"><img src="img/3-1.jpg"></a></li>
     <li><a href="" class="picBox"><img src="img/4-1.jpg"></a></li>
-
   </ul>
 </div>
 
@@ -73,4 +72,9 @@
 
 	
 	
+{/block}
+{block name="script"}
+<script>
+	
+</script>
 {/block}

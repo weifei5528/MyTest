@@ -1,0 +1,13 @@
+{foreach name="list" item="userdir"}
+<li>
+    <div class="avatarimg"><img src="{$userdir['userimg']}" ></div>
+    <div class="bg-main-imgRouter-item">
+    	<div class="item-img">
+    		<img src="{$userdir.coverimg}" alt="{$userdir.name}">
+    	</div>
+    	<a href="{:url('user/getusercollects',array('id' => $userdir['id']))}" target="_blank" class="item-link">
+    		<span class="item-title">{$userdir.name}</span>
+    	</a>
+    </div>
+</li>
+{/foreach}	

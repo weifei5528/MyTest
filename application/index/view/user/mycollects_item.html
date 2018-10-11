@@ -1,0 +1,24 @@
+{foreach name="list" item="col"}
+<li>
+  <div class="boxnum">
+	  <span>{$col.count}张图片</span>
+	  
+	  <span class="onlymy">
+	  {if condition = "$col['auth'] eq 1"}
+	  	仅自己可见
+	  	<i class="iconfont icon-suoding"></i>
+	  {else/}
+	   	公开
+	  {/if}	
+	  </span>
+  </div>
+  <div class="bg-main-imgRouter-item">
+	  <div class="item-img">
+	  	<img src="{:get_thumb($col['cover'])}" alt="{$col.name}">
+	  </div>
+	  <a href="#" target="_blank" class="item-link">
+	  	<span class="item-title">{$col.name}</span>
+	  </a>
+  </div>
+</li>
+{/foreach}

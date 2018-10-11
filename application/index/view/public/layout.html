@@ -16,7 +16,6 @@
 	body .demo-class .layui-layer-btn .layui-layer-btn1{background:#999;}
   </style> -->
   {block name="style"}{/block}
-  
   {block name="page-title"}<title>拍蒜 - {$title|default='首页'}</title>{/block}
 </head>
 <body>
@@ -30,12 +29,10 @@
           {include file="public/searchimg"}
         </div>
         <ul class="menu" id="menu">
-            <li><a href="#">探索</a></li>
-            <li class="active"><a href="#">VIP45/年</a></li>
-            <li><a href="#">收藏合集</a></li>
-            <li><a href="#">新</a></li>
-            <li><a href="#">如何使用</a></li>
-            <li><a href="#">操作指南</a></li>
+        	{foreach name="menu_list"  item="menu"}
+        		 <li {if condition="$menu_active eq ($menu['controller'].'_'.$menu['action'])"} class="active" {/if}><a href="{php} echo url($menu['controller'].'/'.$menu['action']); {/php}">{$menu.name}</a></li>
+        	{/foreach}
+           
             <li><a href="#"><i  class="iconfont icon-gengduo1" style="font-size:30px;"></i></a></li>
           <li class="menu-btn active desktop-only"><a href="{:url('login/register')}">免费注册</a></li>
           <li class="menu-btn desktop-only"><a  href="{:url('login/login')}">HI，请登录</a></li>
@@ -118,6 +115,9 @@
 		var type = $("input[name=type]").val();
 		window.location.href = "{:url('Index/searchfromname')}"+"?name="+name+"&type="+type;
 	});
+	function setPage(page) {
+		$("input[name=page]").val(page);
+	}
 </script> 
 {block name="script"}{/block}
 <!--页面js-->

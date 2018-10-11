@@ -101,16 +101,18 @@ class User extends Home
         return $this->fetch();
     }
     /**
-     * 获取浏览过的文件
+     * 获取收藏过的文件
      */
     public function ajaxmycollects()
     {
         $list = UDSModel::where(['userid' => $this->user['id'] ,'type' => 1])->order(['update_time' =>'desc'])->paginate();
-        foreach ($list as &$v) {
-            $v['thumb'] = get_file_path($v['att_id']);
-            $v['url'] = url('Image/index',['id'=>$v['id']]);
+        $this->assign('list', $list);
+        $html = '';
+        if($list) {
+            $html = $this->fetch('user/mycollects_item');
         }
-        return $this->success("查询成功！",'',$list);
+        
+        return $this->success("查询成功！",'',$html);
     
     }
     /**
@@ -118,7 +120,7 @@ class User extends Home
      */
     public function getusercollects($id)
     {
-        $this->assign('name','收藏夹');
+        $this->assign('title','收藏夹');
         $dirinfo = UDSModel::where(['id' => $id])->find();
         $userinfo = UserModel::where(['id' => $dirinfo['userid']])->find();
         $this->assign('dirinfo', $dirinfo);

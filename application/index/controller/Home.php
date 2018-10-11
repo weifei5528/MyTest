@@ -38,6 +38,15 @@ class Home extends Common
     protected $user = [];
     protected $public_controllers = ['login','index'];
     protected $searchType = ['image' => '图片','text' => '设计'];
+    protected $menu = [
+        ['name'=>'探索','controller' =>'index','action'=>'index'],
+        ['name'=>'VIP45/年','controller'=>'vip','action'=>'index'],
+        ['name'=>'收藏合集','controller'=>'index','action'=>'getallcollect'],
+        ['name'=>'新','controller'=>'index','action'=>'newimg'],
+        ['name'=>'如何使用','controller'=>'index','action'=>'aboutuse'],
+        ['name'=>'我的','controller'=>'index','action'=>'operate'],
+        
+    ];
     /**
      * 初始化方法
      * @author 蔡伟明 <314013107@qq.com>
@@ -50,6 +59,7 @@ class Home extends Common
             $this->error('站点已经关闭，请稍后访问~');
         }
         $controller = request()->controller();
+        $action = request()->action();
         if(!$this->getUser() && !in_array(strtolower($controller), $this->public_controllers)) {
             $userinfo = $this->getUser();
             if(empty($userinfo)) {
@@ -66,6 +76,8 @@ class Home extends Common
         $this->assign('search_type',$this->searchType);
         $searchtype = input('type',null);
         $this->assign('type',empty($searchtype) ? 'text' : $searchtype);
+        $this->assign('menu_active',strtolower($controller."_".$action));
+        $this->assign('menu_list',$this->menu);
     }
     protected  function getUser()
     {

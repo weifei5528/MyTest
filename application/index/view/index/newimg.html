@@ -1,0 +1,58 @@
+{extend name="public:layout" /}
+
+{block name="main-container"}
+<div id="search_list" class="flex-images">
+  <div class="cl">
+    
+    
+    </div>
+
+</div>
+<div class="hl_more cl mb50"><a href="#" onlick="return false;">加载更多...</a></div>
+
+	
+{include file="public/copyright"}	
+	
+	
+{include file="public/imgfrom" /}
+
+{/block}
+{block name="script"}
+	<script type="text/javascript">
+	    //$('#search_list').flexImages({ truncate: 1 });
+	    $(function(){
+	    	$("div.hl_more.cl.mb50").bind('click',getmydowns);
+	    	getmydowns();
+	    });
+	    function getmydowns(){
+	    	var page = $("input[name=page]").val();
+	    	$.ajax({
+	    		url:"{:url('index/ajaxgetnewimgs')}",
+	    		dataType:"json",
+	    		type:"get",
+	    		data:{page:page},
+	    		timeout:20*1000,
+	    		success:function(data){
+	    			console.log(data);
+	    			if(data.code){
+	    				if(data.data == '' || data.data == null || data.data == undefined) {
+	    					var $many = $("div.hl_more.cl.mb50");
+	    					$many.unbind();
+	    					$many.find("a").html("已经到底了...");
+	    				} else {
+	    					$("#search_list div.cl").append(data.data);
+	    					setPage(++page);
+	    				}
+	    				
+	    			}else{
+	    				layer.msg(data.msg,{icon: 6});
+	    			}
+	    		},error:function(){
+	    			layer.msg("请检查网络状况~~~",{icon: 6});
+	    		},complete:function(){
+	    			$('#search_list div.cl').flexImages({ truncate: 1 });
+	    		}
+	    	})
+	    }
+	</script>
+{/block}

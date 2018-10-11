@@ -26,6 +26,13 @@ class AdminAttachment extends Model
     {
         return self::where(['id' => $id])->value($field);
     }
+    /**
+     * 获取最新的图片
+     */
+    public static function getNewImgs()
+    {
+        return self::where(['module' => 'web','status' => 1])->order('create_time desc')->paginate();
+    }
 }
 
 ?>

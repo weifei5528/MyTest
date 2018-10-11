@@ -86,26 +86,14 @@ function getmydowns(){
 		timeout:20*1000,
 		success:function(data){
 			if(data.code){
-				var images = data.data.data;
-				console.log(images);
-				for(var i =0;i<images.length;i++){
-					var str ='';
-					str +='<li><div class="boxnum"><span>'+image[i]['count']+'张图片</span>';
-					if(image[i]['auth'] == 1){
-						str += '<span class="onlymy">仅自己可见<i class="iconfont icon-suoding"></i></span>';
-					}
-					str += '</div><div class="bg-main-imgRouter-item"><div class="item-img"><img src="'+image[i]['thumb']+'" alt=""></div><a href="#" target="_blank" class="item-link"><span class="item-title">'+image[i]['name']+'</span></a></div>';
-					$("ul.bg-main-imgRouter").append(str);
-					
-				}
-				if(page >= data.data.last_page){
-					console.log(data.data.last_page);
+				if(data.data == '' || data.data == null || data.data == undefined) {
 					var $many = $("div.hl_more.cl.mb50 > a");
 					$many.unbind();
 					$many.html("已经到底了...");
+				} else {
+					$("ul.bg-main-imgRouter").append(data.data);
+					setPage(page++);
 				}
-				
-					
 				
 			}else{
 				layer.msg(data.msg,{icon: 6});

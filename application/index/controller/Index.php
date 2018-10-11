@@ -24,8 +24,9 @@ use app\common\model\User;
  */
 class Index extends Home
 {
-    public $sort_list = ['1'=>'人气','2'=>'最新'];
-    public $default_sort = 1;
+    public $sort_list = ['browse'=>'人气','create_time'=>'最新'];
+    public $default_sort = 'browse';
+    protected $data_h_list = [300,437,300,298];
     public function index()
     {
         return $this->fetch();
@@ -111,6 +112,7 @@ class Index extends Home
        $this->assign('clttypelist',$cl_list);
        $this->assign('sortlist',$this->sort_list);
        $this->assign('sortval',$this->default_sort);
+       $this->assign('cltype',0);
        return $this->fetch();
    }
    /**
@@ -118,10 +120,9 @@ class Index extends Home
     */
    public function ajaxgetallcollect()
    {
-       $sortval = input('sortval/d',$this->default_sort);
+       $sortval = input('sortval/s',$this->default_sort);
        
-       $order = ['browse'=>'desc']; 
-       
+       $order = ["$sortval"=>'desc']; 
        $cltype = input('cltype/d',0);
        $where = [];
        if($cltype) {
@@ -140,8 +141,32 @@ class Index extends Home
                unset($val[$value]);
            }
        }
-       $this->success("查询成功",'',$list);
+       
+       $this->assign('list',$list);
+       $itemHtml = $this->fetch('index/getallcollect_item');
+       
+       $this->success("查询成功",'',$itemHtml);
        
    }
-   
+   /**
+    * 最新的图片
+    */
+   public function newimg()
+   {
+       $this->assign('title','搜索');
+       return $this->fetch();
+   }
+   /**
+    * 
+    */
+   public function ajaxgetnewimgs()
+   {
+       
+       $list = AdminAttachment::getNewImgs();
+       $this->assign('data_h_list' ,$this->data_h_list);
+       $this->assign('data_h_count',count($this->data_h_list)-1);
+       $this->assign('list',$list);
+       $html = $this->fetch('index/newimg_item');
+       $this->success("查询成功！",'',$html);
+   }
 }

@@ -6,9 +6,8 @@
 <div class="catenav cl">
 	<div class="catenav_c">
         <ul id="user_tabnav" class="cates">
-          <li><a href="#"  class="on">全部收藏</a></li>
-          {foreach name="clttypelist" item="ntype"}
-          	<li><a href="#" >{$ntype}</a></li>
+          {foreach name="clttypelist" key="clkey"" item="ntype"}
+          	<li class="on"><a href="javascript:void(0)" data-cltype="{$clkey}" {if condition = "$clkey eq $cltype"} class="on" {/if}>{$ntype}</a></li>
           {/foreach}
         </ul>
     </div>
@@ -16,9 +15,9 @@
 
 <div class="ordernav wp cl mt20">
   <ul>
-    <li>
+    <li id="sortval">
     	{foreach name="sortlist" key="skey" item="isort"}
-    		<a href="javascript:void(0)" {if condition="$skey eq $sortval"} class="on" {/if}>按{$isort}</a>
+    		<a href="javascript:void(0)" data-sortval="{$skey}" {if condition="$skey eq $sortval"} class="on" {/if}>按{$isort}</a>
     	{/foreach}
     </li>
   </ul>
@@ -28,11 +27,7 @@
 <div class="wp cl mt50 mb50 mycollection">
 
 <ul class="bg-main-imgRouter">
-  <li>
-    <div class="avatarimg"><img src="img/user.jpg" ></div>
-    <div class="bg-main-imgRouter-item"><div class="item-img"><img src="img/sc.jpg" alt=""></div><a href="#" target="_blank" class="item-link"><span class="item-title">教师节·卡通背景</span></a></div>
-  </li>
-  
+ 
 </ul>
 
 </div>
@@ -50,28 +45,46 @@
 {/block}
 {block name="script"}
 <script>
-
-function getmydowns(){
+$(function(){
+	getmydowns(true);
+})
+$("#user_tabnav > li").click(function(){
+	$(this).siblings().children('a[class=on]').removeClass('on');
+	$(this).children().addClass("on");
+	$("input[name=page]").val(1);
+	getmydowns(false);
+});
+$("#sortval > a").click(function(){
+	$(this).siblings().removeClass('on');
+	$(this).addClass("on");
+	$("input[name=page]").val(1);
+	getmydowns(false);
+})
+function getmydowns(append){
 	var page = $("input[name=page]").val();
+	var sortval = $("#sortval > a[class=on]").attr('data-sortval');
+	var cltype = $("#user_tabnav li>a[class=on]").attr('data-cltype');
 	$.ajax({
-		url:"{:url('user/ajaxmydowns')}",
+		url:"{:url('index/ajaxgetallcollect')}",
 		dataType:"json",
 		type:"get",
-		data:{page:page},
+		data:{page:page,sortval:sortval,cltype:cltype},
 		timeout:20*1000,
 		success:function(data){
 			if(data.code){
-				var images = data.data.data;
-				console.log(images);
-				for(var i =0;i<images.length;i++){
-					$("div.hl_piclist ul").append('<li><a href="'+images[i]['url']+'" class="picBox"><img src="'+images[i]['thumb']+'"></a></li>')
+				var appendHtml = $("div ul.bg-main-imgRouter");
+				if(append === false) {
+					appendHtml.html(data.data);
+				} else {
+					appendHtml.append(data.data);
 				}
-				if(page >= data.data.last_page){
+				
+				/* if(page+1 >= data.data.last_page){
 					console.log(data.data.last_page);
 					var $many = $("div.hl_more.cl.mb50 > a");
 					$many.unbind();
 					$many.html("已经到底了...");
-				}
+				} */
 				
 					
 				
