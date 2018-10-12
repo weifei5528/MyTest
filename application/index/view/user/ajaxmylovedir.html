@@ -1,10 +1,12 @@
+{foreach name="list" item="loves"}
 <li>
 	<div class="bg-main-imgRouter-item">
 		<div class="item-img">
-			<img src="img/sc.jpg" alt="">
+			<img src="{:get_thumb($loves['cover'])}" alt="">
 		</div>
-		<a href="#" target="_blank" class="item-link">
-			<span class="item-title">教师节·卡通背景</span>
+		<a href="{:url('user/getusercollects',array('id' => $loves['dirid']))}"  class="item-link">
+			<span class="item-title">{$loves.name}</span>
 		</a>
 	</div>
 </li>
+{/foreach}

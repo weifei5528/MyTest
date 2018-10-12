@@ -14,6 +14,7 @@ use app\index\service\HashId;
 
 use app\common\model\UserSharedApply as USAModel;
 use app\common\model\UserDirImages;
+use app\common\model\UserDirLoves;
 
 class User extends Home
 {
@@ -122,7 +123,7 @@ class User extends Home
         $this->assign('userinfo',$userinfo);
         $this->assign('isvip',$this->isVip($userinfo['id']));
         $browseusers = UserDirBrowse::where(['dir_id' => $id])->order('create_time desc')->paginate(3);
-        $this->userBrowseDir($id);
+        $this->userBrowseDir($id);//添加浏览记录
         foreach ($browseusers as &$v) {
             $v['info'] = UserModel::getUserInfo($v['userid']);
         }
@@ -251,16 +252,37 @@ class User extends Home
     /**
      * 我喜爱的收藏夹
      */
-    public function ajaxmylovedir()
+    public function ajaxmylovedir($json=true)
     {
-        $list = '';
+        $list = UserDirLoves::where(['userid' => $this->user['id']])->order('create_time desc')->paginate();
+        
+        foreach ($list as $k=>&$v) {
+            $dirinfo = UDSModel::get($v['dirid']);
+            $v['cover'] = $dirinfo['cover'];
+            $v['name']  = $dirinfo['name'];
+        }
+        $this->assign('list',$list);
+        
     }
     /**
      * 添加喜爱文件夹
      */
-    public function ajaxaddlovedir()
+    public function ajaxaddlovedir($id)
     {
-        
+        $info = UserDirLoves::where(['userid' => $this->user['id'],'dirid' => $id])->find();
+        if(empty($info)) {
+            if(UserDirLoves::create(['userid' => $this->user['id'],'dirid' => $id])){
+                return $this->success("收藏成功！");
+            } else {
+                return $this->error("收藏失败！");
+            }
+        } else {
+            if(UserDirLoves::destroy(['userid' =>$this->user['id'],'dirid' => $id])) {
+                return $this->success("取消收藏成功！");
+            } else {
+                return $this->error("取消收藏失败！");
+            }
+        }
     }
 }
 
