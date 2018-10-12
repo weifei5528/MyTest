@@ -44,8 +44,14 @@ class Home extends Common
         ['name'=>'收藏合集','controller'=>'index','action'=>'getallcollect'],
         ['name'=>'新','controller'=>'index','action'=>'newimg'],
         ['name'=>'如何使用','controller'=>'index','action'=>'aboutuse'],
-        ['name'=>'我的','controller'=>'index','action'=>'operate'],
+        ['name'=>'我的','controller'=>'index','action'=>'mine'],
         
+    ];
+    protected $menuSons = [
+        'user_mydowns'  =>  'index_mine',
+        'user_mybrowses'=>  'index_mine',
+        'user_myloves'  =>  'index_mine',
+        'user_mycollects'=> 'index_mine',
     ];
     /**
      * 初始化方法
@@ -76,9 +82,23 @@ class Home extends Common
         $this->assign('search_type',$this->searchType);
         $searchtype = input('type',null);
         $this->assign('type',empty($searchtype) ? 'text' : $searchtype);
-        $this->assign('menu_active',strtolower($controller."_".$action));
-        $this->assign('menu_list',$this->menu);
+        $this->setMenu();
     }
+    /**
+     * 设置菜单
+     */
+    private function setMenu(){
+        $controller = request()->controller();
+        $action = request()->action();
+        $this->assign('menu_list',$this->menu);
+        $caname = strtolower($controller."_".$action);
+        if(isset($this->menuSons[$caname])) {
+            $caname = $this->menuSons[$caname];
+        }
+        $this->assign('menu_active',$caname);
+    }
+    
+    
     protected  function getUser()
     {
         $user = session('user');

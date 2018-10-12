@@ -13,6 +13,7 @@ use app\common\model\User as UserModel;
 use app\index\service\HashId;
 
 use app\common\model\UserSharedApply as USAModel;
+use app\common\model\UserDirImages;
 
 class User extends Home
 {
@@ -205,6 +206,37 @@ class User extends Home
                 return $this->user['id'] == $info['userid'] ? true : false;
             }
         }
+    }
+    /**
+     * 收藏文件夹的 图片
+     * @param int $id  收藏夹的id
+     */
+    public function mycollectimg($id)
+    {
+        $info = UDSModel::where(['id' => $id,'userid' => $this->user['id']])->find();
+        //$where = ['dir' => empty($dirname)?0:$id];
+        $count = UserDirImages::where(['dir' => $id])->count();
+        $this->assign('userinfo',$this->user);
+        $this->assign('isvip',$this->isVip());
+        $this->assign('type',"collect");
+        $this->assign('dirinfo',$info);
+        $this->assign('imgcount',$count);
+        return $this->fetch();
+    }
+    public function ajaxgetmycollectimg($id)
+    {
+        if(false === $this->is_auth($id)) {
+            return $this->error("您没有此收藏夹的权限！");
+        }
+        $list = UserDirImages::where(['id' => $id])->order(['update_time' =>'desc'])->paginate();
+        $this->assign('list', $list);
+        $html = '';
+        if($list) {
+            $html = $this->fetch('user/mycollectimg_item');
+        }
+        
+        return $this->success("查询成功！",'',$html);
+        
     }
 }
 

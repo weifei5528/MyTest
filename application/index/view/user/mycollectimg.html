@@ -1,12 +1,13 @@
 {extend name="public:layout" /}
 
 {block name="main-container"}
+
 {include file="user/info"}
 
 {include file="user/menu"}
 
 <div class="hl_piclist">
-  <div class="hl_mytit">已下载{$count|default=0}张</div>
+  <div class="hl_mytit">{$dirinfo.name}里有{$imgcount|0}张图片</div>
   <ul>
     
 
@@ -33,7 +34,7 @@ $(function(){
 function getmydowns(){
 	var page = $("input[name=page]").val();
 	$.ajax({
-		url:"{:url('user/ajaxmydowns')}",
+		url:"{:url('user/ajaxgetmycollectimg',array('id' => $dirinfo['id']))}",
 		dataType:"json",
 		type:"get",
 		data:{page:page},

@@ -2,7 +2,7 @@
 	<div class="us-nav-c">
         <ul id="user_tabnav" class="us-nav">
             <li>
-				<a href="{:url('User/mycollects')}" {eq name="type" value="colect"} class="on" {/eq}>我的收藏盒</a>
+				<a href="{:url('User/mycollects')}" {eq name="type" value="collect"} class="on" {/eq}>我的收藏盒</a>
 			</li>
 			<li>
 				<a href="{:url('User/myloves')}" {eq name="type" value="love"} class="on" {/eq}>我的喜爱</a>
@@ -15,7 +15,7 @@
         	</li>
         </ul>
         <div class="buyvip y">
-          <a href="promotion.html">
+          <a href="{:url('user/sharedurl')}">
             <div class="hl_vip bg_c">VIP</div>
             <p>领取免费VIP</p>
           </a>

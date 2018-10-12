@@ -169,4 +169,11 @@ class Index extends Home
        $html = $this->fetch('index/newimg_item');
        $this->success("查询成功！",'',$html);
    }
+   /**
+    * mine
+    */
+   public function mine() 
+   {
+       return redirect('user/mycollects');
+   }
 }
