@@ -72,6 +72,7 @@ class User extends Home
         $this->assign('isvip',$this->isVip());
         $this->assign('count',ULModel::getWhereCount(['userid' => $this->user['id']]));
         $this->assign('type',"love");
+        $this->assign('colhtml',$this->ajaxmylovedir(false));
         return $this->fetch();
     }
     /**
@@ -260,8 +261,11 @@ class User extends Home
             $dirinfo = UDSModel::get($v['dirid']);
             $v['cover'] = $dirinfo['cover'];
             $v['name']  = $dirinfo['name'];
+            
         }
         $this->assign('list',$list);
+        $html = $this->fetch('user/ajaxmylovedir');
+        return $json ? $this->success("查询成功！",'',$html) : $html;
         
     }
     /**
