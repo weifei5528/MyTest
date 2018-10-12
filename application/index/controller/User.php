@@ -132,12 +132,21 @@ class User extends Home
     /**
      * ajax 获取 用户收藏图片
      */
-    public function ajaxgetusercols()
+    public function ajaxgetusercols($id)
     {
-        $id = input('id/d',0);
         if(empty($id)) {
             return $this->error("缺少必要参数！");
         }
+        if(false === $this->is_auth($id)) {
+            return $this->error("您的权限不足！");
+        }
+        $list = UserDirImages::where(['dir' => $id])->order(['update_time' =>'desc'])->paginate();
+        $this->assign('list', $list);
+       
+        $html = $this->fetch('user/mycollectimg_item');
+        
+        
+        return $this->success("查询成功！",'',$html);
     }
     
     /**
@@ -236,6 +245,21 @@ class User extends Home
         }
         
         return $this->success("查询成功！",'',$html);
+        
+    }
+    
+    /**
+     * 我喜爱的收藏夹
+     */
+    public function ajaxmylovedir()
+    {
+        $list = '';
+    }
+    /**
+     * 添加喜爱文件夹
+     */
+    public function ajaxaddlovedir()
+    {
         
     }
 }

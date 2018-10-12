@@ -279,4 +279,5 @@ return [
     ],
     //密码的加密字符
     'password'  =>'abcdefg',
+    'yearmoney' =>45,//vip每年价格
 ];
