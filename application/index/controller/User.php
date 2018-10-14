@@ -145,7 +145,7 @@ class User extends Home
         $list = UserDirImages::where(['dir' => $id])->order(['update_time' =>'desc'])->paginate();
         $this->assign('list', $list);
        
-        $html = $this->fetch('user/mycollectimg_item');
+        $html = $this->fetch('user/getusercollects_item');
         
         
         return $this->success("查询成功！",'',$html);
