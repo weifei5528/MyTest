@@ -1,0 +1,25 @@
+{present name="list"}
+<div class="hlfav cl">
+  <div class="favtxt z">
+    <p>来自蒜瓣er的</p>
+    <p class="f_c">收藏合集</p>
+   </div>
+<ul class="bg-main-imgRouter z">
+	{foreach name="list" item="col"}
+  <li>
+  	<div class="bg-main-imgRouter-item">
+  		<div class="item-img">
+  			<img src="{:get_thumb($col['cover'])}" alt="{$col.name}">
+  		</div>
+  		<a href="{:url('user/getusercollects',array('id' => $col['id']))}"  class="item-link">
+  			<span class="item-title">{$col.name}</span>
+  		</a>
+  	</div>
+  </li>
+  {/foreach}
+  
+
+</ul>
+<div class="favmore"><a href="{:url('index/getallcollect')}"><i class="iconfont icon-gengduo"></i></a> </div>
+</div>
+{/present}

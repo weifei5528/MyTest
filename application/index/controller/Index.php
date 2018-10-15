@@ -29,6 +29,7 @@ class Index extends Home
     protected $data_h_list = [300,437,300,298];
     public function index()
     {
+        $this->assign('top',$this->getTopList());
         return $this->fetch();
         
 
@@ -175,5 +176,14 @@ class Index extends Home
    public function mine() 
    {
        return redirect('user/mycollects');
+   }
+   /**
+    * 置顶的收藏夹
+    */
+   private function getTopList(){
+       $list = UDModel::where(['top' => 1])->order('update_time desc')->paginate();
+       $this->assign('list',$list);
+       $html = $this->fetch('index/coltop');
+       return $html;
    }
 }

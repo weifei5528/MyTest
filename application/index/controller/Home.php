@@ -43,7 +43,7 @@ class Home extends Common
         ['name'=>'VIP45/年','controller'=>'vip','action'=>'index'],
         ['name'=>'收藏合集','controller'=>'index','action'=>'getallcollect'],
         ['name'=>'新','controller'=>'index','action'=>'newimg'],
-        ['name'=>'如何使用','controller'=>'index','action'=>'aboutuse'],
+        ['name'=>'如何使用','controller'=>'index','action'=>'about'],
         ['name'=>'我的','controller'=>'index','action'=>'mine'],
         
     ];
