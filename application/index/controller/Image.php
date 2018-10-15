@@ -18,7 +18,8 @@ class Image extends Home
             return $this->error('请选择要浏览的图片！');
         }
         $info = AttModel::getImageInfo($id);
-        $info['tags'] = $info['tags']?current(specify_segmentation($info['tags'])):'';
+
+        $info['tags'] = trim($info['tags'])?specify_segmentation($info['tags']):'';
         $this->addBrowse($id);
         $this->assign('title','图片详情');
         $this->assign('info',$info);

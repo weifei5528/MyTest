@@ -37,13 +37,19 @@ $(function(){
 $("div.hl_addfav a.addfav").click(function(){
 	layer.open({
 		title:"创建收藏夹",
-		content:"<div><span>名称: </span><input id='dirname' type='text' name='name'/></div><div><span>权限: </span><input type='radio'  name='auth' value='0' />私有<input type='radio' name='auth' value='1' />公开</div>",
+		content:"<div><span>名称: </span><input id='dirname' type='text' name='name'/></div><div><span>权限: </span><input type='radio'  name='auth' value='0' />私有<input type='radio' seleted name='auth' value='1' />公开</div>",
 		yes: function(index, layero){
 			var dirname = $("#dirname").val();
+
 			if(dirname == '' || dirname == null || dirname == undefined) {
 			    layer.alert("请输入收藏夹名称!");
 			    return false;
             }
+            $.ajax({
+                type:"post",
+                url:"{:url()}"
+            });
+
 		    //按钮【按钮一】的回调
 		  }
 		  
