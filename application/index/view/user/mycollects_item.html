@@ -14,7 +14,12 @@
   </div>
   <div class="bg-main-imgRouter-item">
 	  <div class="item-img">
-	  	<img src="{:get_thumb($col['cover'])}" alt="{$col.name}">
+	  	{empty name="col.cover"}
+	  		<img src="__STATIC__/home/img/sc.jpg" alt="{$col.name}">
+	  	{else/}
+	  		<img src="{:get_thumb($col['cover'])}" alt="{$col.name}">
+	  	{/empty}
+	  	
 	  </div>
 	  <a href="{:url('user/mycollectimg',array('id' => $col['id']))}" class="item-link">
 	  	<span class="item-title">{$col.name}</span>

@@ -239,7 +239,7 @@ class User extends Home
         if(false === $this->is_auth($id)) {
             return $this->error("您没有此收藏夹的权限！");
         }
-        $list = UserDirImages::where(['id' => $id])->order(['update_time' =>'desc'])->paginate();
+        $list = UserDirImages::where(['dir' => $id])->order(['update_time' =>'desc'])->paginate();
         $this->assign('list', $list);
         $html = '';
         if($list) {
@@ -287,6 +287,43 @@ class User extends Home
                 return $this->error("取消收藏失败！");
             }
         }
+    }
+    /**
+     * 添加收藏夹
+     */
+    public function ajaxaddcollect()
+    {
+        if($this->request->isPost()) {
+            $name = trim(input('name'));
+            if(empty($name))
+                return $this->error("请填写收藏夹名称");
+            $type = input('auth',0);
+            $data['name'] = $name;
+            $data['type'] = $type;
+            $data['userid'] = $this->user['id'];
+            $data['type'] =1;
+            if($info = UDSModel::create($data)){
+                $info = UDSModel::get($info['id']);
+                $this->assign('list',array($info));
+                $html = $this->fetch('user/mycollects_item');
+                return $this->success("添加成功！",'',$html);
+            } else {
+                return $this->error("添加失败!");
+            }
+        }
+    }
+    /**
+     * 查询收藏夹
+     */
+    public function checkmycoldir()
+    {
+        $list = UDSModel::where(['userid' => $this->user['id']])->field('id,name')->order('update_time desc')->select();
+      
+        $this->assign('list',$list);
+        $html = $this->fetch('user/checkdirs_item');
+        return $this->success("查询成功！",'',$html);
+        
+        
     }
 }
 

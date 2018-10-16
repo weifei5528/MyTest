@@ -72,7 +72,7 @@ class Userdir extends Home
             if(empty($info)) {
                 return $this->error('文件夹不存在,请重新选择文件夹！');
             }
-            if(!UserDirImages::where(['dir_id' => $dirId, 'attr_id' => $imgId])->find()) {
+            if(UserDirImages::where(['dir' => $dirId, 'att_id' => $imgId])->find()) {
                 return $this->error('文件夹中已存在此图片，不需要重复添加！');
             }
             if(CommonFunc::addImageToDir($dirId, $imgId)){

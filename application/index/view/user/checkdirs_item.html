@@ -1,0 +1,9 @@
+{notempty name="list"}
+<div>
+	<select name="dir">
+		{foreach name="list" key="dkey" item="dir"}
+			<option {if condition="$dkey eq 0 "} seleted {/if} value="{$dir.id}">{$dir.name}</option>
+		{/foreach}
+	</select>
+</div>
+{/notempty}

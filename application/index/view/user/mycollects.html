@@ -37,7 +37,9 @@ $(function(){
 $("div.hl_addfav a.addfav").click(function(){
 	layer.open({
 		title:"创建收藏夹",
-		content:"<div><span>名称: </span><input id='dirname' type='text' name='name'/></div><div><span>权限: </span><input type='radio'  name='auth' value='0' />私有<input type='radio' seleted name='auth' value='1' />公开</div>",
+		shade:0.3,
+		anim: 0,
+		content:"<div><span>名称: </span><input id='dirname' type='text' name='name'/></div><div><span>权限: </span><input type='radio'  name='auth' value='0' />私有<input type='radio' checked name='auth' value='1' />公开</div>",
 		yes: function(index, layero){
 			var dirname = $("#dirname").val();
 
@@ -45,9 +47,25 @@ $("div.hl_addfav a.addfav").click(function(){
 			    layer.alert("请输入收藏夹名称!");
 			    return false;
             }
+			var load = layer.load(1,{shade:0.3});
             $.ajax({
                 type:"post",
-                url:"{:url()}"
+                url:"{:url('User/ajaxaddcollect')}",
+                datatype:'json',
+                timeout:20*1000,
+                data:{name:dirname,auth:$("input[name=auth]").val()},
+                success:function(data){
+                	if(data.code){
+                		$("ul.bg-main-imgRouter").append(data.data);
+                		layer.closeAll();
+                	} else {
+                		layer.close(load);
+                		layer.alert(data.msg);
+                	}
+                },error:function(){
+                	layer.close(load);
+                	layer.msg("请检查网络状态~~");
+                }
             });
 
 		    //按钮【按钮一】的回调

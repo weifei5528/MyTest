@@ -36,7 +36,7 @@ use app\common\model\UserDirBrowse;
 class Home extends Common
 {
     protected $user = [];
-    protected $public_controllers = ['login','index'];
+    protected $public_controllers = ['login','index','about'];
     protected $searchType = ['image' => '图片','text' => '设计'];
     protected $menu = [
         ['name'=>'探索','controller' =>'index','action'=>'index'],

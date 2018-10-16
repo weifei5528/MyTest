@@ -33,7 +33,7 @@ class CommonFunc
      */
     public static function addImageToDir($dirid, $imgid)
     {
-        return Db::name('UserDirImages')->insertGetId(['dir_id' => $dirid, 'attr_id' => $imgid, 'create_time' => time(), 'update_time' => time()]);
+        return Db::name('UserDirImages')->insertGetId(['dir' => $dirid, 'att_id' => $imgid, 'create_time' => time(), 'update_time' => time()]);
     }
    
 

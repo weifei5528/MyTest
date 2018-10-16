@@ -4,7 +4,7 @@
 <div class="wp cl hl_picview mt50">
   <div class="hl_picheader cl">
       <div class="z">
-        <div class="pictitle">{$info['tags']}＃{$info.id}</div>
+        <div class="pictitle">{:implode($info['tags'])}＃{$info.id}</div>
         <div class="summary">来自   <a href="">{$info.from_web}</a>  该作品可用于个人用途，企业商业用途，不包含肖像权与物权；</div>
       </div>
       <div class="y">
@@ -20,7 +20,7 @@
       </div>
       <div class="picinfo y">
         <a href="{:url('image/download',array('id'=>$info['id']))}" class="bg_c pic_download" ><span>下载</span> </a>
-        <p class="addfav cl mt20"><a href="#" class="f_g" onclick="mylove();"><i class="iconfont icon-like"></i> 添加到收藏</a></p>
+        <p class="addfav cl mt20"><a href="#" class="f_g" onclick="addcol();"><i class="iconfont icon-like"></i> 添加到收藏</a></p>
         <p class="picnum cl mt20">{$info.download}次下载    {$info.collect}次收藏    {$info.browse}次浏览</p>
         <div class="infos cl mt50">
           <div class="infotit hl_tit">文件详情</div>
@@ -255,6 +255,62 @@ function mylove(){
 		}
 	});
 	
+}
+
+function addcol(){
+	var load = layer.load(1,{shade:0.3});
+	$.ajax({
+		type:"post",
+		url:"{:url('user/checkmycoldir')}",
+		dataType:"json",
+		timeout:20*1000,
+		data:{},
+		success:function(data){
+			layer.close(load);
+			if(data.data == '' || data.data == null || data.data == undefined) {
+				windows.locad.href = "{:url('User/mycollects')}";
+			} else {
+				checkDir(data.data);
+			}
+		},error:function(){
+			layer.close(load);
+			layer.msg("请检查网络状况~~~");
+		}
+	});
+}
+
+
+
+function checkDir(html){
+	layer.open({
+		title:"选择收藏夹",
+		content:html,
+		shade:0.3,
+		anim: 0,
+		yes: function(index, layero){
+			var dir = $("select[name=dir]").val();
+			var id = "{$info.id}";
+			$.ajax({
+				type:"post",
+				url:"{:url('userdir/addimage',array('type'=>1))}",
+				dataType:"json",
+				timeout:20*1000,
+				data:{id:id,dirid:dir},
+				success:function(data){
+					if(data.code) {
+						layer.msg(data.msg);
+						layer.closeAll();
+					} else {
+						layer.alert(data.msg);
+						
+					}
+				},error:function(){
+					layer.msg("请检查网络状况~~~");
+				}
+			});
+		}
+		
+	});
 }
 </script>
 {/block}
