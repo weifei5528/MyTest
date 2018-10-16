@@ -40,12 +40,10 @@ class Index extends Home
    public function getimages()
    {
        $list = AdminAttachment::getImages();
-       foreach ($list as &$v) {
-           $v['thumb'] = get_thumb($v['id']);
-           $v['url'] = url('Image/index',['id'=>$v['id']]);
-       }
+       $this->assign("list",$list);
+       $html = $this->fetch("index/index_item");
       
-       return $this->success("查询成功！",'',$list);
+       return $this->success("查询成功！",'',$html);
    }
    /**
     * 支付成功通知

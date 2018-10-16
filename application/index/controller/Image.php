@@ -14,13 +14,15 @@ class Image extends Home
      */
     public function index($id)
     {
+        echo $id;
         if(empty($id)) {
             return $this->error('请选择要浏览的图片！');
         }
+        $this->addBrowse($id);
         $info = AttModel::getImageInfo($id);
 
         $info['tags'] = trim($info['tags'])?specify_segmentation($info['tags']):'';
-        $this->addBrowse($id);
+
         $this->assign('title','图片详情');
         $this->assign('info',$info);
         $this->assign('iscolect',$this->isCollect($id));//用户是否收藏
