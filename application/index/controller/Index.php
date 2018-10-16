@@ -86,13 +86,11 @@ class Index extends Home
            $model->whereOr('id' , 'in',$searchDirs);
        }
        $list = $model->order(['browse' =>'desc'])->field('id,thumb')->paginate();
-       
-       foreach ($list as &$v){
-           $v['thumb'] = PUBLIC_PATH.$v['thumb'];
-       } 
-       
-      
-       $this->success("查询成功！",'',$list);
+       $this->assign('data_h_list' ,$this->data_h_list);
+       $this->assign('data_h_count',count($this->data_h_list)-1);
+       $this->assign('list',$list);
+       $html =  $this->fetch("index/searchfromname_item");
+       $this->success("查询成功！",'',$html);
    }
    /**
     * 关于

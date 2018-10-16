@@ -35,25 +35,14 @@
 	    		data:{page:page,name:name,type:type},
 	    		timeout:20*1000,
 	    		success:function(data){
-	    			console.log(data);
-	    			if(data.code){
-	    				var images = data.data.data;
-	    				var dataHList = [300,437,298];
-	    				for(var i =0;i<images.length;i++){
-	    					var dataH = parseInt(2*Math.random()); 
-	    					$("#search_list div.cl").append('<div class="item" data-w="450" data-h="'+dataHList[dataH]+'" ><a href="#"><img src="'+images[i]['thumb']+'" /></a></div>');
-	    				}
-	    				if(page >= data.data.last_page){
-	    					console.log(data.data.last_page);
-	    					var $many = $("div.hl_more.cl.mb50");
-	    					$many.unbind();
-	    					$many.find("a").html("已经到底了...");
-	    				}else{
-	    					$("input[name=page]").val(page);
-	    				}
-	    			}else{
-	    				layer.msg(data.msg,{icon: 6});
-	    			}
+	    			if(data.data == '' || data.data == null || data.data == undefined) {
+    					var $many = $("div.hl_more.cl.mb50");
+    					$many.unbind();
+    					$many.find("a").html("已经到底了...");
+    				} else {
+    					$("#search_list div.cl").append(data.data);
+    					setPage(++page);
+    				}
 	    		},error:function(){
 	    			layer.msg("请检查网络状况~~~",{icon: 6});
 	    		},complete:function(){

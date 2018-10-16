@@ -1,0 +1,7 @@
+{foreach name="list" item="newimg"}
+<div class="item" data-w="450" data-h="{php} echo $data_h_list[mt_rand(0,$data_h_count)]; {/php}">
+    <a  href="{:url('image/index',array('id'=>$newimg['id']))}">
+        <img src="__STATIC__/home/img/3.jpg" data-src="{:get_thumb($newimg['id'])}">
+    </a>
+</div>
+{/foreach}
