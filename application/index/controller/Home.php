@@ -48,10 +48,15 @@ class Home extends Common
         
     ];
     protected $menuSons = [
-        'user_mydowns'  =>  'index_mine',
-        'user_mybrowses'=>  'index_mine',
-        'user_myloves'  =>  'index_mine',
-        'user_mycollects'=> 'index_mine',
+        'user_mydowns'      =>  'index_mine',
+        'user_mybrowses'    =>  'index_mine',
+        'user_myloves'      =>  'index_mine',
+        'user_mycollects'   => 'index_mine',
+        'about_index'       =>'about_index',
+        'about_access'      =>'about_index',
+        'about_privacy'     =>'about_index',
+        'about_clause'      =>'about_index',
+        'about_copyright'   =>'about_index'
     ];
     /**
      * 初始化方法
