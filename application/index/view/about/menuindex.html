@@ -1,0 +1,34 @@
+<div class="hl_sd">
+   <div class="hl_aboutleft z">
+     <h2 class="mb20">拍蒜图片</h2>
+     <ul>
+     {if condition="$menuindex eq 'index'"}
+     	 <li class="on"><a href="#">授权执照</a></li>
+     {else/}
+     	<li><a href="{:url('About/index')}">授权执照</a></li>
+     {/if}
+      
+      {if condition="$menuindex eq 'access'"}
+     	 <li class="on"><a href="#">拍蒜宣言</a></li>
+     {else/}
+     	<li><a href="{:url('About/access')}">拍蒜宣言</a></li>
+     {/if}
+     {if condition="$menuindex eq 'privacy'"}
+     	 <li class="on"><a href="#">隐私政策</a></li>
+     {else/}
+     	<li><a href="{:url('About/privacy')}">隐私政策</a></li>
+     {/if}
+     {if condition="$menuindex eq 'clause'"}
+     	 <li class="on"><a href="#">条款与条件</a></li>
+     {else/}
+     	<li><a href="{:url('About/clause')}">条款与条件</a></li>
+     {/if}
+     {if condition="$menuindex eq 'copyright'"}
+     	 <li class="on"><a href="#">版权政策</a></li>
+     {else/}
+     	<li><a href="{:url('About/copyright')}">版权政策</a></li>
+     {/if}
+     
+     </ul>
+   </div>
+ </div>
