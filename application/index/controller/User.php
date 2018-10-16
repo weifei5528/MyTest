@@ -276,9 +276,10 @@ class User extends Home
         $info = UserDirLoves::where(['userid' => $this->user['id'],'dirid' => $id])->find();
         if(empty($info)) {
             if(UserDirLoves::create(['userid' => $this->user['id'],'dirid' => $id])){
-                return $this->success("收藏成功！");
+                UDSModel::updateLove($id);
+                return $this->success("添加成功！");
             } else {
-                return $this->error("收藏失败！");
+                return $this->error("添加失败！");
             }
         } else {
             if(UserDirLoves::destroy(['userid' =>$this->user['id'],'dirid' => $id])) {

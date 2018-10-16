@@ -34,6 +34,14 @@ class UserDirs extends Model
         }
         return $model->paginate();
     }
+    /**
+     * 更新喜爱文件加的人数
+     */
+    public static function updateLove($dirid)
+    {
+        return self::where(['id' => $dirid])->setInc('loves');
+    }
+    
 }
 
 ?>

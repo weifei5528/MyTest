@@ -4,12 +4,14 @@
 {include file="user/info"}
 
 {include file="user/menu"}
+{notempty name="colhtml"}
 <div class="wp cl mt50">
     <div class="hl_mytit">我喜爱的收藏盒</div>
 	<ul class="bg-main-imgRouter">
 	 	{$colhtml}
 	</ul>
 </div>
+{/notempty}
 <div class="hl_piclist cl">
   <div class="hl_mytit">我对{$count|default=0}张图片表示过喜欢</div>
   <ul>

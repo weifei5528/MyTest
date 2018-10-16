@@ -268,7 +268,10 @@ function addcol(){
 		success:function(data){
 			layer.close(load);
 			if(data.data == '' || data.data == null || data.data == undefined) {
-				windows.locad.href = "{:url('User/mycollects')}";
+				layer.msg("没有收藏夹，请创建收藏夹,正在为您跳转...",{shade:0.3},function(){
+					window.location.href = "{:url('User/mycollects')}";
+				})
+				
 			} else {
 				checkDir(data.data);
 			}
