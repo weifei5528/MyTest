@@ -1,7 +1,6 @@
 <?php
 namespace app\index\controller;
 
-use think\Db;
 use app\common\model\UserDirs as UDModel;
 use app\common\model\UserDirImages;
 use app\index\service\CommonFunc;

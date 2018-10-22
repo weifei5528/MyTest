@@ -12,9 +12,7 @@
 namespace app\index\controller;
 
 use app\common\model\AdminAttachment;
-use app\common\service\PayMoney;
 use app\common\model\UserDirs as UDModel;
-use app\index\service\OAuth;
 use think\Log;
 use app\common\model\Types;
 use app\common\model\User;

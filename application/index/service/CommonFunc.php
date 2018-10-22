@@ -1,10 +1,6 @@
 <?php
 namespace app\index\service;
 use think\Db;
-use app\common\model\AdminAttachment as AttModel;
-
-use app\common\model\UserDownloads as UDLModel;
-use think\Image;
 class CommonFunc
 {
     /**

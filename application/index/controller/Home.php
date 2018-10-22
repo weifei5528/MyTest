@@ -26,7 +26,7 @@ use app\common\model\Companies;
 use app\common\model\UserLoves as ULModel;
 
 use think\Db;
-use think\Log;
+
 use app\common\model\UserDirs;
 use app\common\model\UserDirBrowse;
 /**
