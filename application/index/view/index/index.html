@@ -42,7 +42,7 @@ var mySwiper = new Swiper('.hl_banner', {
        
 
       </ul>
-      <div class="hl_more cl mb50"><a href="#" onclick="return false;">加载更多...</a></div>
+      <div class="hl_more cl mb50"><a href="javascript:void(0);" onclick="return false;">加载更多...</a></div>
     </div>
 
 </div>
@@ -65,26 +65,14 @@ function getmydowns(){
 		data:{page:page},
 		timeout:20*1000,
 		success:function(data){
-			if(data.code){
-				var images = data.data.data;
-				console.log(images);
-				for(var i =0;i<images.length;i++){
-					$("div.hl_piclist ul").append('<li><a href="'+images[i]['url']+'" class="picBox"><img src="'+images[i]['thumb']+'"></a></li>')
-				}
-				if(page >= data.data.last_page){
-					console.log(data.data.last_page);
-					var $many = $("div.hl_more.cl.mb50 > a");
-					$many.unbind();
-					$many.html("已经到底了...");
-				} else {
-					$("input[name=page]").val(page+1);
-				}
-				
-					
-				
-			}else{
-				layer.msg(data.msg,{icon: 6});
-			}
+            if(data.data == '' || data.data == null || data.data == undefined) {
+                var $many = $("div.hl_more.cl.mb50");
+                $many.unbind();
+                $many.find("a").html("已经到底了...");
+            } else {
+                $("div.hl_piclist.cl > ul").append(data.data);
+                setPage(++page);
+            }
 		},error:function(){
 			layer.msg("请检查网络状况~~~",{icon: 6});
 		}

@@ -1,0 +1,7 @@
+{foreach name="list" item ="img"}
+<li>
+    <a href="{:url('image/index',array('id'=>$img['id']))}" class="picBox">
+        <img src="{:get_thumb($img['id'])}">
+    </a>
+</li>
+{/foreach}

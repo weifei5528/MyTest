@@ -181,8 +181,9 @@ class Home extends Common
     {
         $where = ['userid' => $this->user['id'], 'att_id' => $id];
         //用户以前浏览过 更新浏览时间
-        if(UBModel::where($where)->count()) {
-            UBModel::where($where)->update(['update_time' => time()]);
+        if(Db::name('user_browses')->where($where)->count()) {
+            Db::name('user_browses')->where($where)->update(['update_time' => time()]);
+            Log::write(Db::name('user_browses')->getLastSql(),'error');
         } else {
             UBModel::create($where);
         }
